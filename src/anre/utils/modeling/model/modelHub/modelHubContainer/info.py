@@ -1,0 +1,14 @@
+from dataclasses import dataclass
+
+from anre.utils.dataclass_type_validator import dataclass_validate
+from anre.utils.modeling.model.info import Info as InfoBase
+
+classId: str = 'ModelHubContainer'
+
+
+@dataclass_validate
+@dataclass(frozen=True, repr=False)
+class Info(InfoBase):
+    @staticmethod
+    def get_expectedClassId() -> str:
+        return classId

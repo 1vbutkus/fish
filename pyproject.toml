@@ -1,0 +1,141 @@
+[tool.poetry]
+name = "anre"
+version = "1.0.1"
+description = ""
+authors = ["Vygantas Butkus <vygantas.butkus@gmail.com>"]
+readme = "README.md"
+
+
+[tool.poetry.dependencies]
+python = "~3.11"
+numpy = "^2.2.6"
+pandas = {version="^2.2.3", extras=["computation", "performance"]}
+cython = "^3.1.1"
+ruff = "^0.11.12"
+mypy = "^1.16.0"
+jupyterlab = "^4.4.3"
+jupyterlab-freeze = "^0.1.2"
+jupyterlab-execute-time = "^3.2.0"
+joblib = "^1.5.1"
+tqdm = "^4.67.1"
+ciso8601 = "^2.3.2"
+lightgbm = "^4.6.0"
+jupytext = "^1.17.1"
+voila = "^0.5.8"
+pytest = "^8.3.5"
+seaborn = "^0.13.2"
+matplotlib = "^3.10.3"
+plotly = "^6.1.2"
+statsmodels = "^0.14.4"
+more-itertools = "^10.7.0"
+scikit-learn = "^1.6.1"
+parameterized = "^0.9.0"
+orjson = "^3.10.18"
+black = "^25.1.0"
+appdirs = "^1.4.4"
+cachetools = "^6.0.0"
+dict-deep = "^4.1.2"
+dacite = "^1.9.2"
+shap = "^0.47.2"
+frozendict = "^2.4.6"
+papermill = "^2.6.0"
+display = "^1.0.0"
+pyarrow = "^20.0.0"
+nbformat = "^5.10.4"
+jupyter-contrib-nbextensions = "^0.7.0"
+notebook = "<7"
+py-clob-client = {path = "libs/py-clob-client", develop = true}
+
+[tool.poetry.build]
+script = "build.py"
+generate-setup-file = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "setuptools >= 64", "cython", "numpy == 2.2.6"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+norecursedirs = ['museum', '.env', 'libs', 'build']
+log_level = 'WARNING'
+filterwarnings = [
+    "ignore:X does not have valid feature names",
+]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.format]
+preview = true # needed for quote-style
+quote-style = "preserve"
+exclude = [
+    ".env",
+    "*.ipynb",
+    "src/anre/utils/dataclass_type_validator.py",
+    "libs/*",
+]
+
+[tool.ruff.lint]
+exclude = [
+    ".env",
+    "*.ipynb",
+    "src/anre/utils/dataclass_type_validator.py",
+    "libs/*",
+]
+extend-select = ["I"]
+
+[tool.mypy]
+python_version = "3.11"
+namespace_packages = true
+pretty = true
+warn_redundant_casts = true
+disallow_untyped_calls = false
+disallow_untyped_defs = false
+no_implicit_optional = true
+mypy_path = "$MYPY_CONFIG_FILE_DIR/src"
+exclude = [
+    "build",
+    "libs",
+]
+
+[[tool.mypy.overrides]]
+module = [
+    "appdirs.*",
+    "boto3.*",
+    "botocore.*",
+    "dataclass_type_validator.*",
+    "dict_deep.*",
+    "docker.*",
+    "joblib.*",
+    "jupytext.*",
+    "google.*",
+    "papermill.*",
+    "parameterized.*",
+    "plotly.*",
+    "requests.*",
+    "seaborn.*",
+    "scipy.*",
+    "shap.*",
+    "sklearn.*",
+    "statsmodels.*",
+    "tqdm.*",
+    "_pickle.*",
+    "torch.*",
+    "lightgbm.*",
+    "pymongo.*",
+    "pyspark.*",
+    "black",
+    "orjson",
+    "dacite",
+    "frozendict",
+    "elasticsearch",
+    "clickhouse_connect.*",
+    "asgiref.*",
+    "ciso8601",
+    "tensorflow.*",
+    "keras.*"
+]
+ignore_missing_imports = true

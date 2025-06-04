@@ -1,0 +1,30 @@
+PredefinedSet1:
+  a:
+    b1: 1
+    b2: 2
+    b3: null
+    b4:
+    b5: { }
+    b6: [ ]
+  c:
+    d:
+      e: 3
+
+PredefinedSet2:
+  a: 1
+
+PredefinedSet3:
+  b: 2
+
+PredefinedSet4:
+  - PredefinedSet2
+  - PredefinedSet3
+
+PredefinedSet5:
+  - PredefinedSet4
+  - c: 999
+
+PredefinedSet6:
+  a:
+    - PredefinedSet2
+    - c: 999
