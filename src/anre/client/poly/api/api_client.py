@@ -13,6 +13,7 @@ from py_clob_client.clob_types import (
     OrderArgs,
     OrderType,
     OpenOrderParams,
+    PriceHistoryArgs
 )
 from py_clob_client.constants import POLYGON
 from py_clob_client.order_builder.constants import BUY,SELL
@@ -92,6 +93,7 @@ def __dummy__():
     self = ApiClient()
 
     markets = self.get_clob_markets()
+    len(markets)
     market_dict = markets['data'][0]
 
     markets = self.get_sampling_markets()
@@ -103,12 +105,27 @@ def __dummy__():
     markets = self.get_sampling_simplified_markets()
     market_dict = markets['data'][0]
 
+
+
+
     self.gamma.get_events(slug="what-will-powell-say-during-june-press-conference")
     self.gamma.get_markets(slug="will-powell-say-inflation-40-times-during-june-press-conference")
     market = self.gamma.get_market('542930')
     condition_id = market['conditionId']
     market = self.get_clob_market(condition_id=condition_id)
     token_id = market['tokens'][0]['token_id']
+
+
+    price_history = self._clob_client.get_price_history(PriceHistoryArgs(market=token_id, interval='1m', fidelity=10))
+    trades = self._clob_client.get_trades()
+
+    self._clob_client.get_last_trade_price(token_id=token_id)
+
+    order_book = self._clob_client.get_order_book(token_id=token_id)
+    self._clob_client.get_order_book_hash(order_book)
+    self._clob_client.time
+
+
 
 
     place_resp = self.place_order(
@@ -122,3 +139,5 @@ def __dummy__():
 
     self.get_orders()
     self.cancel_all()
+
+
