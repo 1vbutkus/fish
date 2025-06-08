@@ -61,7 +61,7 @@ class WebSocketOrderBook:
         self.ws.run_forever()
 
 
-if __name__ == "__main__":
+def __dummy7__():
 
     from anre.config.config import config as anre_config
 
@@ -71,12 +71,19 @@ if __name__ == "__main__":
     url = "wss://ws-subscriptions-clob.polymarket.com"
     #Complete these by exporting them from your initialized client.
 
+    market = "0xc2c0d4a0500a76186568270e28ff3619e7598578d2e90094bb89f2e0371cff0a"
+
     asset_ids = [
-        "109681959945973300464568698402968596289258214226684818748321941747028805721376",
+        "52315409316147689027926869759851918963034723648533663925491006933785120902515",
+        "70972590478128483214197564500183134662564307331464794599405195997913245249009",
     ]
     condition_ids = [] # no really need to filter by this one
 
-    auth = polymarket_creds['ApiCreds']
+    auth = {
+        'apikey': polymarket_creds['ApiCreds']["key"],
+        'secret': polymarket_creds['ApiCreds']["secret"],
+        'passphrase': polymarket_creds['ApiCreds']["passphrase"],
+    }
 
     market_connection = WebSocketOrderBook(
         MARKET_CHANNEL, url, asset_ids, auth, None, True

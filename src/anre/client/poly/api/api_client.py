@@ -13,7 +13,8 @@ from py_clob_client.clob_types import (
     OrderArgs,
     OrderType,
     OpenOrderParams,
-    PriceHistoryArgs
+    PriceHistoryArgs,
+    TradeParams
 )
 from py_clob_client.constants import POLYGON
 from py_clob_client.order_builder.constants import BUY,SELL
@@ -42,9 +43,9 @@ class ApiClient:
             funder=polymarket_creds['contract'],
         )
         api_creds = ApiCreds(
-            api_key=polymarket_creds['ApiCreds']['api_key'],
-            api_secret=polymarket_creds['ApiCreds']['api_secret'],
-            api_passphrase=polymarket_creds['ApiCreds']['api_passphrase'],
+            api_key=polymarket_creds['ApiCreds']['key'],
+            api_secret=polymarket_creds['ApiCreds']['secret'],
+            api_passphrase=polymarket_creds['ApiCreds']['passphrase'],
         )
         # api_creds = client.create_or_derive_api_creds()
         api_client.set_api_creds(api_creds)
@@ -86,11 +87,33 @@ class ApiClient:
         resp = self._clob_client.post_order(signed_order, order_type)
         return resp
 
+    def get_trades(self,
+                    id: str = None,
+                    maker_address: str = None,
+                    market: str = None,
+                    asset_id: str = None,
+                    before: int = None,
+                    after: int = None,
+                    next_cursor: str = "MA=="
+                   ):
+        trades = self._clob_client.get_trades(
+            params=TradeParams(
+                id=id,
+                maker_address=maker_address,
+                market=market,
+                asset_id=asset_id,
+                before=before,
+                after=after,
+            ),
+            next_cursor=next_cursor,
+        )
+        return trades
 
 
 def __dummy__():
 
     self = ApiClient()
+
 
     markets = self.get_clob_markets()
     len(markets)
@@ -104,40 +127,42 @@ def __dummy__():
 
     markets = self.get_sampling_simplified_markets()
     market_dict = markets['data'][0]
+    condition_id = market_dict['condition_id']
 
+    market_dict = self.get_clob_market(condition_id=condition_id)
+    market_dict = markets['data'][0]
 
-
-
-    self.gamma.get_events(slug="what-will-powell-say-during-june-press-conference")
-    self.gamma.get_markets(slug="will-powell-say-inflation-40-times-during-june-press-conference")
-    market = self.gamma.get_market('542930')
-    condition_id = market['conditionId']
-    market = self.get_clob_market(condition_id=condition_id)
+    slug = "russia-x-ukraine-ceasefire-before-october"
+    markets = self.gamma.get_markets(slug=slug)
+    market_dict = markets[0]
+    _ = self.gamma.get_market(market_id=market_dict['id'])
+    market = self.get_clob_market(condition_id=market_dict['conditionId'])
+    condition_id = market['condition_id']
     token_id = market['tokens'][0]['token_id']
 
-
     price_history = self._clob_client.get_price_history(PriceHistoryArgs(market=token_id, interval='1m', fidelity=10))
-    trades = self._clob_client.get_trades()
-
-    self._clob_client.get_last_trade_price(token_id=token_id)
-
+    price_history['history'][-1]
     order_book = self._clob_client.get_order_book(token_id=token_id)
-    self._clob_client.get_order_book_hash(order_book)
-    self._clob_client.time
+    order_book.bids[-1]
 
 
 
 
+    trades = self._clob_client.get_trades()
+    trades[0]
+
+
+    # private
+    self._clob_client.get_last_trade_price(token_id=token_id)
     place_resp = self.place_order(
         token_id=token_id,
         price=0.1,
         size=100,
         side=BUY,
     )
-
     order = self.get_order(order_id=place_resp['orderID'])
-
     self.get_orders()
     self.cancel_all()
+
 
 
