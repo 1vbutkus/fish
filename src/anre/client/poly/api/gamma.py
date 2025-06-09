@@ -3,7 +3,7 @@ from typing import Any
 import httpx
 
 
-class GammaMarketClient:
+class GammaClient:
     BASE_URL = "https://gamma-api.polymarket.com"
     MARKETS_PATH = "/markets"
     EVENTS_PATH = "/events"
@@ -91,7 +91,7 @@ class GammaMarketClient:
 
 
 def __dummy__():
-    gamma = GammaMarketClient()
+    gamma = GammaClient()
 
     markets = gamma.get_markets(limit=30, active=True)
     len(markets)
