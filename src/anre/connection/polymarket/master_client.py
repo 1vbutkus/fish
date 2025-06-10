@@ -3,13 +3,8 @@ from typing import Optional
 from py_clob_client.client import ClobClient
 from py_clob_client.clob_types import (
     ApiCreds,
-    AssetType,
-    BalanceAllowanceParams,
-    OrderArgs,
-    OrderType,
 )
 from py_clob_client.constants import POLYGON
-from py_clob_client.order_builder.constants import BUY
 
 from anre.config.config import config as anre_config
 
@@ -45,11 +40,7 @@ class MasterClient:
         self._api_client.cancel_all()
 
 
-
-
-
 def __dummy__():
-
     self = MasterClient()
 
     self._api_client.get_markets(market_slug='russia-x-ukraine-ceasefire-before-july')

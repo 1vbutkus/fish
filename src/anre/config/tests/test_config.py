@@ -22,5 +22,5 @@ class TestTestEnv(testutil.TestCase):
         assert os.path.exists(path_to_cache_dir), f'File path do not exist: {path_to_cache_dir=}'
 
     def test_get_creds(self) -> None:
-        polymarket_creds = anre_config.creds.get_polymarket_creds()
+        polymarket_creds = anre_config.cred.get_polymarket_creds()
         assert polymarket_creds is not None

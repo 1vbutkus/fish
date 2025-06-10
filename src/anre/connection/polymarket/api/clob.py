@@ -1,48 +1,23 @@
-import time
-from typing import Optional, Literal, Callable
-from typing import overload, Union
 import base64
-
-
-
-from typing import Optional, Union
-from pydantic import BaseModel
+import time
+from typing import Callable, Literal, Optional
 
 from py_clob_client.client import ClobClient as ClobInternalClient
 from py_clob_client.clob_types import (
     ApiCreds,
-    AssetType,
-    BalanceAllowanceParams,
+    OpenOrderParams,
     OrderArgs,
     OrderType,
-    OpenOrderParams,
     PriceHistoryArgs,
-    TradeParams
+    TradeParams,
 )
 from py_clob_client.constants import POLYGON
-from py_clob_client.order_builder.constants import BUY,SELL
+from py_clob_client.order_builder.constants import BUY, SELL
+
 from anre.config.config import config as anre_config
 
-def base64_encode(value: str) -> str:
-    """
-    Encodes a given string to Base64 format.
-    :param value: The string to be encoded.
-    :return: Base64-encoded string.
-    """
-    # Encode to bytes, then convert to Base64 and decode back to string
-    return base64.b64encode(value.encode()).decode()
-
-
-def base64_decode(encoded_value: str) -> str:
-    """
-    Decodes a Base64-encoded string back to its original form.
-    :param encoded_value: The Base64 string to be decoded.
-    :return: Decoded string.
-    """
-    # Decode Base64 to bytes, then decode bytes back to string
-    return base64.b64decode(encoded_value).decode()
-
-
+assert BUY == 'BUY'
+assert SELL == 'SELL'
 
 
 class ClobClient:
@@ -109,9 +84,11 @@ class ClobClient:
     def get_order_books(self, token_ids: list[str]) -> list[dict]:
         return self._clob_internal_client.get_order_books(token_ids=token_ids)
 
-    def collect_chunks(self, fun: Callable, next_cursor: str = "", sleep_time: float = 0.3) -> list[dict]:
+    def collect_chunks(
+        self, fun: Callable, next_cursor: str = "", sleep_time: float = 0.3
+    ) -> list[dict]:
         data = []
-        while next_cursor!="LTE=":
+        while next_cursor != "LTE=":
             result = fun(next_cursor=next_cursor)
             data.extend(result['data'])
             next_cursor = result['next_cursor']
@@ -121,19 +98,26 @@ class ClobClient:
     def get_order(self, order_id: str = None):
         return self._clob_internal_client.get_order(order_id=order_id)
 
-    def get_orders_chunk(self, order_id: str = None, condition_id: str = None, asset_id: str = None, next_cursor: str = ""):
+    def get_orders_chunk(
+        self,
+        order_id: str = None,
+        condition_id: str = None,
+        asset_id: str = None,
+        next_cursor: str = "",
+    ):
         params = OpenOrderParams(id=order_id, market=condition_id, asset_id=asset_id)
         return self._clob_internal_client.get_orders(params, next_cursor=next_cursor)
 
-    def get_trades_chunk(self,
-                    id: str = None,
-                    maker_address: str = None,
-                    market: str = None,
-                    asset_id: str = None,
-                    before: int = None,
-                    after: int = None,
-                    next_cursor: str = "MA=="
-                   ):
+    def get_trades_chunk(
+        self,
+        id: str = None,
+        maker_address: str = None,
+        market: str = None,
+        asset_id: str = None,
+        before: int = None,
+        after: int = None,
+        next_cursor: str = "MA==",
+    ):
         params = TradeParams(
             id=id,
             maker_address=maker_address,
@@ -148,7 +132,14 @@ class ClobClient:
         )
         return trades
 
-    def place_order(self, token_id: str, price: float, size: float, side: Literal["BUY", "SELL"], order_type: str = "GTC"):
+    def place_order(
+        self,
+        token_id: str,
+        price: float,
+        size: float,
+        side: Literal["BUY", "SELL"],
+        order_type: str = "GTC",
+    ):
         params = OrderArgs(
             price=price,
             size=size,
@@ -167,54 +158,45 @@ class ClobClient:
         return self._clob_internal_client.cancel_orders(order_ids=order_ids)
 
     def cancel_market_orders(self, condition_id: str = "", asset_id: str = ""):
-        return self._clob_internal_client.cancel_market_orders(market=condition_id, asset_id=asset_id)
+        return self._clob_internal_client.cancel_market_orders(
+            market=condition_id, asset_id=asset_id
+        )
 
-    def get_price_history(self, token_id: str, from_ts: int = None,
-        to_ts: int = None,    interval: str = None,
-        fidelity: int = None,):
-        params = PriceHistoryArgs(market=token_id, startTs=from_ts, end=to_ts, interval=interval, fidelity=fidelity)
+    def get_price_history(
+        self,
+        token_id: str,
+        from_ts: int = None,
+        to_ts: int = None,
+        interval: str = None,
+        fidelity: int = None,
+    ):
+        params = PriceHistoryArgs(
+            market=token_id, startTs=from_ts, end=to_ts, interval=interval, fidelity=fidelity
+        )
         price_history = self._clob_internal_client.get_price_history(params)
         return price_history
 
+    @staticmethod
+    def number_to_cursor(value: str | int) -> str:
+        """
+        Encodes a given string to Base64 format.
+        :param value: The string to be encoded.
+        :return: Base64-encoded string.
+        """
+        # Encode to bytes, then convert to Base64 and decode back to string
+        return base64.b64encode(str(value).encode()).decode()
+
+    @staticmethod
+    def cursor_to_number(encoded_value: str) -> int:
+        """
+        Decodes a Base64-encoded string back to its original form.
+        :param encoded_value: The Base64 string to be decoded.
+        :return: Decoded string.
+        """
+        # Decode Base64 to bytes, then decode bytes back to string
+        return int(base64.b64decode(encoded_value).decode())
+
+
 def __demo__():
-
     self = ClobClient()
-
-    next_cursor = base64_encode(str(57050))
-    markets_chunk = self.get_markets_chunk(next_cursor=next_cursor)
-    markets_chunk = self.get_simplified_markets_chunk(next_cursor=next_cursor)
-
-    markets_chunk = self.get_sampling_markets_chunk(next_cursor='')
-    markets_chunk = self.get_sampling_simplified_markets_chunk(next_cursor='')
-
-    market_dict = None
-    for _market in markets_chunk['data']:
-        if _market['active'] and _market['accepting_orders'] and _market['tokens'][0]['price'] > 0.1:
-            market_dict = _market
-            break
-    assert market_dict
-
-    condition_id = market_dict['condition_id']
-    token_dict = market_dict['tokens'][0]
-    token_id = token_dict['token_id']
-
-    price_history = self.get_price_history(token_id=token_id, interval='1m', fidelity=10)
-    order_book = self.get_order_book(token_id=token_id)
-
-    orders_chunk = self.get_orders_chunk(condition_id=condition_id)
-    assert orders_chunk['count'] == 0
-    place_resp = self.place_order(
-        token_id=token_id,
-        price=0.1,
-        size=10,
-        side=BUY,
-    )
-    order = self.get_order(order_id=place_resp['orderID'])
-    orders_chunk = self.get_orders_chunk(condition_id=condition_id)
-    assert orders_chunk['count'] == 1
-
-    self.cancel_market_orders(condition_id=condition_id)
-    orders_chunk = self.get_orders_chunk(condition_id=condition_id)
-    assert orders_chunk['count'] == 0
-
-
+    print(self)

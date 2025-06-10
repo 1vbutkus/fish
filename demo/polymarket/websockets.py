@@ -1,7 +1,8 @@
-from websocket import WebSocketApp
 import json
-import time
 import threading
+import time
+
+from websocket import WebSocketApp
 
 MARKET_CHANNEL = "market"
 USER_CHANNEL = "user"
@@ -41,11 +42,7 @@ class WebSocketOrderBook:
         if self.channel_type == MARKET_CHANNEL:
             ws.send(json.dumps({"assets_ids": self.data, "type": MARKET_CHANNEL}))
         elif self.channel_type == USER_CHANNEL and self.auth:
-            ws.send(
-                json.dumps(
-                    {"markets": self.data, "type": USER_CHANNEL, "auth": self.auth}
-                )
-            )
+            ws.send(json.dumps({"markets": self.data, "type": USER_CHANNEL, "auth": self.auth}))
         else:
             exit(1)
 
@@ -62,22 +59,20 @@ class WebSocketOrderBook:
 
 
 def __dummy7__():
-
     from anre.config.config import config as anre_config
 
     polymarket_creds = anre_config.cred.get_polymarket_creds()
 
-
     url = "wss://ws-subscriptions-clob.polymarket.com"
-    #Complete these by exporting them from your initialized client.
+    # Complete these by exporting them from your initialized client.
 
-    market = "0xc2c0d4a0500a76186568270e28ff3619e7598578d2e90094bb89f2e0371cff0a"
+    # market = "0xc2c0d4a0500a76186568270e28ff3619e7598578d2e90094bb89f2e0371cff0a"
 
     asset_ids = [
         "52315409316147689027926869759851918963034723648533663925491006933785120902515",
         "70972590478128483214197564500183134662564307331464794599405195997913245249009",
     ]
-    condition_ids = [] # no really need to filter by this one
+    condition_ids = []  # no really need to filter by this one
 
     auth = {
         'apikey': polymarket_creds['ApiCreds']["key"],
@@ -85,12 +80,11 @@ def __dummy7__():
         'passphrase': polymarket_creds['ApiCreds']["passphrase"],
     }
 
-    market_connection = WebSocketOrderBook(
-        MARKET_CHANNEL, url, asset_ids, auth, None, True
-    )
-    user_connection = WebSocketOrderBook(
-        USER_CHANNEL, url, condition_ids, auth, None, True
-    )
+    market_connection = WebSocketOrderBook(MARKET_CHANNEL, url, asset_ids, auth, None, True)
+    user_connection = WebSocketOrderBook(USER_CHANNEL, url, condition_ids, auth, None, True)
 
-    market_connection.run()
+    # market_connection.run()
     # user_connection.run()
+
+    print(market_connection)
+    print(user_connection)

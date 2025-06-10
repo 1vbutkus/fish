@@ -18,7 +18,9 @@ class GammaClient:
         """Generates full API endpoint URL."""
         return f"{self.BASE_URL}{path}"
 
-    def _perform_get_request(self, url: str, query_params: dict[str, Any] | None) -> dict | list[dict]:
+    def _perform_get_request(
+        self, url: str, query_params: dict[str, Any] | None
+    ) -> dict | list[dict]:
         """Handles HTTP GET requests and ensures successful responses."""
         if not isinstance(query_params, (dict, type(None))):
             raise TypeError("query_params must be a dictionary")
@@ -40,8 +42,18 @@ class GammaClient:
         market_url = self._generate_endpoint(f"{self.MARKETS_PATH}/{market_id}")
         return self._perform_get_request(market_url, query_params=None)
 
-    def get_markets(self, slug: str = None, archived: bool = None, active: bool = None, closed: bool = None,
-                    limit: int = 20, offset: int = 0, order: str = None, ascending: bool = None, **kwargs: Any) -> list[dict]:
+    def get_markets(
+        self,
+        slug: str = None,
+        archived: bool = None,
+        active: bool = None,
+        closed: bool = None,
+        limit: int = 20,
+        offset: int = 0,
+        order: str = None,
+        ascending: bool = None,
+        **kwargs: Any,
+    ) -> list[dict]:
         query_params = {}
         if limit:
             query_params["limit"] = limit
@@ -62,8 +74,18 @@ class GammaClient:
         query_params.update(kwargs)
         return self.get_markets_query(query_params)
 
-    def get_events(self, slug: str = None, archived: bool = None, active: bool = None, closed: bool = None,
-                   limit: int = 20, offset: int = 0, order: str = None, ascending: bool = None, **kwargs: Any) -> list[dict]:
+    def get_events(
+        self,
+        slug: str = None,
+        archived: bool = None,
+        active: bool = None,
+        closed: bool = None,
+        limit: int = 20,
+        offset: int = 0,
+        order: str = None,
+        ascending: bool = None,
+        **kwargs: Any,
+    ) -> list[dict]:
         query_params = {}
         if limit:
             query_params["limit"] = limit

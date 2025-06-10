@@ -24,3 +24,13 @@ def unstable(fn: Callable[..., None]) -> Callable[..., None]:
         return fn
 
     return unittest.skip(f"Unstable test disabled, set ${_UNSTABLE_ENV_VAR} to run anyway")(fn)
+
+
+_API_ENV_VAR = 'FISH_RUN_API_TESTS'
+
+
+def api(fn: Callable[..., None]) -> Callable[..., None]:
+    if os.environ.get(_API_ENV_VAR):
+        return fn
+
+    return unittest.skip(f"Api test disabled, set ${_API_ENV_VAR} to run anyway")(fn)

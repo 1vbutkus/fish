@@ -3,6 +3,7 @@ import requests
 
 class APIRequestError(Exception):
     """Custom exception to handle API request failures."""
+
     pass
 
 
@@ -22,13 +23,12 @@ def fetch_order_filled_events(authorization_key, takerAssetId_list, n):
         APIRequestError: If the request fails or a non-200 status code is returned.
     """
     # Define the URL of the API endpoint
-    url = "https://gateway.thegraph.com/api/subgraphs/id/81Dm16JjuFSrqz813HysXoUPvzTwE7fsfPk2RTf66nyC"
+    url = (
+        "https://gateway.thegraph.com/api/subgraphs/id/81Dm16JjuFSrqz813HysXoUPvzTwE7fsfPk2RTf66nyC"
+    )
 
     # Define the headers
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {authorization_key}"
-    }
+    headers = {"Content-Type": "application/json", "Authorization": f"Bearer {authorization_key}"}
 
     # Define the request payload
     payload = {
@@ -59,10 +59,7 @@ def fetch_order_filled_events(authorization_key, takerAssetId_list, n):
         }
         """,
         "operationName": "OrderFilledEvents",
-        "variables": {
-            "takerAssetIds": takerAssetId_list,
-            "first": n
-        }
+        "variables": {"takerAssetIds": takerAssetId_list, "first": n},
     }
 
     try:
@@ -71,7 +68,9 @@ def fetch_order_filled_events(authorization_key, takerAssetId_list, n):
 
         # Raise an exception for non-200 responses
         if response.status_code != 200:
-            raise APIRequestError(f"Failed to fetch data. HTTP Status Code: {response.status_code}, Response: {response.text}")
+            raise APIRequestError(
+                f"Failed to fetch data. HTTP Status Code: {response.status_code}, Response: {response.text}"
+            )
 
         # Parse the response JSON
         data = response.json()
@@ -89,10 +88,11 @@ def fetch_order_filled_events(authorization_key, takerAssetId_list, n):
 
 
 def __dummy__():
-
     # Example usage:
     authorization_key = "abbdd04b6fc1b4d4a6b78be3d445ddda"
-    takerAssetId_list = ["75808883562514695201169204487787555859570951708948163798444132865757266366758"]
+    takerAssetId_list = [
+        "75808883562514695201169204487787555859570951708948163798444132865757266366758"
+    ]
     n = 5  # Number of records to fetch
 
     try:
@@ -102,14 +102,14 @@ def __dummy__():
         print(f"Error: {e}")
 
 
-def __relete_ids_with_eventes():
+def __relate_ids_with_eventes():
     # https://thegraph.com/explorer/subgraphs/81Dm16JjuFSrqz813HysXoUPvzTwE7fsfPk2RTf66nyC?view=Query&chain=arbitrum-one
 
-    self = ApiClient()
+    # self = ApiClient()
 
-    slug = "russia-x-ukraine-ceasefire-before-october"
-    markets = self.gamma.get_markets(slug=slug)
-    markets[0]
+    # slug = "russia-x-ukraine-ceasefire-before-october"
+    # markets = self.gamma.get_markets(slug=slug)
+    # markets[0]
     """
     {'id': '537194',
      'question': 'Russia x Ukraine ceasefire before October?',
@@ -259,8 +259,8 @@ def __relete_ids_with_eventes():
     # 'assetAddress': '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174'
     # 'clobTokenIds': '["75808883562514695201169204487787555859570951708948163798444132865757266366758", "79733714773966769289571596081594645290144843853077301462790845252981871229351"]',
 
-    trades = self._clob_client.get_trades()
-    trades[0]
+    # trades = self._clob_client.get_trades()
+    # trades[0]
     """
     {'id': '5e7793d0-5b85-48ac-8cb4-0d4f416b7f67',
      'taker_order_id': '0x73edadf4520010994e0020e286ece6d1e10376a198c9b0174f87285975808387',
@@ -350,4 +350,3 @@ curl -X POST \
   -d '{"query": "{ orderFilledEvents( first: 1, orderBy: timestamp, orderDirection: desc, where: { takerAssetId: "75808883562514695201169204487787555859570951708948163798444132865757266366758" } ) { id timestamp orderHash takerAmountFilled maker{ id } taker{ id } takerAssetId makerAssetId taker{ id } } }", "operationName": "Subgraphs", "variables": {}}' \
   https://gateway.thegraph.com/api/subgraphs/id/81Dm16JjuFSrqz813HysXoUPvzTwE7fsfPk2RTf66nyC
 """
-
