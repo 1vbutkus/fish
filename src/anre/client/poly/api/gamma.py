@@ -90,10 +90,10 @@ class GammaClient:
         return self.get_positions_query(query_params)
 
 
-def __dummy__():
+def __demo__():
     gamma = GammaClient()
 
-    markets = gamma.get_markets(limit=30, active=True)
+    markets = gamma.get_markets(limit=30, active=True, closed=False, end_date_min='2025-06-08')
     len(markets)
     markets[0]
 

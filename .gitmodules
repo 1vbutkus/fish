@@ -1,3 +1,5 @@
 [submodule "libs/py-clob-client"]
 	path = libs/py-clob-client
 	url = https://github.com/1vbutkus/py-clob-client.git
+[submodule "py-clob-client"]
+	url = git@github.com:1vbutkus/py-clob-client.git
