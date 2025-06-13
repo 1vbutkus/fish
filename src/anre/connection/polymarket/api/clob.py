@@ -200,3 +200,5 @@ class ClobClient:
 def __demo__():
     self = ClobClient()
     print(self)
+
+    self.get_market("0xc2c0d4a0500a76186568270e28ff3619e7598578d2e90094bb89f2e0371cff0a")
