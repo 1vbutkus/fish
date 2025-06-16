@@ -37,7 +37,7 @@ class PolymarketWebSocket:
         return self
 
     @classmethod
-    def new_house_orders(cls, condition_ids: list[str]=None, messenger: Messenger = None):
+    def new_house_orders(cls, condition_ids: list[str] = None, messenger: Messenger = None):
         if messenger is None:
             messenger = Messenger()
         if condition_ids is None:
@@ -45,7 +45,9 @@ class PolymarketWebSocket:
         self = cls(messenger=messenger, channel_type='user', subscribe_items=condition_ids)
         return self
 
-    def __init__(self, messenger: Messenger, channel_type: str, subscribe_items: list[str] | None = None):
+    def __init__(
+        self, messenger: Messenger, channel_type: str, subscribe_items: list[str] | None = None
+    ):
         subscribe_items = [] if subscribe_items is None else subscribe_items
         assert isinstance(subscribe_items, (list, tuple))
 
@@ -80,7 +82,7 @@ class PolymarketWebSocket:
         self.stop()
 
     @property
-    def messenger(self)->Messenger:
+    def messenger(self) -> Messenger:
         return self._messanger
 
     def _new_ws(self) -> WebSocketApp:
@@ -252,7 +254,9 @@ def __dummy7__():
     ]
 
     messenger = Messenger()
-    self = polymarket_web_socket = PolymarketWebSocket(messenger=messenger, channel_type='market', subscribe_items=subscribe_items)
+    self = polymarket_web_socket = PolymarketWebSocket(
+        messenger=messenger, channel_type='market', subscribe_items=subscribe_items
+    )
     polymarket_web_socket.start()
     # polymarket_web_socket.stop()
     polymarket_web_socket.ping()
@@ -260,10 +264,9 @@ def __dummy7__():
 
     ###### orders
     messages = messenger.get_peek_messages()
-    self = polymarket_web_socket = PolymarketWebSocket(messenger=messenger, channel_type='user', subscribe_items=[])
+    polymarket_web_socket = PolymarketWebSocket(
+        messenger=messenger, channel_type='user', subscribe_items=[]
+    )
     polymarket_web_socket.start()
     # polymarket_web_socket.stop()
     polymarket_web_socket.ping()
-
-
-

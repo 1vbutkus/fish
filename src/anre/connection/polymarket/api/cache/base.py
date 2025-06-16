@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+
 from sortedcontainers import SortedDict
 
 
@@ -8,13 +9,20 @@ class Book1000:
 
     It can be market supply or our contribution into supply
     """
+
     bids: SortedDict[int, int] = field(default_factory=SortedDict)
     asks: SortedDict[int, int] = field(default_factory=SortedDict)
 
     @classmethod
-    def new_from_native_prices(cls, bids: list[dict[str, float | str]], asks: list[dict[str, float | str]]):
-        bids = SortedDict({int(float(bid['price']) * 1000): int(float(bid['size']) * 1000) for bid in bids})
-        asks = SortedDict({int(float(ask['price']) * 1000): int(float(ask['size']) * 1000) for ask in asks})
+    def new_from_native_prices(
+        cls, bids: list[dict[str, float | str]], asks: list[dict[str, float | str]]
+    ):
+        bids = SortedDict({
+            int(float(bid['price']) * 1000): int(float(bid['size']) * 1000) for bid in bids
+        })
+        asks = SortedDict({
+            int(float(ask['price']) * 1000): int(float(ask['size']) * 1000) for ask in asks
+        })
         return cls(bids=bids, asks=asks)
 
     def update_overwrite(self, price: float, size: float, side: str):
@@ -49,7 +57,6 @@ class Book1000:
         else:
             raise ValueError(f'unknown side: {side}')
 
-
     def __post_init__(self):
         assert isinstance(self.bids, SortedDict)
         assert isinstance(self.asks, SortedDict)
@@ -71,16 +78,28 @@ class MarketOrderBook:
     def new(cls, condition_id: str, yes_asset_id: str, no_asset_id: str):
         yes_asset_book = AssetBook(asset_id=yes_asset_id)
         no_asset_book = AssetBook(asset_id=no_asset_id)
-        return cls(condition_id=condition_id, yes_asset_book=yes_asset_book, no_asset_book=no_asset_book)
+        return cls(
+            condition_id=condition_id, yes_asset_book=yes_asset_book, no_asset_book=no_asset_book
+        )
 
     @classmethod
     def new_from_clob_market_info_dict(cls, clob_market_info_dict: dict):
-        assert isinstance(clob_market_info_dict, dict), f'clob_market_dict is not dict. It is: {clob_market_info_dict}'
-        yes_asset_ids = [el['token_id'] for el in clob_market_info_dict['tokens'] if el['outcome'] == 'Yes']
-        assert len(yes_asset_ids) == 1, f'clob_market_dict does not have exactly one yes asset. It has: {yes_asset_id}'
+        assert isinstance(clob_market_info_dict, dict), (
+            f'clob_market_dict is not dict. It is: {clob_market_info_dict}'
+        )
+        yes_asset_ids = [
+            el['token_id'] for el in clob_market_info_dict['tokens'] if el['outcome'] == 'Yes'
+        ]
+        assert len(yes_asset_ids) == 1, (
+            f'clob_market_dict does not have exactly one yes asset. It has: {yes_asset_id}'
+        )
         yes_asset_id = yes_asset_ids[0]
-        no_asset_ids = [el['token_id'] for el in clob_market_info_dict['tokens'] if el['outcome'] == 'No']
-        assert len(no_asset_ids) == 1, f'clob_market_dict does not have exactly one no asset. It has: {no_asset_id}'
+        no_asset_ids = [
+            el['token_id'] for el in clob_market_info_dict['tokens'] if el['outcome'] == 'No'
+        ]
+        assert len(no_asset_ids) == 1, (
+            f'clob_market_dict does not have exactly one no asset. It has: {no_asset_id}'
+        )
         no_asset_id = no_asset_ids[0]
         return cls.new(
             condition_id=clob_market_info_dict['condition_id'],

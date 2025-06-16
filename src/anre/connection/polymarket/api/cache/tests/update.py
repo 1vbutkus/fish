@@ -1,13 +1,12 @@
 import time
 
+from anre.config.config import config as anre_config
 from anre.connection.polymarket.api.clob import ClobClient
 from anre.connection.polymarket.api.websocket.websocket import PolymarketWebSocket
 from anre.utils.Json.Json import Json
-from anre.config.config import config as anre_config
 
 
 def run_steps_and_save_to_file(overwrite: bool = False):
-
     condition_id = '0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f'  # condition_id = '0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f'
     clob_client = ClobClient()
 
@@ -31,7 +30,6 @@ def run_steps_and_save_to_file(overwrite: bool = False):
     ask1000 = int(1000 * min([float(el['price']) for el in mob_dict['asks']]))
     assert bid1000 >= 40
     assert ask1000 <= 960
-
 
     limit_price = (bid1000 - 20) / 1000
     place_resp = clob_client.place_order(
@@ -73,7 +71,7 @@ def run_steps_and_save_to_file(overwrite: bool = False):
 
     place_resp = clob_client.place_order(
         token_id=asset_id,
-        price=limit_price-0.01,
+        price=limit_price - 0.01,
         size=25,
         side="BUY",
     )
@@ -139,10 +137,12 @@ def run_steps_and_save_to_file(overwrite: bool = False):
         },
     ]
 
-    _file_path = anre_config.path.get_path_to_root_dir('src/anre/connection/polymarket/api/cache/tests/resources/info_step_list.json')
+    _file_path = anre_config.path.get_path_to_root_dir(
+        'src/anre/connection/polymarket/api/cache/tests/resources/info_step_list.json'
+    )
     Json.dump(info_step_list, path=_file_path, overwrite=True, useIndent=True)
+
 
 if __name__ == '__main__':
     pass
     # run_steps_and_save_to_file(overwrite=True)
-

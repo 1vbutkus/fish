@@ -1,7 +1,7 @@
 import base64
 import time
-from typing import Callable, Literal, Optional
 from functools import partial
+from typing import Callable, Literal, Optional
 
 from py_clob_client.client import ClobClient as ClobInternalClient
 from py_clob_client.clob_types import (
@@ -97,18 +97,20 @@ class ClobClient:
                 time.sleep(sleep_time)
         return data
 
-    def get_our_order(self, order_id: str = None):
+    def get_house_order(self, order_id: str = None):
         return self._clob_internal_client.get_order(order_id=order_id)
 
-    def get_house_orders(self, order_id: str = None,
-                         condition_id: str = None,
-                         asset_id: str = None,
-                         next_cursor: str = "",
-                         sleep_time=0.3,
-                         ):
+    def get_house_orders(
+        self,
+        order_id: str = None,
+        condition_id: str = None,
+        asset_id: str = None,
+        next_cursor: str = "",
+        sleep_time=0.3,
+    ):
         return self.collect_chunks(
             fun=partial(
-                self.get_our_orders_chunk,
+                self.get_house_orders_chunk,
                 order_id=order_id,
                 condition_id=condition_id,
                 asset_id=asset_id,
@@ -117,7 +119,7 @@ class ClobClient:
             sleep_time=sleep_time,
         )
 
-    def get_our_orders_chunk(
+    def get_house_orders_chunk(
         self,
         order_id: str = None,
         condition_id: str = None,

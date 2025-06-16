@@ -31,12 +31,12 @@ class TestClobApi(testutil.TestCase):
 
         price_history = client.get_price_history(token_id=token_id, interval='1m', fidelity=10)
         assert price_history
-        order_book = client.get_order_book(token_id=token_id)
+        order_book = client.get_market_order_book(token_id=token_id)
         assert order_book
 
         ### orders
 
-        orders_chunk = client.get_orders_chunk(condition_id=condition_id)
+        orders_chunk = client.get_house_orders_chunk(condition_id=condition_id)
         old_count = orders_chunk['count']
         place_resp = client.place_order(
             token_id=token_id,
@@ -44,14 +44,14 @@ class TestClobApi(testutil.TestCase):
             size=10,
             side=BUY,
         )
-        order = client.get_order(order_id=place_resp['orderID'])
-        orders_chunk = client.get_orders_chunk(condition_id=condition_id)
+        order = client.get_house_order(order_id=place_resp['orderID'])
+        orders_chunk = client.get_house_orders_chunk(condition_id=condition_id)
         assert orders_chunk['count'] == old_count + 1
 
-        order_list = client.get_orders(condition_id=condition_id)
+        order_list = client.get_house_orders(condition_id=condition_id)
         assert order_list
 
         # client.cancel_market_orders(condition_id=condition_id)
-        client.cancel_orders(order_ids=[order['id']])
-        orders_chunk = client.get_orders_chunk(condition_id=condition_id)
+        client.cancel_orders_by_id(order_ids=[order['id']])
+        orders_chunk = client.get_house_orders_chunk(condition_id=condition_id)
         assert orders_chunk['count'] == old_count

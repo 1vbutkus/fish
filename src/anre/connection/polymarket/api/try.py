@@ -1,11 +1,10 @@
-
+from anre.connection.polymarket.api.cache import MarketBook
 from anre.connection.polymarket.api.clob import ClobClient
 from anre.connection.polymarket.api.websocket.messenger import Messenger
 from anre.connection.polymarket.api.websocket.websocket import PolymarketWebSocket
-from anre.connection.polymarket.api.cache import MarketBook
+
 
 def __dummy__():
-
     condition_id = '0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f'  #     condition_id = '0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f'
     # condition_id = '0xee3898d16e04818aa853e39e1533b368ad57ca092ec0e6298ccdf41b62786ab9'  # What price will gold close at in 2025?
 
@@ -17,15 +16,17 @@ def __dummy__():
     order_list = clob_client.get_orders(condition_id=condition_id)
     clob_client.cancel_all()
 
-
     public_market_messenger = Messenger()
-    market_ws = PolymarketWebSocket.new_markets(messenger=public_market_messenger, asset_ids=asset_ids)
+    market_ws = PolymarketWebSocket.new_markets(
+        messenger=public_market_messenger, asset_ids=asset_ids
+    )
     market_ws.start()
 
     private_order_messenger = Messenger()
-    order_ws = PolymarketWebSocket.new_house_orders(messenger=private_order_messenger, condition_ids=[condition_id])
+    order_ws = PolymarketWebSocket.new_house_orders(
+        messenger=private_order_messenger, condition_ids=[condition_id]
+    )
     order_ws.start()
-
 
     gross_market_book = MarketBook(
         asset_id=asset_ids[0],
@@ -35,10 +36,6 @@ def __dummy__():
     )
     order_list
 
-
-
-
-
     public_market_messages = public_market_messenger.get_peek_messages()
     private_order_messages = private_order_messenger.get_peek_messages()
 
@@ -46,16 +43,11 @@ def __dummy__():
         if message.get('asset_id', '') == gross_market_book.asset_id:
             gross_market_book.update_from_public_market_message(message=message)
 
-
-
     private_order_messages
 
-
-
-    market_book.update_from_public_market_message(message=public_market_messenger.get_peek_messages()[0])
-
-
-
+    market_book.update_from_public_market_message(
+        message=public_market_messenger.get_peek_messages()[0]
+    )
 
     market_messenger.get_peek_messages()[:5]
 
@@ -63,17 +55,6 @@ def __dummy__():
     messages_b = market_messenger.get_peek_messages()
 
     messages_b[-3:]
-
-
-
-
-
-
-
-
-
-
-
 
     #
     # message = messages[1]
@@ -100,9 +81,3 @@ def __dummy__():
     # polymarket_web_socket.ping()
     #
     # messages = messenger.get_peek_messages()
-
-
-
-
-
-
