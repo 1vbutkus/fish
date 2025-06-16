@@ -8,6 +8,7 @@ import orjson
 from websocket import WebSocketApp, WebSocketException
 
 from anre.config.config import config as anre_config
+from anre.connection.polymarket.api.websocket.messenger import Messenger
 
 MARKET_CHANNEL = 'market'
 USER_CHANNEL = 'user'
@@ -19,7 +20,8 @@ _channel_uri_map = {
 
 
 # TODO:
-# reikia is pong funkcijos ismestitikrinima. ir sukurti atskirathreada, kuris dar patikrintu ar procesas sukasi, gaunam zinutes, ir net bandytu reconectinis, jei mato kad nutruko
+# Paasirodo gali buti avejai, kada ping zinutesvaiksto,bet messagaineateina. Tuomet negalimekokybiškai atskirti connectionlosonuozinuciunebuvimo
+# Turbut tiesiogreikestureti QA,kuris gal ir testorderiideda. Irsiapsnapsotuspaziuri.
 # Jei aisku, kad neiasku, tai reikia kazkaip siusti lock signala. Ir ji pakelti, kai atsistato.
 #
 
@@ -27,7 +29,23 @@ _channel_uri_map = {
 class PolymarketWebSocket:
     _url = "wss://ws-subscriptions-clob.polymarket.com"
 
-    def __init__(self, channel_type: str, subscribe_items: list[str] | None = None):
+    @classmethod
+    def new_markets(cls, asset_ids: list[str], messenger: Messenger = None):
+        if messenger is None:
+            messenger = Messenger()
+        self = cls(messenger=messenger, channel_type='market', subscribe_items=asset_ids)
+        return self
+
+    @classmethod
+    def new_house_orders(cls, condition_ids: list[str]=None, messenger: Messenger = None):
+        if messenger is None:
+            messenger = Messenger()
+        if condition_ids is None:
+            condition_ids = []
+        self = cls(messenger=messenger, channel_type='user', subscribe_items=condition_ids)
+        return self
+
+    def __init__(self, messenger: Messenger, channel_type: str, subscribe_items: list[str] | None = None):
         subscribe_items = [] if subscribe_items is None else subscribe_items
         assert isinstance(subscribe_items, (list, tuple))
 
@@ -54,11 +72,16 @@ class PolymarketWebSocket:
         self._last_receive_time = float(0)
         self._ping_interval = 10
         self._ws: Optional[WebSocketApp] = None
+        self._messanger = messenger
 
         assert self._ping_interval > 5
 
     def __del__(self):
         self.stop()
+
+    @property
+    def messenger(self)->Messenger:
+        return self._messanger
 
     def _new_ws(self) -> WebSocketApp:
         furl = self._url + _channel_uri_map[self.channel_type]
@@ -76,7 +99,7 @@ class PolymarketWebSocket:
     def _proc_message(self, message: dict):
         assert isinstance(message, dict)
         assert 'event_type' in message
-        print('Message', message)
+        self._messanger.put(message)
 
     def _on_message(self, ws, message):
         self._last_receive_time = receive_time = time.time()
@@ -116,10 +139,10 @@ class PolymarketWebSocket:
         Gad uztikrinti ar zinutes eina, dar nusiunciam pinga, ir ziurim kiek laiko praejo nuo paskutines zinutes.
         """
         ws.send("PING")
-        if time.time() - self._last_receive_time > self._ping_interval * 2:
+        if time.time() - self._last_receive_time > self._ping_interval * 3:
             msg = "Connection error. Messages are not coming. We will try to reconnect."
             self._logger.warning(msg)
-            self._connect()
+            self._connect(reconnect=True)
 
     def _on_open(self, ws):
         message = {'event_type': '_internal', 'event': 'open', 'timestamp': time.time()}
@@ -160,7 +183,7 @@ class PolymarketWebSocket:
             raise WebSocketException('Couldn\'t connect to WS! Exiting.')
 
     def start(self):
-        self._connect()
+        self._connect(reconnect=False)
 
     def stop(self):
         if self._ws:
@@ -183,7 +206,7 @@ class PolymarketWebSocket:
 
     def resubscribe(self, subscribe_items: list[str]):
         self.subscribe_items = subscribe_items
-        self._connect()
+        self._connect(reconnect=True)
 
     def ping(self, timeout=5) -> Tuple[bool, float]:
         if self._ws is None:
@@ -201,42 +224,46 @@ class PolymarketWebSocket:
 
 
 def __dummy7__():
-    subscribe_items = [
-        "52315409316147689027926869759851918963034723648533663925491006933785120902515",
-        "70972590478128483214197564500183134662564307331464794599405195997913245249009",
-    ]
     # subscribe_items = [
-    #     '3796961984592683047724333059166286679049912327822267416870816733710637507501',
-    #     '49752777464497901629052143796178209174998482502782303100115062016623520813466',
-    #     '4035065291772644731876334741178162861113899806117080318351467946714817079716',
-    #     '8807253522691129263460582179245445512612974167513689659640198687172344193269',
-    #     '78397765613055343660981684625548247730988640449758076460513963030464624568339',
-    #     '32991671287341934767805431457746630433481642330962899566829019629930387398671',
-    #     '682015221774154132828847491425153593161189919561460311334386393221845282492',
-    #     '101758403201828059680344010352051946087295880602352642560427952395417662391270',
-    #     '10772588031551349729289948290557133829937274723962850186274243477468724950221',
-    #     '60288428339855018308474917074028475599916506717424294063185522071817526231885',
-    #     '40074888323826266635337686983557595946596117588836086534010374700456164206544',
-    #     '75136810582011998509242990027763463413525994485000954948594930992360574099962',
-    #     '112317011402266313285385277588643241746891964489709475346255125329717458492650',
-    #     '7895405310433215018143712021310484829790209954219231386165007891572254181133',
-    #     '79895334177955799459104165363176942891833635901276798957927316841634035554793',
-    #     '67875176939307751491735562611070904231511991937702186803972237380494079519328',
-    #     '33483037127912259970535820828279013745748448609963942365026052374974935805211',
-    #     '84691356691030809317762076558733279411769621725807832017200558477351459890429',
-    #     '60487116984468020978247225474488676749601001829886755968952521846780452448915',
-    #     '81104637750588840860328515305303028259865221573278091453716127842023614249200',
+    #     "52315409316147689027926869759851918963034723648533663925491006933785120902515",
+    #     "70972590478128483214197564500183134662564307331464794599405195997913245249009",
     # ]
+    subscribe_items = [
+        '3796961984592683047724333059166286679049912327822267416870816733710637507501',
+        '49752777464497901629052143796178209174998482502782303100115062016623520813466',
+        '4035065291772644731876334741178162861113899806117080318351467946714817079716',
+        '8807253522691129263460582179245445512612974167513689659640198687172344193269',
+        '78397765613055343660981684625548247730988640449758076460513963030464624568339',
+        '32991671287341934767805431457746630433481642330962899566829019629930387398671',
+        '682015221774154132828847491425153593161189919561460311334386393221845282492',
+        '101758403201828059680344010352051946087295880602352642560427952395417662391270',
+        '10772588031551349729289948290557133829937274723962850186274243477468724950221',
+        '60288428339855018308474917074028475599916506717424294063185522071817526231885',
+        '40074888323826266635337686983557595946596117588836086534010374700456164206544',
+        '75136810582011998509242990027763463413525994485000954948594930992360574099962',
+        '112317011402266313285385277588643241746891964489709475346255125329717458492650',
+        '7895405310433215018143712021310484829790209954219231386165007891572254181133',
+        '79895334177955799459104165363176942891833635901276798957927316841634035554793',
+        '67875176939307751491735562611070904231511991937702186803972237380494079519328',
+        '33483037127912259970535820828279013745748448609963942365026052374974935805211',
+        '84691356691030809317762076558733279411769621725807832017200558477351459890429',
+        '60487116984468020978247225474488676749601001829886755968952521846780452448915',
+        '81104637750588840860328515305303028259865221573278091453716127842023614249200',
+    ]
 
-    self = polymarket_web_socket = PolymarketWebSocket('market', subscribe_items)
+    messenger = Messenger()
+    self = polymarket_web_socket = PolymarketWebSocket(messenger=messenger, channel_type='market', subscribe_items=subscribe_items)
     polymarket_web_socket.start()
     # polymarket_web_socket.stop()
     polymarket_web_socket.ping()
     polymarket_web_socket._connect(reconnect=True)
 
-    ######
-
-    self = polymarket_web_socket = PolymarketWebSocket('user', [])
+    ###### orders
+    messages = messenger.get_peek_messages()
+    self = polymarket_web_socket = PolymarketWebSocket(messenger=messenger, channel_type='user', subscribe_items=[])
     polymarket_web_socket.start()
     # polymarket_web_socket.stop()
     polymarket_web_socket.ping()
+
+
+

@@ -46,6 +46,7 @@ jupyter-contrib-nbextensions = "^0.7.0"
 notebook = "<7"
 py-clob-client = {path = "libs/py-clob-client", develop = true}
 typer = "^0.16.0"
+sortedcontainers = "^2.4.0"
 
 [tool.poetry.build]
 script = "build.py"

@@ -1,0 +1,1771 @@
+[
+  {
+    "clob_market_info_dict": {
+      "enable_order_book": true,
+      "active": true,
+      "closed": false,
+      "archived": false,
+      "accepting_orders": true,
+      "accepting_order_timestamp": "2025-06-04T20:56:46Z",
+      "minimum_order_size": 5,
+      "minimum_tick_size": 0.01,
+      "condition_id": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+      "question_id": "0xec03c9f53851dbd566296a49895ac381ab868c3a4cfc30b07f530487fa6ca4dd",
+      "question": "Japan parliament dissolved before July?",
+      "description": "This market will resolve to \"Yes\" if the sitting House of Representatives of Japan, as of June 4, 2025, is dissolved between June 4 and June 30, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for this market is official information from the government of Japan, however a consensus of credible reporting will also be used.",
+      "market_slug": "japan-parliament-dissolved-before-july",
+      "end_date_iso": "2025-06-30T00:00:00Z",
+      "game_start_time": null,
+      "seconds_delay": 0,
+      "fpmm": "",
+      "maker_base_fee": 0,
+      "taker_base_fee": 0,
+      "notifications_enabled": true,
+      "neg_risk": false,
+      "neg_risk_market_id": "",
+      "neg_risk_request_id": "",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+      "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+      "rewards": {
+        "rates": [
+          {
+            "asset_address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+            "rewards_daily_rate": 3
+          }
+        ],
+        "min_size": 100,
+        "max_spread": 3.5
+      },
+      "is_50_50_outcome": false,
+      "tokens": [
+        {
+          "token_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+          "outcome": "Yes",
+          "price": 0.075,
+          "winner": false
+        },
+        {
+          "token_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+          "outcome": "No",
+          "price": 0.925,
+          "winner": false
+        }
+      ],
+      "tags": [
+        "Japan",
+        "World"
+      ]
+    },
+    "clob_mob_list": [
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "timestamp": "1750108148081",
+        "hash": "358be94ffe3915e7f569b9c3f844a89a25a721aa",
+        "bids": [
+          {
+            "price": "0.03",
+            "size": "110"
+          },
+          {
+            "price": "0.04",
+            "size": "5"
+          },
+          {
+            "price": "0.05",
+            "size": "522"
+          },
+          {
+            "price": "0.06",
+            "size": "205"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "5000"
+          },
+          {
+            "price": "0.98",
+            "size": "122.99"
+          },
+          {
+            "price": "0.94",
+            "size": "5"
+          },
+          {
+            "price": "0.67",
+            "size": "12"
+          },
+          {
+            "price": "0.28",
+            "size": "250"
+          },
+          {
+            "price": "0.23",
+            "size": "524.11"
+          },
+          {
+            "price": "0.22",
+            "size": "16.14"
+          },
+          {
+            "price": "0.09",
+            "size": "457.79"
+          }
+        ]
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "timestamp": "1750108148081",
+        "hash": "6dd05bbf622740e76a279b292fce265173e74a1f",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "5000"
+          },
+          {
+            "price": "0.02",
+            "size": "122.99"
+          },
+          {
+            "price": "0.06",
+            "size": "5"
+          },
+          {
+            "price": "0.33",
+            "size": "12"
+          },
+          {
+            "price": "0.72",
+            "size": "250"
+          },
+          {
+            "price": "0.77",
+            "size": "524.11"
+          },
+          {
+            "price": "0.78",
+            "size": "16.14"
+          },
+          {
+            "price": "0.91",
+            "size": "457.79"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.97",
+            "size": "110"
+          },
+          {
+            "price": "0.96",
+            "size": "5"
+          },
+          {
+            "price": "0.95",
+            "size": "522"
+          },
+          {
+            "price": "0.94",
+            "size": "205"
+          }
+        ]
+      }
+    ],
+    "clob_house_order_list": [],
+    "ws_market_message_list": [],
+    "ws_house_message_list": []
+  },
+  {
+    "clob_mob_list": [
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "timestamp": "1750108623045",
+        "hash": "9cc607a703e3d5780fe2069adf38f7a1ef34a7ee",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "5000"
+          },
+          {
+            "price": "0.02",
+            "size": "122.99"
+          },
+          {
+            "price": "0.06",
+            "size": "5"
+          },
+          {
+            "price": "0.33",
+            "size": "12"
+          },
+          {
+            "price": "0.72",
+            "size": "250"
+          },
+          {
+            "price": "0.77",
+            "size": "524.11"
+          },
+          {
+            "price": "0.78",
+            "size": "16.14"
+          },
+          {
+            "price": "0.91",
+            "size": "457.79"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.97",
+            "size": "110"
+          },
+          {
+            "price": "0.96",
+            "size": "25"
+          },
+          {
+            "price": "0.95",
+            "size": "522"
+          },
+          {
+            "price": "0.94",
+            "size": "205"
+          }
+        ]
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "timestamp": "1750108623045",
+        "hash": "c5adf35340e7298d1cba7395c446f7eef9122c3b",
+        "bids": [
+          {
+            "price": "0.03",
+            "size": "110"
+          },
+          {
+            "price": "0.04",
+            "size": "25"
+          },
+          {
+            "price": "0.05",
+            "size": "522"
+          },
+          {
+            "price": "0.06",
+            "size": "205"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "5000"
+          },
+          {
+            "price": "0.98",
+            "size": "122.99"
+          },
+          {
+            "price": "0.94",
+            "size": "5"
+          },
+          {
+            "price": "0.67",
+            "size": "12"
+          },
+          {
+            "price": "0.28",
+            "size": "250"
+          },
+          {
+            "price": "0.23",
+            "size": "524.11"
+          },
+          {
+            "price": "0.22",
+            "size": "16.14"
+          },
+          {
+            "price": "0.09",
+            "size": "457.79"
+          }
+        ]
+      }
+    ],
+    "clob_house_order_list": [
+      {
+        "id": "0xc2992032506f9f0cc995f3382a3e85352e7e3766f3d2c193a74af2a7a5e4633d",
+        "status": "LIVE",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "original_size": "20",
+        "size_matched": "0",
+        "price": "0.04",
+        "outcome": "Yes",
+        "expiration": "0",
+        "order_type": "GTC",
+        "associate_trades": [],
+        "created_at": 1750108623
+      }
+    ],
+    "ws_market_message_list": [
+      {
+        "event_type": "_internal",
+        "event": "open",
+        "timestamp": 1750108628.6516938
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "timestamp": "1750108623045",
+        "hash": "c5adf35340e7298d1cba7395c446f7eef9122c3b",
+        "bids": [
+          {
+            "price": "0.03",
+            "size": "110"
+          },
+          {
+            "price": "0.04",
+            "size": "25"
+          },
+          {
+            "price": "0.05",
+            "size": "522"
+          },
+          {
+            "price": "0.06",
+            "size": "205"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "5000"
+          },
+          {
+            "price": "0.98",
+            "size": "122.99"
+          },
+          {
+            "price": "0.94",
+            "size": "5"
+          },
+          {
+            "price": "0.67",
+            "size": "12"
+          },
+          {
+            "price": "0.28",
+            "size": "250"
+          },
+          {
+            "price": "0.23",
+            "size": "524.11"
+          },
+          {
+            "price": "0.22",
+            "size": "16.14"
+          },
+          {
+            "price": "0.09",
+            "size": "457.79"
+          }
+        ],
+        "event_type": "book",
+        "_rt": 1750108628.6971786
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "timestamp": "1750108623045",
+        "hash": "9cc607a703e3d5780fe2069adf38f7a1ef34a7ee",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "5000"
+          },
+          {
+            "price": "0.02",
+            "size": "122.99"
+          },
+          {
+            "price": "0.06",
+            "size": "5"
+          },
+          {
+            "price": "0.33",
+            "size": "12"
+          },
+          {
+            "price": "0.72",
+            "size": "250"
+          },
+          {
+            "price": "0.77",
+            "size": "524.11"
+          },
+          {
+            "price": "0.78",
+            "size": "16.14"
+          },
+          {
+            "price": "0.91",
+            "size": "457.79"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.97",
+            "size": "110"
+          },
+          {
+            "price": "0.96",
+            "size": "25"
+          },
+          {
+            "price": "0.95",
+            "size": "522"
+          },
+          {
+            "price": "0.94",
+            "size": "205"
+          }
+        ],
+        "event_type": "book",
+        "_rt": 1750108628.6971786
+      }
+    ],
+    "ws_house_message_list": [
+      {
+        "event_type": "_internal",
+        "event": "open",
+        "timestamp": 1750108629.6264725
+      }
+    ]
+  },
+  {
+    "clob_mob_list": [
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "timestamp": "1750108636927",
+        "hash": "1963de3b609211f35a59519c6adbec590e678711",
+        "bids": [
+          {
+            "price": "0.03",
+            "size": "135"
+          },
+          {
+            "price": "0.04",
+            "size": "47"
+          },
+          {
+            "price": "0.05",
+            "size": "522"
+          },
+          {
+            "price": "0.06",
+            "size": "205"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "5000"
+          },
+          {
+            "price": "0.98",
+            "size": "81.99"
+          },
+          {
+            "price": "0.94",
+            "size": "5"
+          },
+          {
+            "price": "0.67",
+            "size": "12"
+          },
+          {
+            "price": "0.28",
+            "size": "250"
+          },
+          {
+            "price": "0.23",
+            "size": "524.11"
+          },
+          {
+            "price": "0.11",
+            "size": "27"
+          },
+          {
+            "price": "0.09",
+            "size": "457.79"
+          },
+          {
+            "price": "0.08",
+            "size": "16.14"
+          }
+        ]
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "timestamp": "1750108636927",
+        "hash": "67ea81130698961cc9621ca3af13d104ba40b2ba",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "5000"
+          },
+          {
+            "price": "0.02",
+            "size": "81.99"
+          },
+          {
+            "price": "0.06",
+            "size": "5"
+          },
+          {
+            "price": "0.33",
+            "size": "12"
+          },
+          {
+            "price": "0.72",
+            "size": "250"
+          },
+          {
+            "price": "0.77",
+            "size": "524.11"
+          },
+          {
+            "price": "0.89",
+            "size": "27"
+          },
+          {
+            "price": "0.91",
+            "size": "457.79"
+          },
+          {
+            "price": "0.92",
+            "size": "16.14"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.97",
+            "size": "135"
+          },
+          {
+            "price": "0.96",
+            "size": "47"
+          },
+          {
+            "price": "0.95",
+            "size": "522"
+          },
+          {
+            "price": "0.94",
+            "size": "205"
+          }
+        ]
+      }
+    ],
+    "clob_house_order_list": [
+      {
+        "id": "0xc0bacbf38003dc1bbd963fbba53dd9d09e24d16bc91a80687966d576e1b07ff1",
+        "status": "LIVE",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "BUY",
+        "original_size": "27",
+        "size_matched": "0",
+        "price": "0.89",
+        "outcome": "No",
+        "expiration": "0",
+        "order_type": "GTC",
+        "associate_trades": [],
+        "created_at": 1750108632
+      },
+      {
+        "id": "0xa3dd65d482b0b953a1b5bdfd9409facba43514bdc6fb1f0ec8370a8ff59ada88",
+        "status": "LIVE",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "original_size": "25",
+        "size_matched": "0",
+        "price": "0.03",
+        "outcome": "Yes",
+        "expiration": "0",
+        "order_type": "GTC",
+        "associate_trades": [],
+        "created_at": 1750108632
+      },
+      {
+        "id": "0x3711158e306a0f7aba1df79dc8e0f8505fad3186c4178547a044393b66729451",
+        "status": "LIVE",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "original_size": "22",
+        "size_matched": "0",
+        "price": "0.04",
+        "outcome": "Yes",
+        "expiration": "0",
+        "order_type": "GTC",
+        "associate_trades": [],
+        "created_at": 1750108632
+      },
+      {
+        "id": "0xc2992032506f9f0cc995f3382a3e85352e7e3766f3d2c193a74af2a7a5e4633d",
+        "status": "LIVE",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "original_size": "20",
+        "size_matched": "0",
+        "price": "0.04",
+        "outcome": "Yes",
+        "expiration": "0",
+        "order_type": "GTC",
+        "associate_trades": [],
+        "created_at": 1750108623
+      }
+    ],
+    "ws_market_message_list": [
+      {
+        "event_type": "_internal",
+        "event": "open",
+        "timestamp": 1750108628.6516938
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "timestamp": "1750108623045",
+        "hash": "c5adf35340e7298d1cba7395c446f7eef9122c3b",
+        "bids": [
+          {
+            "price": "0.03",
+            "size": "110"
+          },
+          {
+            "price": "0.04",
+            "size": "25"
+          },
+          {
+            "price": "0.05",
+            "size": "522"
+          },
+          {
+            "price": "0.06",
+            "size": "205"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "5000"
+          },
+          {
+            "price": "0.98",
+            "size": "122.99"
+          },
+          {
+            "price": "0.94",
+            "size": "5"
+          },
+          {
+            "price": "0.67",
+            "size": "12"
+          },
+          {
+            "price": "0.28",
+            "size": "250"
+          },
+          {
+            "price": "0.23",
+            "size": "524.11"
+          },
+          {
+            "price": "0.22",
+            "size": "16.14"
+          },
+          {
+            "price": "0.09",
+            "size": "457.79"
+          }
+        ],
+        "event_type": "book",
+        "_rt": 1750108628.6971786
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "timestamp": "1750108623045",
+        "hash": "9cc607a703e3d5780fe2069adf38f7a1ef34a7ee",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "5000"
+          },
+          {
+            "price": "0.02",
+            "size": "122.99"
+          },
+          {
+            "price": "0.06",
+            "size": "5"
+          },
+          {
+            "price": "0.33",
+            "size": "12"
+          },
+          {
+            "price": "0.72",
+            "size": "250"
+          },
+          {
+            "price": "0.77",
+            "size": "524.11"
+          },
+          {
+            "price": "0.78",
+            "size": "16.14"
+          },
+          {
+            "price": "0.91",
+            "size": "457.79"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.97",
+            "size": "110"
+          },
+          {
+            "price": "0.96",
+            "size": "25"
+          },
+          {
+            "price": "0.95",
+            "size": "522"
+          },
+          {
+            "price": "0.94",
+            "size": "205"
+          }
+        ],
+        "event_type": "book",
+        "_rt": 1750108628.6971786
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.04",
+            "side": "BUY",
+            "size": "47"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "c437649c59b748e049d66d015de35c62404e0ea4",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108631571",
+        "_rt": 1750108631.7008975
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.96",
+            "side": "SELL",
+            "size": "47"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "42f324aff27905c7ea21e80b7880fea2e6c9c42d",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108631571",
+        "_rt": 1750108631.7008975
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.97",
+            "side": "SELL",
+            "size": "135"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "01488b642138ee4c10f9199875408fb0989d162b",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108631753",
+        "_rt": 1750108631.906104
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.03",
+            "side": "BUY",
+            "size": "135"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "8f5130f5a9fff628fd17b47adcf2789804e66be2",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108631753",
+        "_rt": 1750108631.906104
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.89",
+            "side": "BUY",
+            "size": "27"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "f18df628f81046982297a6f074376fe4af3b149a",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108632022",
+        "_rt": 1750108632.0947452
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.11",
+            "side": "SELL",
+            "size": "27"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "086852e80b6ecf964d434530cac8431dd0554091",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108632022",
+        "_rt": 1750108632.0947452
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.02",
+            "side": "BUY",
+            "size": "81.99"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "544a94bffc5895e0751363f0d64947b84334db57",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108633507",
+        "_rt": 1750108633.6179025
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.98",
+            "side": "SELL",
+            "size": "81.99"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "7ca9c56bc4c166cb18d2e85659ab5a5de0d1c4b4",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108633507",
+        "_rt": 1750108633.6179025
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.22",
+            "side": "SELL",
+            "size": "0"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "6178395cb68959b5be08fd18e9654af0398863b7",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108636202",
+        "_rt": 1750108636.3219266
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.78",
+            "side": "BUY",
+            "size": "0"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "da520a38e2b18257e68114f16b665ecd67daee68",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108636202",
+        "_rt": 1750108636.3219266
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.08",
+            "side": "SELL",
+            "size": "16.14"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "1963de3b609211f35a59519c6adbec590e678711",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108636932",
+        "_rt": 1750108637.0171425
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.92",
+            "side": "BUY",
+            "size": "16.14"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "67ea81130698961cc9621ca3af13d104ba40b2ba",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108636932",
+        "_rt": 1750108637.0171425
+      }
+    ],
+    "ws_house_message_list": [
+      {
+        "event_type": "_internal",
+        "event": "open",
+        "timestamp": 1750108629.6264725
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "associate_trades": null,
+        "created_at": "1750108631",
+        "event_type": "order",
+        "expiration": "0",
+        "id": "0x3711158e306a0f7aba1df79dc8e0f8505fad3186c4178547a044393b66729451",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "order_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "order_type": "GTC",
+        "original_size": "22",
+        "outcome": "Yes",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.04",
+        "side": "BUY",
+        "size_matched": "0",
+        "status": "LIVE",
+        "timestamp": "1750108631571",
+        "type": "PLACEMENT",
+        "_rt": 1750108631.7061133
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "associate_trades": null,
+        "created_at": "1750108631",
+        "event_type": "order",
+        "expiration": "0",
+        "id": "0xa3dd65d482b0b953a1b5bdfd9409facba43514bdc6fb1f0ec8370a8ff59ada88",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "order_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "order_type": "GTC",
+        "original_size": "25",
+        "outcome": "Yes",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.03",
+        "side": "BUY",
+        "size_matched": "0",
+        "status": "LIVE",
+        "timestamp": "1750108631753",
+        "type": "PLACEMENT",
+        "_rt": 1750108631.9133546
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "associate_trades": null,
+        "created_at": "1750108632",
+        "event_type": "order",
+        "expiration": "0",
+        "id": "0xc0bacbf38003dc1bbd963fbba53dd9d09e24d16bc91a80687966d576e1b07ff1",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "order_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "order_type": "GTC",
+        "original_size": "27",
+        "outcome": "No",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.89",
+        "side": "BUY",
+        "size_matched": "0",
+        "status": "LIVE",
+        "timestamp": "1750108632022",
+        "type": "PLACEMENT",
+        "_rt": 1750108632.1033864
+      }
+    ]
+  },
+  {
+    "clob_mob_list": [
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "timestamp": "1750108638734",
+        "hash": "914d7ce84b630e0803426d22d9480dbf5d103ab0",
+        "bids": [
+          {
+            "price": "0.03",
+            "size": "110"
+          },
+          {
+            "price": "0.04",
+            "size": "5"
+          },
+          {
+            "price": "0.05",
+            "size": "522"
+          },
+          {
+            "price": "0.06",
+            "size": "41"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "5000"
+          },
+          {
+            "price": "0.98",
+            "size": "41"
+          },
+          {
+            "price": "0.94",
+            "size": "5"
+          },
+          {
+            "price": "0.67",
+            "size": "12"
+          },
+          {
+            "price": "0.28",
+            "size": "250"
+          },
+          {
+            "price": "0.23",
+            "size": "524.11"
+          },
+          {
+            "price": "0.09",
+            "size": "457.79"
+          },
+          {
+            "price": "0.08",
+            "size": "98.13"
+          }
+        ]
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "timestamp": "1750108638734",
+        "hash": "432748724d8ac01006cf96870c5c242c9216a64b",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "5000"
+          },
+          {
+            "price": "0.02",
+            "size": "41"
+          },
+          {
+            "price": "0.06",
+            "size": "5"
+          },
+          {
+            "price": "0.33",
+            "size": "12"
+          },
+          {
+            "price": "0.72",
+            "size": "250"
+          },
+          {
+            "price": "0.77",
+            "size": "524.11"
+          },
+          {
+            "price": "0.91",
+            "size": "457.79"
+          },
+          {
+            "price": "0.92",
+            "size": "98.13"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.97",
+            "size": "110"
+          },
+          {
+            "price": "0.96",
+            "size": "5"
+          },
+          {
+            "price": "0.95",
+            "size": "522"
+          },
+          {
+            "price": "0.94",
+            "size": "41"
+          }
+        ]
+      }
+    ],
+    "clob_house_order_list": [],
+    "ws_market_message_list": [
+      {
+        "event_type": "_internal",
+        "event": "open",
+        "timestamp": 1750108628.6516938
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "timestamp": "1750108623045",
+        "hash": "c5adf35340e7298d1cba7395c446f7eef9122c3b",
+        "bids": [
+          {
+            "price": "0.03",
+            "size": "110"
+          },
+          {
+            "price": "0.04",
+            "size": "25"
+          },
+          {
+            "price": "0.05",
+            "size": "522"
+          },
+          {
+            "price": "0.06",
+            "size": "205"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "5000"
+          },
+          {
+            "price": "0.98",
+            "size": "122.99"
+          },
+          {
+            "price": "0.94",
+            "size": "5"
+          },
+          {
+            "price": "0.67",
+            "size": "12"
+          },
+          {
+            "price": "0.28",
+            "size": "250"
+          },
+          {
+            "price": "0.23",
+            "size": "524.11"
+          },
+          {
+            "price": "0.22",
+            "size": "16.14"
+          },
+          {
+            "price": "0.09",
+            "size": "457.79"
+          }
+        ],
+        "event_type": "book",
+        "_rt": 1750108628.6971786
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "timestamp": "1750108623045",
+        "hash": "9cc607a703e3d5780fe2069adf38f7a1ef34a7ee",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "5000"
+          },
+          {
+            "price": "0.02",
+            "size": "122.99"
+          },
+          {
+            "price": "0.06",
+            "size": "5"
+          },
+          {
+            "price": "0.33",
+            "size": "12"
+          },
+          {
+            "price": "0.72",
+            "size": "250"
+          },
+          {
+            "price": "0.77",
+            "size": "524.11"
+          },
+          {
+            "price": "0.78",
+            "size": "16.14"
+          },
+          {
+            "price": "0.91",
+            "size": "457.79"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.97",
+            "size": "110"
+          },
+          {
+            "price": "0.96",
+            "size": "25"
+          },
+          {
+            "price": "0.95",
+            "size": "522"
+          },
+          {
+            "price": "0.94",
+            "size": "205"
+          }
+        ],
+        "event_type": "book",
+        "_rt": 1750108628.6971786
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.04",
+            "side": "BUY",
+            "size": "47"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "c437649c59b748e049d66d015de35c62404e0ea4",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108631571",
+        "_rt": 1750108631.7008975
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.96",
+            "side": "SELL",
+            "size": "47"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "42f324aff27905c7ea21e80b7880fea2e6c9c42d",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108631571",
+        "_rt": 1750108631.7008975
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.97",
+            "side": "SELL",
+            "size": "135"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "01488b642138ee4c10f9199875408fb0989d162b",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108631753",
+        "_rt": 1750108631.906104
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.03",
+            "side": "BUY",
+            "size": "135"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "8f5130f5a9fff628fd17b47adcf2789804e66be2",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108631753",
+        "_rt": 1750108631.906104
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.89",
+            "side": "BUY",
+            "size": "27"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "f18df628f81046982297a6f074376fe4af3b149a",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108632022",
+        "_rt": 1750108632.0947452
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.11",
+            "side": "SELL",
+            "size": "27"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "086852e80b6ecf964d434530cac8431dd0554091",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108632022",
+        "_rt": 1750108632.0947452
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.02",
+            "side": "BUY",
+            "size": "81.99"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "544a94bffc5895e0751363f0d64947b84334db57",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108633507",
+        "_rt": 1750108633.6179025
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.98",
+            "side": "SELL",
+            "size": "81.99"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "7ca9c56bc4c166cb18d2e85659ab5a5de0d1c4b4",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108633507",
+        "_rt": 1750108633.6179025
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.22",
+            "side": "SELL",
+            "size": "0"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "6178395cb68959b5be08fd18e9654af0398863b7",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108636202",
+        "_rt": 1750108636.3219266
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.78",
+            "side": "BUY",
+            "size": "0"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "da520a38e2b18257e68114f16b665ecd67daee68",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108636202",
+        "_rt": 1750108636.3219266
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.08",
+            "side": "SELL",
+            "size": "16.14"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "1963de3b609211f35a59519c6adbec590e678711",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108636932",
+        "_rt": 1750108637.0171425
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.92",
+            "side": "BUY",
+            "size": "16.14"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "67ea81130698961cc9621ca3af13d104ba40b2ba",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108636932",
+        "_rt": 1750108637.0171425
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.04",
+            "side": "BUY",
+            "size": "5"
+          },
+          {
+            "price": "0.03",
+            "side": "BUY",
+            "size": "110"
+          },
+          {
+            "price": "0.11",
+            "side": "SELL",
+            "size": "0"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "85d4d3835d26ae885036318f3a07305efd53da53",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108637569",
+        "_rt": 1750108637.6264715
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.96",
+            "side": "SELL",
+            "size": "5"
+          },
+          {
+            "price": "0.97",
+            "side": "SELL",
+            "size": "110"
+          },
+          {
+            "price": "0.89",
+            "side": "BUY",
+            "size": "0"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "1b7d9c0cacedf00659001017c75aa9fb3bb1677d",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108637569",
+        "_rt": 1750108637.6264715
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.98",
+            "side": "SELL",
+            "size": "0"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "44665ecd074f9af366f6e076ededc69d4edd1beb",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108637802",
+        "_rt": 1750108637.9154034
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.02",
+            "side": "BUY",
+            "size": "0"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "f63c685ce37c77fae093a8caa81e93ac3b3724f3",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108637802",
+        "_rt": 1750108637.9154034
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.08",
+            "side": "SELL",
+            "size": "98.13"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "145b8ab94cbc72ee194b489d7b0ec1b1d8acefb4",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108638307",
+        "_rt": 1750108638.4472525
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.92",
+            "side": "BUY",
+            "size": "98.13"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "310a30c2f34b8fe290337a32df140711e5b26838",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108638307",
+        "_rt": 1750108638.4472525
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.06",
+            "side": "BUY",
+            "size": "41"
+          },
+          {
+            "price": "0.98",
+            "side": "SELL",
+            "size": "41"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "914d7ce84b630e0803426d22d9480dbf5d103ab0",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108638739",
+        "_rt": 1750108638.818671
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.94",
+            "side": "SELL",
+            "size": "41"
+          },
+          {
+            "price": "0.02",
+            "side": "BUY",
+            "size": "41"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "432748724d8ac01006cf96870c5c242c9216a64b",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750108638739",
+        "_rt": 1750108638.818671
+      }
+    ],
+    "ws_house_message_list": [
+      {
+        "event_type": "_internal",
+        "event": "open",
+        "timestamp": 1750108629.6264725
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "associate_trades": null,
+        "created_at": "1750108631",
+        "event_type": "order",
+        "expiration": "0",
+        "id": "0x3711158e306a0f7aba1df79dc8e0f8505fad3186c4178547a044393b66729451",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "order_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "order_type": "GTC",
+        "original_size": "22",
+        "outcome": "Yes",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.04",
+        "side": "BUY",
+        "size_matched": "0",
+        "status": "LIVE",
+        "timestamp": "1750108631571",
+        "type": "PLACEMENT",
+        "_rt": 1750108631.7061133
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "associate_trades": null,
+        "created_at": "1750108631",
+        "event_type": "order",
+        "expiration": "0",
+        "id": "0xa3dd65d482b0b953a1b5bdfd9409facba43514bdc6fb1f0ec8370a8ff59ada88",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "order_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "order_type": "GTC",
+        "original_size": "25",
+        "outcome": "Yes",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.03",
+        "side": "BUY",
+        "size_matched": "0",
+        "status": "LIVE",
+        "timestamp": "1750108631753",
+        "type": "PLACEMENT",
+        "_rt": 1750108631.9133546
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "associate_trades": null,
+        "created_at": "1750108632",
+        "event_type": "order",
+        "expiration": "0",
+        "id": "0xc0bacbf38003dc1bbd963fbba53dd9d09e24d16bc91a80687966d576e1b07ff1",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "order_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "order_type": "GTC",
+        "original_size": "27",
+        "outcome": "No",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.89",
+        "side": "BUY",
+        "size_matched": "0",
+        "status": "LIVE",
+        "timestamp": "1750108632022",
+        "type": "PLACEMENT",
+        "_rt": 1750108632.1033864
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "associate_trades": null,
+        "created_at": "1750108623",
+        "event_type": "order",
+        "expiration": "0",
+        "id": "0xc2992032506f9f0cc995f3382a3e85352e7e3766f3d2c193a74af2a7a5e4633d",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "order_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "order_type": "GTC",
+        "original_size": "20",
+        "outcome": "Yes",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.04",
+        "side": "BUY",
+        "size_matched": "0",
+        "status": "CANCELED",
+        "timestamp": "1750108637565",
+        "type": "CANCELLATION",
+        "_rt": 1750108637.6379757
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "associate_trades": null,
+        "created_at": "1750108631",
+        "event_type": "order",
+        "expiration": "0",
+        "id": "0xa3dd65d482b0b953a1b5bdfd9409facba43514bdc6fb1f0ec8370a8ff59ada88",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "order_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "order_type": "GTC",
+        "original_size": "25",
+        "outcome": "Yes",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.03",
+        "side": "BUY",
+        "size_matched": "0",
+        "status": "CANCELED",
+        "timestamp": "1750108637565",
+        "type": "CANCELLATION",
+        "_rt": 1750108637.6379757
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "associate_trades": null,
+        "created_at": "1750108631",
+        "event_type": "order",
+        "expiration": "0",
+        "id": "0x3711158e306a0f7aba1df79dc8e0f8505fad3186c4178547a044393b66729451",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "order_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "order_type": "GTC",
+        "original_size": "22",
+        "outcome": "Yes",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.04",
+        "side": "BUY",
+        "size_matched": "0",
+        "status": "CANCELED",
+        "timestamp": "1750108637565",
+        "type": "CANCELLATION",
+        "_rt": 1750108637.6379757
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "associate_trades": null,
+        "created_at": "1750108632",
+        "event_type": "order",
+        "expiration": "0",
+        "id": "0xc0bacbf38003dc1bbd963fbba53dd9d09e24d16bc91a80687966d576e1b07ff1",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "order_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "order_type": "GTC",
+        "original_size": "27",
+        "outcome": "No",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.89",
+        "side": "BUY",
+        "size_matched": "0",
+        "status": "CANCELED",
+        "timestamp": "1750108637569",
+        "type": "CANCELLATION",
+        "_rt": 1750108637.6379757
+      }
+    ]
+  }
+]

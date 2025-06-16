@@ -48,6 +48,9 @@ class TestClobApi(testutil.TestCase):
         orders_chunk = client.get_orders_chunk(condition_id=condition_id)
         assert orders_chunk['count'] == old_count + 1
 
+        order_list = client.get_orders(condition_id=condition_id)
+        assert order_list
+
         # client.cancel_market_orders(condition_id=condition_id)
         client.cancel_orders(order_ids=[order['id']])
         orders_chunk = client.get_orders_chunk(condition_id=condition_id)

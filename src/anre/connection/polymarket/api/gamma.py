@@ -116,8 +116,10 @@ class GammaClient:
 def __demo__():
     gamma = GammaClient()
 
-    markets = gamma.get_markets(limit=10, active=True, closed=False, end_date_min='2025-07-08')
+    markets = gamma.get_markets(limit=100, active=True, closed=False, end_date_min='2025-07-08')
     len(markets)
+
+
 
     asset_ids = [el for market in markets for el in orjson.loads(market['clobTokenIds'])]
     markets[0]
@@ -126,3 +128,8 @@ def __demo__():
     len(events)
 
     gamma.get_market('0xc2c0d4a0500a76186568270e28ff3619e7598578d2e90094bb89f2e0371cff0a')
+
+
+    negative_markets = [market for market in markets if market.get('negRisk')]
+    negative_markets[-1]
+

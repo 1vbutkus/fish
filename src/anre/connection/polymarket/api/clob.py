@@ -1,6 +1,7 @@
 import base64
 import time
 from typing import Callable, Literal, Optional
+from functools import partial
 
 from py_clob_client.client import ClobClient as ClobInternalClient
 from py_clob_client.clob_types import (
@@ -47,7 +48,7 @@ class ClobClient:
         api_client.set_api_creds(api_creds)
         return api_client
 
-    def get_market(self, condition_id: str) -> dict:
+    def get_market_info(self, condition_id: str) -> dict:
         return self._clob_internal_client.get_market(condition_id=condition_id)
 
     def get_markets_chunk(self, next_cursor: str = "") -> dict:
@@ -78,10 +79,10 @@ class ClobClient:
         """Get available CLOB markets expressed in a simplified schema. Single chunk."""
         return self._clob_internal_client.get_sampling_simplified_markets(next_cursor=next_cursor)
 
-    def get_order_book(self, token_id: str) -> dict:
+    def get_market_order_book(self, token_id: str) -> dict:
         return self._clob_internal_client.get_order_book(token_id=token_id)
 
-    def get_order_books(self, token_ids: list[str]) -> list[dict]:
+    def get_mob_list(self, token_ids: list[str]) -> list[dict]:
         return self._clob_internal_client.get_order_books(token_ids=token_ids)
 
     def collect_chunks(
@@ -92,13 +93,31 @@ class ClobClient:
             result = fun(next_cursor=next_cursor)
             data.extend(result['data'])
             next_cursor = result['next_cursor']
-            time.sleep(sleep_time)
+            if next_cursor != "LTE=":
+                time.sleep(sleep_time)
         return data
 
-    def get_order(self, order_id: str = None):
+    def get_our_order(self, order_id: str = None):
         return self._clob_internal_client.get_order(order_id=order_id)
 
-    def get_orders_chunk(
+    def get_house_orders(self, order_id: str = None,
+                         condition_id: str = None,
+                         asset_id: str = None,
+                         next_cursor: str = "",
+                         sleep_time=0.3,
+                         ):
+        return self.collect_chunks(
+            fun=partial(
+                self.get_our_orders_chunk,
+                order_id=order_id,
+                condition_id=condition_id,
+                asset_id=asset_id,
+            ),
+            next_cursor=next_cursor,
+            sleep_time=sleep_time,
+        )
+
+    def get_our_orders_chunk(
         self,
         order_id: str = None,
         condition_id: str = None,
@@ -108,7 +127,7 @@ class ClobClient:
         params = OpenOrderParams(id=order_id, market=condition_id, asset_id=asset_id)
         return self._clob_internal_client.get_orders(params, next_cursor=next_cursor)
 
-    def get_trades_chunk(
+    def get_our_trades_chunk(
         self,
         id: str = None,
         maker_address: str = None,
@@ -151,13 +170,13 @@ class ClobClient:
         resp = self._clob_internal_client.post_order(signed_order, order_type)
         return resp
 
-    def cancel_all(self):
+    def cancel_orders_all(self):
         return self._clob_internal_client.cancel_all()
 
-    def cancel_orders(self, order_ids: list[str]):
+    def cancel_orders_by_id(self, order_ids: list[str]):
         return self._clob_internal_client.cancel_orders(order_ids=order_ids)
 
-    def cancel_market_orders(self, condition_id: str = "", asset_id: str = ""):
+    def cancel_orders_by_market(self, condition_id: str = "", asset_id: str = ""):
         return self._clob_internal_client.cancel_market_orders(
             market=condition_id, asset_id=asset_id
         )
@@ -201,4 +220,4 @@ def __demo__():
     self = ClobClient()
     print(self)
 
-    self.get_market("0xc2c0d4a0500a76186568270e28ff3619e7598578d2e90094bb89f2e0371cff0a")
+    self.get_market_info("0xc2c0d4a0500a76186568270e28ff3619e7598578d2e90094bb89f2e0371cff0a")
