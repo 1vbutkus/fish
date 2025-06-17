@@ -3,9 +3,10 @@ from dataclasses import dataclass, field
 from anre.connection.polymarket.api.cache.base import AssetBook as BaseAssetBook
 from anre.connection.polymarket.api.cache.base import Book1000
 from anre.connection.polymarket.api.cache.base import MarketOrderBook as BaseMarketOrderBook
+from anre.connection.polymarket.api.cache.house import HouseOrderBook
 
 
-@dataclass
+@dataclass(frozen=False, repr=False)
 class PublicAssetBook(BaseAssetBook):
     asset_id: str
     book1000: Book1000 = field(default_factory=Book1000)
@@ -65,7 +66,7 @@ class PublicAssetBook(BaseAssetBook):
             raise ValueError(f'unknown event type: {event_type}')
 
 
-@dataclass
+@dataclass(frozen=False, repr=False)
 class PublicMarketOrderBook(BaseMarketOrderBook):
     condition_id: str
     yes_asset_book: PublicAssetBook
@@ -77,14 +78,38 @@ class PublicMarketOrderBook(BaseMarketOrderBook):
         )
 
     @classmethod
-    def new(cls, condition_id: str, yes_asset_id: str, no_asset_id: str):
+    def new_init(
+        cls, condition_id: str, yes_asset_id: str, no_asset_id: str
+    ) -> 'PublicMarketOrderBook':
         yes_asset_book = PublicAssetBook(asset_id=yes_asset_id)
         no_asset_book = PublicAssetBook(asset_id=no_asset_id)
         return cls(
             condition_id=condition_id, yes_asset_book=yes_asset_book, no_asset_book=no_asset_book
         )
 
-    def update_from_clob_mob(self, clob_mob: dict):
+    def get_net_market_order_book(self, house_order_book: HouseOrderBook):
+        house_order_book
+
+    # @classmethod
+    # def new_from_clob_mob_list(cls, clob_mob_list: list[dict], market_order_book_cred: dict) -> 'PublicMarketOrderBook':
+    #     cache = cls.new_init(**market_order_book_cred)
+    #     for clob_mob in clob_mob_list:
+    #         cache._update_from_clob_mob(clob_mob=clob_mob)
+    #     return cache
+
+    def update_from_clob_mob_list(self, clob_mob_list: list[dict], validate: bool = True):
+        for clob_mob in clob_mob_list:
+            self._update_from_clob_mob(clob_mob=clob_mob)
+        if validate:
+            self.validate()
+
+    def update_from_ws_message_list(self, ws_message_list: list[dict], validate: bool = True):
+        for ws_message in ws_message_list:
+            self._update_from_ws_message(ws_message=ws_message)
+        if validate:
+            self.validate()
+
+    def _update_from_clob_mob(self, clob_mob: dict):
         assert 'event_type' not in clob_mob
         assert clob_mob['market'] == self.condition_id, (
             f'message is not for this condition_id. Expected: {self.condition_id}, got: {clob_mob["condition_id"]}'
@@ -96,7 +121,7 @@ class PublicMarketOrderBook(BaseMarketOrderBook):
         else:
             raise ValueError(f'unknown asset_id: {clob_mob["asset_id"]}')
 
-    def update_from_ws_message(self, ws_message: dict):
+    def _update_from_ws_message(self, ws_message: dict):
         assert 'event_type' in ws_message, (
             f'message does not have `event_type`. It is not stream message: {ws_message}'
         )
@@ -120,50 +145,3 @@ class PublicMarketOrderBook(BaseMarketOrderBook):
 
         else:
             raise ValueError(f'unknown event type: {event_type}')
-
-
-def __dummy__():
-    from anre.config.config import config as anre_config
-    from anre.utils.Json.Json import Json
-
-    _file_path = anre_config.path.get_path_to_root_dir(
-        'src/anre/connection/polymarket/api/cache/tests/resources/info_step_list.json'
-    )
-    info_step_list = Json.load(path=_file_path)
-
-    clob_market_info_dict = info_step_list[0]['clob_market_info_dict']
-
-    ### zero step
-    clob_mob_list = info_step_list[0]['clob_mob_list']
-    clob_public_mob_0_cache = PublicMarketOrderBook.new_from_clob_market_info_dict(
-        clob_market_info_dict=clob_market_info_dict
-    )
-    for clob_mob in clob_mob_list:
-        clob_public_mob_0_cache.update_from_clob_mob(clob_mob=clob_mob)
-
-    ### first step
-    clob_mob_list = info_step_list[1]['clob_mob_list']
-    clob_public_mob_1_cache = PublicMarketOrderBook.new_from_clob_market_info_dict(
-        clob_market_info_dict=clob_market_info_dict
-    )
-    for clob_mob in clob_mob_list:
-        clob_public_mob_1_cache.update_from_clob_mob(clob_mob=clob_mob)
-
-    ws_market_message_list = info_step_list[1]['ws_market_message_list']
-    ws_public_mob_1_cache = PublicMarketOrderBook.new_from_clob_market_info_dict(
-        clob_market_info_dict=clob_market_info_dict
-    )
-    for ws_message in ws_market_message_list:
-        ws_public_mob_1_cache.update_from_ws_message(ws_message=ws_message)
-
-    # patikrinam as ws ir clob info sutampa
-    assert clob_public_mob_1_cache == ws_public_mob_1_cache
-
-    # ar yes ir no yra revertinti variantai?
-    pairs = zip(
-        clob_public_mob_1_cache.yes_asset_book.book1000.bids.items(),
-        reversed(clob_public_mob_1_cache.no_asset_book.book1000.asks.items()),
-    )
-    for yes_i, no_i in pairs:
-        assert yes_i[0] + no_i[0] == 1000
-        assert yes_i[1] == no_i[1]

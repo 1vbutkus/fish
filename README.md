@@ -55,6 +55,8 @@ Add keys if needed
 ssh -T git@github.com
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
+ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_ed25519_personal
 echo "$SSH_AUTH_SOCK"
 ```
 

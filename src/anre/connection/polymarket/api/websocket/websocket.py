@@ -221,7 +221,7 @@ class PolymarketWebSocket:
             res = self._pong_event.wait(timeout=timeout)
             takes_time = time.time() - sent_ping_time
             return res, takes_time
-        except:
+        except BaseException:
             return False, 0
 
 
@@ -254,7 +254,7 @@ def __dummy7__():
     ]
 
     messenger = Messenger()
-    self = polymarket_web_socket = PolymarketWebSocket(
+    polymarket_web_socket = PolymarketWebSocket(
         messenger=messenger, channel_type='market', subscribe_items=subscribe_items
     )
     polymarket_web_socket.start()
@@ -263,7 +263,7 @@ def __dummy7__():
     polymarket_web_socket._connect(reconnect=True)
 
     ###### orders
-    messages = messenger.get_peek_messages()
+    _ = messenger.get_peek_messages()
     polymarket_web_socket = PolymarketWebSocket(
         messenger=messenger, channel_type='user', subscribe_items=[]
     )

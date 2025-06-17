@@ -5,18 +5,18 @@ from anre.connection.polymarket.api.cache.base import Book1000
 from anre.connection.polymarket.api.cache.base import MarketOrderBook as BaseMarketOrderBook
 
 
-@dataclass
+@dataclass(frozen=False, repr=False)
 class HouseAssetBook(BaseAssetBook):
     asset_id: str
     book1000: Book1000 = field(default_factory=Book1000)
 
 
-@dataclass
+@dataclass(frozen=False, repr=False)
 class HouseOrderBook(BaseMarketOrderBook):
     condition_id: str
     yes_asset_book: HouseAssetBook
     no_asset_book: HouseAssetBook
-    house_live_order_dict: dict[str, dict] = field(default_factory=list)
+    _house_live_order_dict: dict[str, dict] = field(default_factory=list)
 
     def __post_init__(self):
         assert self.yes_asset_book.asset_id != self.no_asset_book.asset_id, (
@@ -33,7 +33,7 @@ class HouseOrderBook(BaseMarketOrderBook):
         )
 
     @classmethod
-    def new(cls, condition_id: str, yes_asset_id: str, no_asset_id: str):
+    def new_init(cls, condition_id: str, yes_asset_id: str, no_asset_id: str) -> 'HouseOrderBook':
         yes_asset_book = HouseAssetBook(asset_id=yes_asset_id)
         no_asset_book = HouseAssetBook(asset_id=no_asset_id)
         return cls(
@@ -53,33 +53,39 @@ class HouseOrderBook(BaseMarketOrderBook):
     def counter_price(price: float) -> float:
         return 1 - price
 
-    def update_from_clob_house_order_list(self, clob_house_order_list: list[dict]):
+    def update_from_clob_house_order_list(
+        self, clob_house_order_list: list[dict], validate: bool = True
+    ):
         live_order_dict = {order['id']: order for order in clob_house_order_list}
-        yes_asset_book, no_asset_book = self.get_asset_books_from_live_orders(
+        yes_asset_book, no_asset_book = self._get_asset_books_from_live_orders(
             live_order_dict=live_order_dict
         )
-        self.yes_asset_book, self.no_asset_book, self.house_live_order_dict = (
+        self.yes_asset_book, self.no_asset_book, self._house_live_order_dict = (
             yes_asset_book,
             no_asset_book,
             live_order_dict,
         )
+        if validate:
+            self.validate()
 
-    def update_from_ws_messages(self, ws_message_list: list[dict]):
+    def update_from_ws_message_list(self, ws_message_list: list[dict], validate: bool = True):
         for ws_message in ws_message_list:
             if ws_message["event_type"] in ["order", "trade"]:
                 if ws_message['status'] == 'LIVE':
-                    self.house_live_order_dict[ws_message['id']] = ws_message
+                    self._house_live_order_dict[ws_message['id']] = ws_message
                 else:
-                    self.house_live_order_dict.pop(ws_message['id'], None)
+                    self._house_live_order_dict.pop(ws_message['id'], None)
             elif ws_message["event_type"] == "_internal":
                 pass
             else:
                 raise ValueError(f'unknown event type: {ws_message["event_type"]}')
-        self.yes_asset_book, self.no_asset_book = self.get_asset_books_from_live_orders(
-            live_order_dict=self.house_live_order_dict
+        self.yes_asset_book, self.no_asset_book = self._get_asset_books_from_live_orders(
+            live_order_dict=self._house_live_order_dict
         )
+        if validate:
+            self.validate()
 
-    def get_asset_books_from_live_orders(self, live_order_dict: dict[str, dict]):
+    def _get_asset_books_from_live_orders(self, live_order_dict: dict[str, dict]):
         yes_asset_book = HouseAssetBook(asset_id=self.yes_asset_book.asset_id)
         no_asset_book = HouseAssetBook(asset_id=self.no_asset_book.asset_id)
         # live_order = list(live_order_dict.values())[3]
@@ -113,53 +119,3 @@ class HouseOrderBook(BaseMarketOrderBook):
             else:
                 raise ValueError(f'unknown outcome: {live_order["outcome"]}')
         return yes_asset_book, no_asset_book
-
-
-def __dummy__():
-    from anre.config.config import config as anre_config
-    from anre.utils.Json.Json import Json
-
-    _file_path = anre_config.path.get_path_to_root_dir(
-        'src/anre/connection/polymarket/api/cache/tests/resources/info_step_list.json'
-    )
-    info_step_list = Json.load(path=_file_path)
-
-    clob_market_info_dict = info_step_list[0]['clob_market_info_dict']
-
-    clob_house_order_list = info_step_list[1]['clob_house_order_list']
-    clob_house_order_book_cache = HouseOrderBook.new_from_clob_market_info_dict(
-        clob_market_info_dict=clob_market_info_dict
-    )
-    clob_house_order_book_cache.update_from_clob_house_order_list(
-        clob_house_order_list=clob_house_order_list
-    )
-
-    clob_house_order_list = info_step_list[2]['clob_house_order_list']
-    self = clob_house_order_book_cache = HouseOrderBook.new_from_clob_market_info_dict(
-        clob_market_info_dict=clob_market_info_dict
-    )
-    clob_house_order_book_cache.update_from_clob_house_order_list(
-        clob_house_order_list=clob_house_order_list
-    )
-
-    #
-    ws_house_order_book_cache = HouseOrderBook.new_from_clob_market_info_dict(
-        clob_market_info_dict=clob_market_info_dict
-    )
-    clob_house_order_list = info_step_list[1]['clob_house_order_list']
-    ws_house_message_list = info_step_list[2]['ws_house_message_list']
-    ws_house_order_book_cache.update_from_clob_house_order_list(
-        clob_house_order_list=clob_house_order_list
-    )
-    ws_house_order_book_cache.update_from_ws_messages(ws_message_list=ws_house_message_list)
-
-    assert ws_house_order_book_cache == clob_house_order_book_cache
-
-    # patikrinti ar reverso logikagalioja
-    pairs = zip(
-        ws_house_order_book_cache.yes_asset_book.book1000.bids.items(),
-        reversed(ws_house_order_book_cache.no_asset_book.book1000.asks.items()),
-    )
-    for yes_i, no_i in list(pairs):
-        assert yes_i[0] + no_i[0] == 1000
-        assert yes_i[1] == no_i[1]

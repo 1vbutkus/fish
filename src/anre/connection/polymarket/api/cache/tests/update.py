@@ -6,7 +6,7 @@ from anre.connection.polymarket.api.websocket.websocket import PolymarketWebSock
 from anre.utils.Json.Json import Json
 
 
-def run_steps_and_save_to_file(overwrite: bool = False):
+def run_book_steps_and_save_to_file(overwrite: bool = False):
     condition_id = '0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f'  # condition_id = '0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f'
     clob_client = ClobClient()
 
@@ -109,7 +109,7 @@ def run_steps_and_save_to_file(overwrite: bool = False):
     ws_market_message_list_3 = market_ws.messenger.get_peek_messages()
     ws_house_message_list_3 = house_ws.messenger.get_peek_messages()
 
-    info_step_list = [
+    book_change_step_list = [
         {
             'clob_market_info_dict': clob_market_info_dict,
             'clob_mob_list': clob_mob_list_0,
@@ -138,11 +138,11 @@ def run_steps_and_save_to_file(overwrite: bool = False):
     ]
 
     _file_path = anre_config.path.get_path_to_root_dir(
-        'src/anre/connection/polymarket/api/cache/tests/resources/info_step_list.json'
+        'src/anre/connection/polymarket/api/cache/tests/resources/book_change_step_list.json'
     )
-    Json.dump(info_step_list, path=_file_path, overwrite=True, useIndent=True)
+    Json.dump(book_change_step_list, path=_file_path, overwrite=True, useIndent=True)
 
 
 if __name__ == '__main__':
     pass
-    # run_steps_and_save_to_file(overwrite=True)
+    # run_book_steps_and_save_to_file(overwrite=True)

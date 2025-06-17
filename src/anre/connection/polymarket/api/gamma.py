@@ -1,7 +1,6 @@
 from typing import Any
 
 import httpx
-import orjson
 
 
 class GammaClient:
@@ -118,14 +117,3 @@ def __demo__():
 
     markets = gamma.get_markets(limit=100, active=True, closed=False, end_date_min='2025-07-08')
     len(markets)
-
-    asset_ids = [el for market in markets for el in orjson.loads(market['clobTokenIds'])]
-    markets[0]
-
-    events = gamma.get_events(slug="what-will-powell-say-during-june-press-conference")
-    len(events)
-
-    gamma.get_market('0xc2c0d4a0500a76186568270e28ff3619e7598578d2e90094bb89f2e0371cff0a')
-
-    negative_markets = [market for market in markets if market.get('negRisk')]
-    negative_markets[-1]
