@@ -55,3 +55,6 @@ class TestClobApi(testutil.TestCase):
         client.cancel_orders_by_id(order_ids=[order['id']])
         orders_chunk = client.get_house_orders_chunk(condition_id=condition_id)
         assert orders_chunk['count'] == old_count
+
+        house_positions = client.get_house_positions()
+        assert isinstance(house_positions, list)

@@ -3,12 +3,14 @@ import time
 from functools import partial
 from typing import Callable, Literal, Optional
 
+import requests
 from py_clob_client.client import ClobClient as ClobInternalClient
 from py_clob_client.clob_types import (
     ApiCreds,
     OpenOrderParams,
     OrderArgs,
     OrderType,
+    PositionsArgs,
     PriceHistoryArgs,
     TradeParams,
 )
@@ -28,6 +30,7 @@ class ClobClient:
         if self._clob_internal_client is None:
             self._clob_internal_client = self._create_clob_internal_client()
         assert isinstance(self._clob_internal_client, ClobInternalClient)
+        self._house_user = anre_config.cred.get_polymarket_creds()['contract']
 
     @staticmethod
     def _create_clob_internal_client():
@@ -217,9 +220,23 @@ class ClobClient:
         # Decode Base64 to bytes, then decode bytes back to string
         return int(base64.b64decode(encoded_value).decode())
 
+    def get_any_user_positions(self, user: str, **kwargs) -> list[dict]:
+        # this is not exactly clob, but let it be
+        params = PositionsArgs(user=user, **kwargs)
+        params = {key: value for key, value in params.__dict__.items() if value is not None}
+        url = "https://data-api.polymarket.com/positions"
+        response = requests.request("GET", url, params=params)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            raise Exception(f"Error response from API: HTTP {response.status_code}")
+
+    def get_house_positions(self, **kwargs):
+        return self.get_any_user_positions(user=self._house_user, **kwargs)
+
 
 def __demo__():
     self = ClobClient()
     print(self)
 
-    self.get_market_info("0xc2c0d4a0500a76186568270e28ff3619e7598578d2e90094bb89f2e0371cff0a")
+    self.get_house_positions()

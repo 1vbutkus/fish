@@ -53,7 +53,7 @@ class _Cred:
         return self._path.get_path_to_root_dir('_private', 'cred.yaml')
 
     def load_credentials(self) -> dict[str, Any]:
-        return Yaml.load(path=self.get_credentials_path())['Cred']
+        return Yaml.load(path=self.get_credentials_path(), cache=True)['Cred']
 
     @staticmethod
     def get_mlflow_uri() -> str:
