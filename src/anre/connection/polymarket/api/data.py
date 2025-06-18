@@ -1,23 +1,10 @@
-import base64
-import time
+
 from dataclasses import dataclass
-from functools import partial
-from typing import Callable, Literal, Optional
 from requests import Response
 import requests
-from py_clob_client.client import ClobClient as ClobInternalClient
-from py_clob_client.clob_types import (
-    ApiCreds,
-    OpenOrderParams,
-    OrderArgs,
-    OrderType,
-    PriceHistoryArgs,
-    TradeParams,
-)
-from py_clob_client.constants import POLYGON
-from py_clob_client.order_builder.constants import BUY, SELL
 
 from anre.config.config import config as anre_config
+from anre.connection.polymarket.api.types import HouseTradeRec
 
 
 
@@ -101,33 +88,48 @@ def get(endpoint, headers=None, data=None, params=None):
 
 class DataClient:
     _url = "https://data-api.polymarket.com"
-    def __init__(self):
-        self._house_user = anre_config.cred.get_polymarket_creds()['contract']
+    _house_address = anre_config.cred.get_polymarket_creds()['address']
 
-    def get_user_positions(self, user: str, limit: int = None, condition_id: str = None, **kwargs) -> list[dict]:
+    def get_user_position_dict_list(self, user: str, limit: int = None, condition_id: str = None, **kwargs) -> list[dict]:
         # this is not exactly clob, but let it be
         params = PositionsArgs(user=user, limit=limit, market=condition_id, **kwargs)
         params = {key: value for key, value in params.__dict__.items() if value is not None}
         url = self._url + "/positions"
         return get(url, params=params)
 
-    def get_house_positions(self, **kwargs):
-        return self.get_user_positions(user=self._house_user, **kwargs)
+    def get_house_position_dict_list(self, **kwargs) -> list[dict]:
+        return self.get_user_position_dict_list(user=self._house_address, **kwargs)
 
-    def get_user_trades(self, user: str, limit: int = None, condition_id: str = None, **kwargs) -> list[dict]:
+    def get_user_trade_dict_list(self, user: str, limit: int = None, condition_id: str = None, **kwargs) -> list[dict]:
         # this is not exactly clob, but let it be
         params = TradesArgs(user=user, limit=limit, market=condition_id, **kwargs)
         params = {key: value for key, value in params.__dict__.items() if value is not None}
         url = self._url + "/trades"
         return get(url, params=params)
 
-    def get_house_trades(self, **kwargs):
-        return self.get_user_trades(user=self._house_user, **kwargs)
+    def get_house_trade_dict_list(self, **kwargs) -> list[dict]:
+        return self.get_user_trade_dict_list(user=self._house_address, **kwargs)
+
+    @staticmethod
+    def parse_house_trade_dict_list(house_trade_dict_list: list[dict]) -> list[HouseTradeRec]:
+        def _get_house_trade_rec(date_trade_rec_dict):
+            return HouseTradeRec(
+                conditionId=date_trade_rec_dict['conditionId'],
+                assetId=date_trade_rec_dict['asset'],
+                outcome=date_trade_rec_dict['outcome'],
+                side=date_trade_rec_dict['side'],
+                size=date_trade_rec_dict['size'],
+                price=date_trade_rec_dict['price'],
+                timestamp=date_trade_rec_dict['timestamp'],
+            )
+        house_trade_rec_list = [_get_house_trade_rec(date_trade_rec_dict) for date_trade_rec_dict in house_trade_dict_list]
+        return house_trade_rec_list
+
 
 
 def __demo__():
     self = DataClient()
     print(self)
 
-    self.get_house_positions(limit=3)
-    self.get_house_trades(limit=3)
+    self.get_house_position_dict_list(limit=3)
+

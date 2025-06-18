@@ -56,5 +56,7 @@ class TestClobApi(testutil.TestCase):
         orders_chunk = client.get_house_orders_chunk(condition_id=condition_id)
         assert orders_chunk['count'] == old_count
 
-        house_positions = client.get_house_positions()
-        assert isinstance(house_positions, list)
+        condition_id = '0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f'
+        trade_dict_list = client.get_house_trade_dict_list(condition_id=condition_id)
+        house_trade_rec_list = client.parse_house_trade_dict_list(trade_dict_list=trade_dict_list)
+        assert isinstance(house_trade_rec_list, list)

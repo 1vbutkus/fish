@@ -1,0 +1,4318 @@
+[
+  {
+    "clob_market_info_dict": {
+      "enable_order_book": true,
+      "active": true,
+      "closed": false,
+      "archived": false,
+      "accepting_orders": true,
+      "accepting_order_timestamp": "2025-06-04T20:56:46Z",
+      "minimum_order_size": 5,
+      "minimum_tick_size": 0.01,
+      "condition_id": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+      "question_id": "0xec03c9f53851dbd566296a49895ac381ab868c3a4cfc30b07f530487fa6ca4dd",
+      "question": "Japan parliament dissolved before July?",
+      "description": "This market will resolve to \"Yes\" if the sitting House of Representatives of Japan, as of June 4, 2025, is dissolved between June 4 and June 30, 2025, 11:59 PM ET. Otherwise, this market will resolve to \"No\".\n\nThe primary resolution source for this market is official information from the government of Japan, however a consensus of credible reporting will also be used.",
+      "market_slug": "japan-parliament-dissolved-before-july",
+      "end_date_iso": "2025-06-30T00:00:00Z",
+      "game_start_time": null,
+      "seconds_delay": 0,
+      "fpmm": "",
+      "maker_base_fee": 0,
+      "taker_base_fee": 0,
+      "notifications_enabled": true,
+      "neg_risk": false,
+      "neg_risk_market_id": "",
+      "neg_risk_request_id": "",
+      "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+      "image": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+      "rewards": {
+        "rates": [
+          {
+            "asset_address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+            "rewards_daily_rate": 3
+          }
+        ],
+        "min_size": 100,
+        "max_spread": 3.5
+      },
+      "is_50_50_outcome": false,
+      "tokens": [
+        {
+          "token_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+          "outcome": "Yes",
+          "price": 0.05,
+          "winner": false
+        },
+        {
+          "token_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+          "outcome": "No",
+          "price": 0.95,
+          "winner": false
+        }
+      ],
+      "tags": [
+        "Japan",
+        "World"
+      ]
+    },
+    "clob_mob_list": [
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "timestamp": "1750279162034",
+        "hash": "57d151662cae9c6db12d9b805d46e2b935085af7",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "60"
+          },
+          {
+            "price": "0.03",
+            "size": "200"
+          },
+          {
+            "price": "0.04",
+            "size": "113.63"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "22000"
+          },
+          {
+            "price": "0.94",
+            "size": "5"
+          },
+          {
+            "price": "0.67",
+            "size": "12"
+          },
+          {
+            "price": "0.28",
+            "size": "250"
+          },
+          {
+            "price": "0.23",
+            "size": "514.11"
+          },
+          {
+            "price": "0.09",
+            "size": "538.69"
+          },
+          {
+            "price": "0.08",
+            "size": "527.2"
+          },
+          {
+            "price": "0.07",
+            "size": "200"
+          }
+        ]
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "timestamp": "1750279162034",
+        "hash": "00a849374da9aed7e06ea2137aee82634ff6a93d",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "22000"
+          },
+          {
+            "price": "0.06",
+            "size": "5"
+          },
+          {
+            "price": "0.33",
+            "size": "12"
+          },
+          {
+            "price": "0.72",
+            "size": "250"
+          },
+          {
+            "price": "0.77",
+            "size": "514.11"
+          },
+          {
+            "price": "0.91",
+            "size": "538.69"
+          },
+          {
+            "price": "0.92",
+            "size": "527.2"
+          },
+          {
+            "price": "0.93",
+            "size": "200"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "60"
+          },
+          {
+            "price": "0.97",
+            "size": "200"
+          },
+          {
+            "price": "0.96",
+            "size": "113.63"
+          }
+        ]
+      }
+    ],
+    "position_list": [
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "asset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 84,
+        "avgPrice": 0.854285,
+        "initialValue": 71.75994,
+        "currentValue": 79.8,
+        "cashPnl": 8.04006,
+        "percentPnl": 11.20410635794846,
+        "totalBought": 84,
+        "realizedPnl": 0,
+        "percentRealizedPnl": 11.20410635794846,
+        "curPrice": 0.95,
+        "redeemable": false,
+        "mergeable": true,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "No",
+        "outcomeIndex": 1,
+        "oppositeOutcome": "Yes",
+        "oppositeAsset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "endDate": "2025-06-30",
+        "negativeRisk": false
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 51.157701,
+        "avgPrice": 0.193733,
+        "initialValue": 9.910934887833,
+        "currentValue": 2.5578850500000003,
+        "cashPnl": -7.353049837832999,
+        "percentPnl": -74.19128388039208,
+        "totalBought": 233,
+        "realizedPnl": -8.050139,
+        "percentRealizedPnl": -94.3334316430655,
+        "curPrice": 0.05,
+        "redeemable": false,
+        "mergeable": true,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "oppositeOutcome": "No",
+        "oppositeAsset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "endDate": "2025-06-30",
+        "negativeRisk": false
+      }
+    ],
+    "data_trade_list": [
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 33,
+        "price": 0.04,
+        "timestamp": 1750263879,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x62a333e731a6c5b1efeb7608e40aa4bcc48fb7bfb1ba8fc4e8937942592d9de5"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 33,
+        "price": 0.06,
+        "timestamp": 1750263875,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x556708b1bc69473b608f4e636af9d3f3dd5d1f42d77f8c545a4a79c1d1544b0b"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 27,
+        "price": 0.94,
+        "timestamp": 1750076981,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "No",
+        "outcomeIndex": 1,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0xf09a99a353399b5dfe9801f097f59ec5ce54f6333c40622ab6c3b18cb7ec20f8"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 27,
+        "price": 0.94,
+        "timestamp": 1750076811,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "No",
+        "outcomeIndex": 1,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x55a88f7e33ead9b78fee3458839e45bf7b36e23e27f00b688d480cce0a18d60f"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 3.846152,
+        "price": 0.2599998647999351,
+        "timestamp": 1749725487,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x4ecea0cb8e118a4ec87efb18c1d7ad11897a473d017fec5e4c1fd7540f62d199"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 3.846152,
+        "price": 0.2599998647999351,
+        "timestamp": 1749645488,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x76a28519964690c04e26003396598687060cf7301841b9be306d77c5fbac640a"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 1.74,
+        "price": 0.26,
+        "timestamp": 1749542927,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x6eaea23b42696506ba8b8ee12b36657ba7cd86d319a4c9ecfea9ee152ec7ec3b"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 3.846152,
+        "price": 0.2599998647999351,
+        "timestamp": 1749459542,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x6550c070f1705e9c415c19cefdcab1a06da5957c9430fd227a5d5ae3aafa9dcc"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 30,
+        "price": 0.26,
+        "timestamp": 1749376631,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x873d74fc7eb2eac726c12ad85ba15d067f970beb51b78afd30f8404918eabbdf"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 8,
+        "price": 0.26,
+        "timestamp": 1749375997,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x764560c1c25d2ea2bec9e9afcbad3d7b61ab823caa2f4eb0590e3d92a5dd0d45"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 1.41,
+        "price": 0.26,
+        "timestamp": 1749366987,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0xd12232484ca12d01f46175820f21cb5d7ca9c157a2ae18911c75825b3c9506cf"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 76.923075,
+        "price": 0.25999999349999986,
+        "timestamp": 1749219288,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x5488d95ca89bad3352afb132893390153c79a56d2790bdac5f59f3ed3731e53b"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 19.230768,
+        "price": 0.25999996463999775,
+        "timestamp": 1749212910,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x6980ee24baee7ae75142a2352254988cbe776c10287fbcab7d2844d8e9d2fc28"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 200,
+        "price": 0.28,
+        "timestamp": 1749109620,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0xa8a8eaffb0669849cbff9c1959a04faffd3c8335d350516a77f4c9e843f5db11"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 10,
+        "price": 0.7,
+        "timestamp": 1749108358,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "No",
+        "outcomeIndex": 1,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x5f52772ae32a4115fb92fe2a259f45b616ad15e125a87cf059f18eac19ed3888"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 20,
+        "price": 0.7,
+        "timestamp": 1749104513,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "No",
+        "outcomeIndex": 1,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x6b69881180932e0f5bf155c37b211c9e3eae3ff7d8656ea22396c4141b1344e5"
+      }
+    ],
+    "clob_trade_list": [
+      {
+        "id": "8d872f19-760c-4464-a99a-b5f80d559fd0",
+        "taker_order_id": "0x6fb1e19d66089bd717f88638c89a40839a966b59756b1aad50e280de019b743d",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "SELL",
+        "size": "33",
+        "fee_rate_bps": "0",
+        "price": "0.04",
+        "status": "CONFIRMED",
+        "match_time": "1750263871",
+        "last_update": "1750264059",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "transaction_hash": "0x62a333e731a6c5b1efeb7608e40aa4bcc48fb7bfb1ba8fc4e8937942592d9de5",
+        "maker_orders": [
+          {
+            "order_id": "0xbe892ed79b0087e52e3f98ed035d7efdc61aa9f1bd2189630417a0aca8fd85df",
+            "owner": "b0290663-e75f-76bb-716e-576cbbbdebf9",
+            "maker_address": "0xC8ab97a9089a9Ff7E6eF0688e6e591a066946418",
+            "matched_amount": "33",
+            "price": "0.04",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          }
+        ],
+        "trader_side": "TAKER"
+      },
+      {
+        "id": "11710912-bf3e-4f92-8e78-f21e41ad03af",
+        "taker_order_id": "0x7b45f51aecef1eaa76bd2476fb86653a565b4e799d323d43a748e98823e52a89",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "33",
+        "fee_rate_bps": "0",
+        "price": "0.06",
+        "status": "CONFIRMED",
+        "match_time": "1750263867",
+        "last_update": "1750264059",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "transaction_hash": "0x556708b1bc69473b608f4e636af9d3f3dd5d1f42d77f8c545a4a79c1d1544b0b",
+        "maker_orders": [
+          {
+            "order_id": "0xd2fea5c34d715403828ec5e82e81fcba5385a06078777ecb515874b0ba242178",
+            "owner": "022b7be3-67ab-b9e5-c792-dc54bf581735",
+            "maker_address": "0xCcedDFb8933dB63b5dFBfD49620e31e79F609fFE",
+            "matched_amount": "33",
+            "price": "0.06",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "TAKER"
+      },
+      {
+        "id": "2cdd3747-86c0-4113-ab4f-6808fefc5808",
+        "taker_order_id": "0xc79e27f01cfdc961618b36e22c4ea096a416f173046ba91b93014bc05702915d",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "BUY",
+        "size": "27",
+        "fee_rate_bps": "0",
+        "price": "0.94",
+        "status": "CONFIRMED",
+        "match_time": "1750076976",
+        "last_update": "1750077169",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "transaction_hash": "0xf09a99a353399b5dfe9801f097f59ec5ce54f6333c40622ab6c3b18cb7ec20f8",
+        "maker_orders": [
+          {
+            "order_id": "0x2a1254999c3bdb591ef23651228cb23f304607b39efbd401e11be983bbce4658",
+            "owner": "a1091e6f-f32e-1f86-6dee-f222b03704f3",
+            "maker_address": "0xd0e1ae8aD003030299df6e9Be78588B127957C9f",
+            "matched_amount": "14",
+            "price": "0.06",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          },
+          {
+            "order_id": "0x21bc5d58abf651c5c2a751779f66124113c50a1b859a6c4d91e610299f1398d2",
+            "owner": "635cd600-e22c-cfb7-c49b-869f24075142",
+            "maker_address": "0x8e8D8163c34d90cE063c7438637A0E5C3ffA5a27",
+            "matched_amount": "13",
+            "price": "0.94",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "TAKER"
+      },
+      {
+        "id": "baac7644-8706-4467-87e9-76542b19ffb2",
+        "taker_order_id": "0xd01bd04ab791c5b00a671418c039c4fd28b5b2d90e2bd1e1dcc9d211062c7334",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "BUY",
+        "size": "27",
+        "fee_rate_bps": "0",
+        "price": "0.94",
+        "status": "CONFIRMED",
+        "match_time": "1750076806",
+        "last_update": "1750076965",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "transaction_hash": "0x55a88f7e33ead9b78fee3458839e45bf7b36e23e27f00b688d480cce0a18d60f",
+        "maker_orders": [
+          {
+            "order_id": "0x0611f51c91747e126cc7d1ce11aa05b66a41e47e2fce684f54df242fcba3f0ee",
+            "owner": "635cd600-e22c-cfb7-c49b-869f24075142",
+            "maker_address": "0x8e8D8163c34d90cE063c7438637A0E5C3ffA5a27",
+            "matched_amount": "20",
+            "price": "0.94",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "SELL"
+          },
+          {
+            "order_id": "0x2a1254999c3bdb591ef23651228cb23f304607b39efbd401e11be983bbce4658",
+            "owner": "a1091e6f-f32e-1f86-6dee-f222b03704f3",
+            "maker_address": "0xd0e1ae8aD003030299df6e9Be78588B127957C9f",
+            "matched_amount": "7",
+            "price": "0.06",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          }
+        ],
+        "trader_side": "TAKER"
+      },
+      {
+        "id": "46e2a213-aca1-425e-b92d-5bfd3d76967f",
+        "taker_order_id": "0x54b993ef932e238a450f739eef50be8cc7b830017d36f562c01126a02594f188",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "3.846152",
+        "fee_rate_bps": "0",
+        "price": "0.26",
+        "status": "CONFIRMED",
+        "match_time": "1749725481",
+        "last_update": "1749725657",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "657e52d2-0c8d-6322-f26b-784f0701b410",
+        "maker_address": "0x96Ed98F5E22ab822ae75ED084C0Ffc191e10A350",
+        "transaction_hash": "0x4ecea0cb8e118a4ec87efb18c1d7ad11897a473d017fec5e4c1fd7540f62d199",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "3.846152",
+            "price": "0.2599998647999351",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "4643524a-676b-409a-8ef0-5b434231209b",
+        "taker_order_id": "0x61e5f8f73700e74cf831a122d06750878df2011edadd062108edd61008950342",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "3.846152",
+        "fee_rate_bps": "0",
+        "price": "0.26",
+        "status": "CONFIRMED",
+        "match_time": "1749645483",
+        "last_update": "1749645678",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "e71aba12-f337-bba6-26bb-cc305186867c",
+        "maker_address": "0xd5Ac7127E43b2D05e6f0BbEC26157Ede9C54C8FC",
+        "transaction_hash": "0x76a28519964690c04e26003396598687060cf7301841b9be306d77c5fbac640a",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "3.846152",
+            "price": "0.2599998647999351",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "847f04c1-f99c-4054-9aab-7cd05f8ed15c",
+        "taker_order_id": "0x8050ceccad10dc8fe39f0acd89ed4ff13741b61c9ba0c3ec66c2853ae9244862",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "SELL",
+        "size": "1.74",
+        "fee_rate_bps": "0",
+        "price": "0.74",
+        "status": "CONFIRMED",
+        "match_time": "1749542922",
+        "last_update": "1749543111",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "470b9e7f-4aa0-c16a-ee71-80ad28f1ae04",
+        "maker_address": "0xd7c9248C978064aD6FaB70B84C27c59E2b73bbaC",
+        "transaction_hash": "0x6eaea23b42696506ba8b8ee12b36657ba7cd86d319a4c9ecfea9ee152ec7ec3b",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "1.74",
+            "price": "0.26",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "4b9b6d1d-91dd-476d-8bc9-dcc2a68e8442",
+        "taker_order_id": "0x4fd9a7eb3f1eb75f533b7e0471d36b5aba7b8d81c0efd58fe90174020032795b",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "3.846152",
+        "fee_rate_bps": "0",
+        "price": "0.26",
+        "status": "CONFIRMED",
+        "match_time": "1749459535",
+        "last_update": "1749459744",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "0d15bbfe-fb32-1e3e-7720-df5d8fd72d93",
+        "maker_address": "0xbFA6cDEcBD3045cE508B2DbA60E3532Edc712bD5",
+        "transaction_hash": "0x6550c070f1705e9c415c19cefdcab1a06da5957c9430fd227a5d5ae3aafa9dcc",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "3.846152",
+            "price": "0.2599998647999351",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "cb05f6cd-1b25-4f2e-b0f8-52d283244623",
+        "taker_order_id": "0x211030bd726606075ad29e8279da48e81a491525899715c35794e76b3e2b3413",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "SELL",
+        "size": "30",
+        "fee_rate_bps": "0",
+        "price": "0.74",
+        "status": "CONFIRMED",
+        "match_time": "1749376627",
+        "last_update": "1749376811",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "299f8436-0019-ef59-1ed1-00b91e63cf66",
+        "maker_address": "0x726EF9f3Ab440Bf2e847bd290cF005B869679dC9",
+        "transaction_hash": "0x873d74fc7eb2eac726c12ad85ba15d067f970beb51b78afd30f8404918eabbdf",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "30",
+            "price": "0.26",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "790f3f71-a2f5-4c52-9a12-61ccb630b3a0",
+        "taker_order_id": "0xd943289c3c4ce25aee77f21a4e7c8bf228c5e56ae6745e37d9dcdf6144557c14",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "SELL",
+        "size": "8",
+        "fee_rate_bps": "0",
+        "price": "0.74",
+        "status": "CONFIRMED",
+        "match_time": "1749375993",
+        "last_update": "1749376199",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "299f8436-0019-ef59-1ed1-00b91e63cf66",
+        "maker_address": "0x726EF9f3Ab440Bf2e847bd290cF005B869679dC9",
+        "transaction_hash": "0x764560c1c25d2ea2bec9e9afcbad3d7b61ab823caa2f4eb0590e3d92a5dd0d45",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "8",
+            "price": "0.26",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "45123bf6-744e-4228-90e9-50e4e94a1206",
+        "taker_order_id": "0x68658a3c431577d8b83e5c8362341b9bb52c25f1842f561ac91d964b9fbc5860",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "SELL",
+        "size": "6.41",
+        "fee_rate_bps": "0",
+        "price": "0.75",
+        "status": "CONFIRMED",
+        "match_time": "1749366980",
+        "last_update": "1749367155",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "e1d9f9e4-c7bb-494d-b648-decdce3e7944",
+        "maker_address": "0xfCCaFE3b51726a5803719923e9A1C6e0649FaEBA",
+        "transaction_hash": "0xd12232484ca12d01f46175820f21cb5d7ca9c157a2ae18911c75825b3c9506cf",
+        "maker_orders": [
+          {
+            "order_id": "0xae9a24df81cc1f2fae7d33644172121d877410ac7fa040cfd6676c2521b4f634",
+            "owner": "d612e398-8a42-518e-9727-b951f94e9942",
+            "maker_address": "0x427311c6551a20D6BdE2f4b57f10A34F164AFa0d",
+            "matched_amount": "5",
+            "price": "0.75",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "BUY"
+          },
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "1.41",
+            "price": "0.26",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "d978e01c-f855-4584-9f26-67807ff810f4",
+        "taker_order_id": "0x1004bb4300c85d8d990d8b6e07bfbd1dfda2b3df31f43d82eaea51c7ad6f7883",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "76.923075",
+        "fee_rate_bps": "0",
+        "price": "0.26",
+        "status": "CONFIRMED",
+        "match_time": "1749219283",
+        "last_update": "1749219448",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "0da57006-2d07-1bd7-7a49-efb519255b22",
+        "maker_address": "0x5E02Ea6229804cCf72C89e2149478EA9b8a55553",
+        "transaction_hash": "0x5488d95ca89bad3352afb132893390153c79a56d2790bdac5f59f3ed3731e53b",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "76.923075",
+            "price": "0.2599999934999998",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "0f8de888-35d1-4238-a521-98efdeea508c",
+        "taker_order_id": "0x32f19e8a5e822e84290e554315bd2fa6dc15845dfef2a4542eb34af48d8c4818",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "19.230768",
+        "fee_rate_bps": "0",
+        "price": "0.26",
+        "status": "CONFIRMED",
+        "match_time": "1749212907",
+        "last_update": "1749213056",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "340c8259-0a38-4dfa-018a-8670a0b697dc",
+        "maker_address": "0x11aBF2feD28A7077F58134336361c9F3ccc29905",
+        "transaction_hash": "0x6980ee24baee7ae75142a2352254988cbe776c10287fbcab7d2844d8e9d2fc28",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "19.230768",
+            "price": "0.2599999646399977",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "2a1e8403-9e36-49d5-a69c-c99f48c81123",
+        "taker_order_id": "0xca94df36d2f492836d7f716baa275465180b9f12e9bc87037be85101ee197d9a",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "BUY",
+        "size": "228.61",
+        "fee_rate_bps": "0",
+        "price": "0.72",
+        "status": "CONFIRMED",
+        "match_time": "1749109616",
+        "last_update": "1749109796",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "d2dede4a-4bc1-0504-1c8b-7dc779aab092",
+        "maker_address": "0xa8c63F775DDbbE66B56614191747Def3021444E8",
+        "transaction_hash": "0xa8a8eaffb0669849cbff9c1959a04faffd3c8335d350516a77f4c9e843f5db11",
+        "maker_orders": [
+          {
+            "order_id": "0xd79fd829e71dbdfe960b39c6e283c7c4d1cc6e8dd188005ca07508055db9cd21",
+            "owner": "82578315-a9a1-1860-b3f8-4f0cd9fe1f5a",
+            "maker_address": "0x79cbe531Cca9Eb9320b6ce22b6E471a7bB5D331E",
+            "matched_amount": "18.61",
+            "price": "0.28",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          },
+          {
+            "order_id": "0xf5a9155b43b5b72192eb061b927f31340f7fa96e96fe6b3a3e6da20dd63b2b86",
+            "owner": "74ecbfa3-c9d1-57fb-21f3-351451a60df7",
+            "maker_address": "0x768f8b239B0af5e07af13ec2796AB874f0FFD08c",
+            "matched_amount": "10",
+            "price": "0.72",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "SELL"
+          },
+          {
+            "order_id": "0x1398271ae4c04a62513dc460356719a75dd8b55b41c79bcd97d5a9ab43104243",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "200",
+            "price": "0.28",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "a52cff50-79ea-4c5e-b65f-febbe8f93044",
+        "taker_order_id": "0xc3f30d0beba3508233070e33f5646dbce441a3f9a91e7323573758025780054d",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "16.666665",
+        "fee_rate_bps": "0",
+        "price": "0.3",
+        "status": "CONFIRMED",
+        "match_time": "1749108353",
+        "last_update": "1749108536",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "c94a8556-5aea-355a-910d-b71f16a19b72",
+        "maker_address": "0xE0d3a3eB19e83Acb18a22E6392dBCC1D7517B187",
+        "transaction_hash": "0x5f52772ae32a4115fb92fe2a259f45b616ad15e125a87cf059f18eac19ed3888",
+        "maker_orders": [
+          {
+            "order_id": "0x74c74805167b6b4b15bfe902e3dbce7c240de1d9abbf3b2560cdda44d9fbdbf7",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "10",
+            "price": "0.7",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "BUY"
+          },
+          {
+            "order_id": "0x6a93202862107faa3c864a27cb82ea42c9841cf1bf9d6dfb88303090c8570c18",
+            "owner": "4d8e4034-66eb-8f75-c75f-afac46157601",
+            "maker_address": "0x022e37d52b4B21aaf0ec9B5D0ceDf76192b02a77",
+            "matched_amount": "6.666665",
+            "price": "0.2999999249999812",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "ab9e64ae-49cd-4ddb-b09d-af06793eff4f",
+        "taker_order_id": "0xd0a56f498a86f4ce02ca928062d43170b5a912e0f0fe251b81bdbc9805615d37",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "20",
+        "fee_rate_bps": "0",
+        "price": "0.3",
+        "status": "CONFIRMED",
+        "match_time": "1749104505",
+        "last_update": "1749104699",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "da3a1486-950f-5489-9ffc-ba6fafb364cd",
+        "maker_address": "0x67800A00b69E8F982D4955D03D69eA2bd8F2e6Ba",
+        "transaction_hash": "0x6b69881180932e0f5bf155c37b211c9e3eae3ff7d8656ea22396c4141b1344e5",
+        "maker_orders": [
+          {
+            "order_id": "0x74c74805167b6b4b15bfe902e3dbce7c240de1d9abbf3b2560cdda44d9fbdbf7",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "20",
+            "price": "0.7",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "BUY"
+          }
+        ],
+        "trader_side": "MAKER"
+      }
+    ],
+    "ws_market_message_list": [
+      {
+        "event_type": "_internal",
+        "event": "open",
+        "timestamp": 1750279165.4805722
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "timestamp": "1750279162034",
+        "hash": "57d151662cae9c6db12d9b805d46e2b935085af7",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "60"
+          },
+          {
+            "price": "0.03",
+            "size": "200"
+          },
+          {
+            "price": "0.04",
+            "size": "113.63"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "22000"
+          },
+          {
+            "price": "0.94",
+            "size": "5"
+          },
+          {
+            "price": "0.67",
+            "size": "12"
+          },
+          {
+            "price": "0.28",
+            "size": "250"
+          },
+          {
+            "price": "0.23",
+            "size": "514.11"
+          },
+          {
+            "price": "0.09",
+            "size": "538.69"
+          },
+          {
+            "price": "0.08",
+            "size": "527.2"
+          },
+          {
+            "price": "0.07",
+            "size": "200"
+          }
+        ],
+        "event_type": "book",
+        "_rt": 1750279165.530724
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "timestamp": "1750279162034",
+        "hash": "00a849374da9aed7e06ea2137aee82634ff6a93d",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "22000"
+          },
+          {
+            "price": "0.06",
+            "size": "5"
+          },
+          {
+            "price": "0.33",
+            "size": "12"
+          },
+          {
+            "price": "0.72",
+            "size": "250"
+          },
+          {
+            "price": "0.77",
+            "size": "514.11"
+          },
+          {
+            "price": "0.91",
+            "size": "538.69"
+          },
+          {
+            "price": "0.92",
+            "size": "527.2"
+          },
+          {
+            "price": "0.93",
+            "size": "200"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "60"
+          },
+          {
+            "price": "0.97",
+            "size": "200"
+          },
+          {
+            "price": "0.96",
+            "size": "113.63"
+          }
+        ],
+        "event_type": "book",
+        "_rt": 1750279165.530724
+      }
+    ],
+    "ws_house_message_list": [
+      {
+        "event_type": "_internal",
+        "event": "open",
+        "timestamp": 1750279166.44173
+      }
+    ]
+  },
+  {
+    "position_list": [
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 84.157701,
+        "avgPrice": 0.145214,
+        "initialValue": 12.220876393014,
+        "currentValue": 4.20788505,
+        "cashPnl": -8.012991343014,
+        "percentPnl": -65.56805817620891,
+        "totalBought": 266,
+        "realizedPnl": -8.050139,
+        "percentRealizedPnl": -89.10636270218927,
+        "curPrice": 0.05,
+        "redeemable": false,
+        "mergeable": true,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "oppositeOutcome": "No",
+        "oppositeAsset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "endDate": "2025-06-30",
+        "negativeRisk": false
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "asset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 84,
+        "avgPrice": 0.854285,
+        "initialValue": 71.75994,
+        "currentValue": 79.8,
+        "cashPnl": 8.04006,
+        "percentPnl": 11.20410635794846,
+        "totalBought": 84,
+        "realizedPnl": 0,
+        "percentRealizedPnl": 11.20410635794846,
+        "curPrice": 0.95,
+        "redeemable": false,
+        "mergeable": true,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "No",
+        "outcomeIndex": 1,
+        "oppositeOutcome": "Yes",
+        "oppositeAsset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "endDate": "2025-06-30",
+        "negativeRisk": false
+      }
+    ],
+    "data_trade_list": [
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 33,
+        "price": 0.07,
+        "timestamp": 1750279172,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x7f617f5f1a1ed3cd790397b296fd558f97b42846f1d3baf1d48dcf416becac2c"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 33,
+        "price": 0.04,
+        "timestamp": 1750263879,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x62a333e731a6c5b1efeb7608e40aa4bcc48fb7bfb1ba8fc4e8937942592d9de5"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 33,
+        "price": 0.06,
+        "timestamp": 1750263875,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x556708b1bc69473b608f4e636af9d3f3dd5d1f42d77f8c545a4a79c1d1544b0b"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 27,
+        "price": 0.94,
+        "timestamp": 1750076981,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "No",
+        "outcomeIndex": 1,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0xf09a99a353399b5dfe9801f097f59ec5ce54f6333c40622ab6c3b18cb7ec20f8"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 27,
+        "price": 0.94,
+        "timestamp": 1750076811,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "No",
+        "outcomeIndex": 1,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x55a88f7e33ead9b78fee3458839e45bf7b36e23e27f00b688d480cce0a18d60f"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 3.846152,
+        "price": 0.2599998647999351,
+        "timestamp": 1749725487,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x4ecea0cb8e118a4ec87efb18c1d7ad11897a473d017fec5e4c1fd7540f62d199"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 3.846152,
+        "price": 0.2599998647999351,
+        "timestamp": 1749645488,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x76a28519964690c04e26003396598687060cf7301841b9be306d77c5fbac640a"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 1.74,
+        "price": 0.26,
+        "timestamp": 1749542927,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x6eaea23b42696506ba8b8ee12b36657ba7cd86d319a4c9ecfea9ee152ec7ec3b"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 3.846152,
+        "price": 0.2599998647999351,
+        "timestamp": 1749459542,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x6550c070f1705e9c415c19cefdcab1a06da5957c9430fd227a5d5ae3aafa9dcc"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 30,
+        "price": 0.26,
+        "timestamp": 1749376631,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x873d74fc7eb2eac726c12ad85ba15d067f970beb51b78afd30f8404918eabbdf"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 8,
+        "price": 0.26,
+        "timestamp": 1749375997,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x764560c1c25d2ea2bec9e9afcbad3d7b61ab823caa2f4eb0590e3d92a5dd0d45"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 1.41,
+        "price": 0.26,
+        "timestamp": 1749366987,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0xd12232484ca12d01f46175820f21cb5d7ca9c157a2ae18911c75825b3c9506cf"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 76.923075,
+        "price": 0.25999999349999986,
+        "timestamp": 1749219288,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x5488d95ca89bad3352afb132893390153c79a56d2790bdac5f59f3ed3731e53b"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 19.230768,
+        "price": 0.25999996463999775,
+        "timestamp": 1749212910,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x6980ee24baee7ae75142a2352254988cbe776c10287fbcab7d2844d8e9d2fc28"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 200,
+        "price": 0.28,
+        "timestamp": 1749109620,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0xa8a8eaffb0669849cbff9c1959a04faffd3c8335d350516a77f4c9e843f5db11"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 10,
+        "price": 0.7,
+        "timestamp": 1749108358,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "No",
+        "outcomeIndex": 1,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x5f52772ae32a4115fb92fe2a259f45b616ad15e125a87cf059f18eac19ed3888"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 20,
+        "price": 0.7,
+        "timestamp": 1749104513,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "No",
+        "outcomeIndex": 1,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x6b69881180932e0f5bf155c37b211c9e3eae3ff7d8656ea22396c4141b1344e5"
+      }
+    ],
+    "clob_trade_list": [
+      {
+        "id": "641ebcef-f389-49cc-902f-b340e0f838f4",
+        "taker_order_id": "0x8cf2a6806a31e626e9459a99bfc11136bcedaaf69877560e65fd3a2ca3ddcc16",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "33",
+        "fee_rate_bps": "0",
+        "price": "0.07",
+        "status": "MINED",
+        "match_time": "1750279168",
+        "last_update": "1750279193",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "transaction_hash": "0x7f617f5f1a1ed3cd790397b296fd558f97b42846f1d3baf1d48dcf416becac2c",
+        "maker_orders": [
+          {
+            "order_id": "0x5a9f2c4f4b61f740b7ddbc38f3e50364c50c92eca62245323c5eb1901c970c08",
+            "owner": "b0290663-e75f-76bb-716e-576cbbbdebf9",
+            "maker_address": "0xC8ab97a9089a9Ff7E6eF0688e6e591a066946418",
+            "matched_amount": "33",
+            "price": "0.93",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "BUY"
+          }
+        ],
+        "trader_side": "TAKER"
+      },
+      {
+        "id": "8d872f19-760c-4464-a99a-b5f80d559fd0",
+        "taker_order_id": "0x6fb1e19d66089bd717f88638c89a40839a966b59756b1aad50e280de019b743d",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "SELL",
+        "size": "33",
+        "fee_rate_bps": "0",
+        "price": "0.04",
+        "status": "CONFIRMED",
+        "match_time": "1750263871",
+        "last_update": "1750264059",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "transaction_hash": "0x62a333e731a6c5b1efeb7608e40aa4bcc48fb7bfb1ba8fc4e8937942592d9de5",
+        "maker_orders": [
+          {
+            "order_id": "0xbe892ed79b0087e52e3f98ed035d7efdc61aa9f1bd2189630417a0aca8fd85df",
+            "owner": "b0290663-e75f-76bb-716e-576cbbbdebf9",
+            "maker_address": "0xC8ab97a9089a9Ff7E6eF0688e6e591a066946418",
+            "matched_amount": "33",
+            "price": "0.04",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          }
+        ],
+        "trader_side": "TAKER"
+      },
+      {
+        "id": "11710912-bf3e-4f92-8e78-f21e41ad03af",
+        "taker_order_id": "0x7b45f51aecef1eaa76bd2476fb86653a565b4e799d323d43a748e98823e52a89",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "33",
+        "fee_rate_bps": "0",
+        "price": "0.06",
+        "status": "CONFIRMED",
+        "match_time": "1750263867",
+        "last_update": "1750264059",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "transaction_hash": "0x556708b1bc69473b608f4e636af9d3f3dd5d1f42d77f8c545a4a79c1d1544b0b",
+        "maker_orders": [
+          {
+            "order_id": "0xd2fea5c34d715403828ec5e82e81fcba5385a06078777ecb515874b0ba242178",
+            "owner": "022b7be3-67ab-b9e5-c792-dc54bf581735",
+            "maker_address": "0xCcedDFb8933dB63b5dFBfD49620e31e79F609fFE",
+            "matched_amount": "33",
+            "price": "0.06",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "TAKER"
+      },
+      {
+        "id": "2cdd3747-86c0-4113-ab4f-6808fefc5808",
+        "taker_order_id": "0xc79e27f01cfdc961618b36e22c4ea096a416f173046ba91b93014bc05702915d",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "BUY",
+        "size": "27",
+        "fee_rate_bps": "0",
+        "price": "0.94",
+        "status": "CONFIRMED",
+        "match_time": "1750076976",
+        "last_update": "1750077169",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "transaction_hash": "0xf09a99a353399b5dfe9801f097f59ec5ce54f6333c40622ab6c3b18cb7ec20f8",
+        "maker_orders": [
+          {
+            "order_id": "0x2a1254999c3bdb591ef23651228cb23f304607b39efbd401e11be983bbce4658",
+            "owner": "a1091e6f-f32e-1f86-6dee-f222b03704f3",
+            "maker_address": "0xd0e1ae8aD003030299df6e9Be78588B127957C9f",
+            "matched_amount": "14",
+            "price": "0.06",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          },
+          {
+            "order_id": "0x21bc5d58abf651c5c2a751779f66124113c50a1b859a6c4d91e610299f1398d2",
+            "owner": "635cd600-e22c-cfb7-c49b-869f24075142",
+            "maker_address": "0x8e8D8163c34d90cE063c7438637A0E5C3ffA5a27",
+            "matched_amount": "13",
+            "price": "0.94",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "TAKER"
+      },
+      {
+        "id": "baac7644-8706-4467-87e9-76542b19ffb2",
+        "taker_order_id": "0xd01bd04ab791c5b00a671418c039c4fd28b5b2d90e2bd1e1dcc9d211062c7334",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "BUY",
+        "size": "27",
+        "fee_rate_bps": "0",
+        "price": "0.94",
+        "status": "CONFIRMED",
+        "match_time": "1750076806",
+        "last_update": "1750076965",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "transaction_hash": "0x55a88f7e33ead9b78fee3458839e45bf7b36e23e27f00b688d480cce0a18d60f",
+        "maker_orders": [
+          {
+            "order_id": "0x0611f51c91747e126cc7d1ce11aa05b66a41e47e2fce684f54df242fcba3f0ee",
+            "owner": "635cd600-e22c-cfb7-c49b-869f24075142",
+            "maker_address": "0x8e8D8163c34d90cE063c7438637A0E5C3ffA5a27",
+            "matched_amount": "20",
+            "price": "0.94",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "SELL"
+          },
+          {
+            "order_id": "0x2a1254999c3bdb591ef23651228cb23f304607b39efbd401e11be983bbce4658",
+            "owner": "a1091e6f-f32e-1f86-6dee-f222b03704f3",
+            "maker_address": "0xd0e1ae8aD003030299df6e9Be78588B127957C9f",
+            "matched_amount": "7",
+            "price": "0.06",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          }
+        ],
+        "trader_side": "TAKER"
+      },
+      {
+        "id": "46e2a213-aca1-425e-b92d-5bfd3d76967f",
+        "taker_order_id": "0x54b993ef932e238a450f739eef50be8cc7b830017d36f562c01126a02594f188",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "3.846152",
+        "fee_rate_bps": "0",
+        "price": "0.26",
+        "status": "CONFIRMED",
+        "match_time": "1749725481",
+        "last_update": "1749725657",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "657e52d2-0c8d-6322-f26b-784f0701b410",
+        "maker_address": "0x96Ed98F5E22ab822ae75ED084C0Ffc191e10A350",
+        "transaction_hash": "0x4ecea0cb8e118a4ec87efb18c1d7ad11897a473d017fec5e4c1fd7540f62d199",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "3.846152",
+            "price": "0.2599998647999351",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "4643524a-676b-409a-8ef0-5b434231209b",
+        "taker_order_id": "0x61e5f8f73700e74cf831a122d06750878df2011edadd062108edd61008950342",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "3.846152",
+        "fee_rate_bps": "0",
+        "price": "0.26",
+        "status": "CONFIRMED",
+        "match_time": "1749645483",
+        "last_update": "1749645678",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "e71aba12-f337-bba6-26bb-cc305186867c",
+        "maker_address": "0xd5Ac7127E43b2D05e6f0BbEC26157Ede9C54C8FC",
+        "transaction_hash": "0x76a28519964690c04e26003396598687060cf7301841b9be306d77c5fbac640a",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "3.846152",
+            "price": "0.2599998647999351",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "847f04c1-f99c-4054-9aab-7cd05f8ed15c",
+        "taker_order_id": "0x8050ceccad10dc8fe39f0acd89ed4ff13741b61c9ba0c3ec66c2853ae9244862",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "SELL",
+        "size": "1.74",
+        "fee_rate_bps": "0",
+        "price": "0.74",
+        "status": "CONFIRMED",
+        "match_time": "1749542922",
+        "last_update": "1749543111",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "470b9e7f-4aa0-c16a-ee71-80ad28f1ae04",
+        "maker_address": "0xd7c9248C978064aD6FaB70B84C27c59E2b73bbaC",
+        "transaction_hash": "0x6eaea23b42696506ba8b8ee12b36657ba7cd86d319a4c9ecfea9ee152ec7ec3b",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "1.74",
+            "price": "0.26",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "4b9b6d1d-91dd-476d-8bc9-dcc2a68e8442",
+        "taker_order_id": "0x4fd9a7eb3f1eb75f533b7e0471d36b5aba7b8d81c0efd58fe90174020032795b",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "3.846152",
+        "fee_rate_bps": "0",
+        "price": "0.26",
+        "status": "CONFIRMED",
+        "match_time": "1749459535",
+        "last_update": "1749459744",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "0d15bbfe-fb32-1e3e-7720-df5d8fd72d93",
+        "maker_address": "0xbFA6cDEcBD3045cE508B2DbA60E3532Edc712bD5",
+        "transaction_hash": "0x6550c070f1705e9c415c19cefdcab1a06da5957c9430fd227a5d5ae3aafa9dcc",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "3.846152",
+            "price": "0.2599998647999351",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "cb05f6cd-1b25-4f2e-b0f8-52d283244623",
+        "taker_order_id": "0x211030bd726606075ad29e8279da48e81a491525899715c35794e76b3e2b3413",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "SELL",
+        "size": "30",
+        "fee_rate_bps": "0",
+        "price": "0.74",
+        "status": "CONFIRMED",
+        "match_time": "1749376627",
+        "last_update": "1749376811",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "299f8436-0019-ef59-1ed1-00b91e63cf66",
+        "maker_address": "0x726EF9f3Ab440Bf2e847bd290cF005B869679dC9",
+        "transaction_hash": "0x873d74fc7eb2eac726c12ad85ba15d067f970beb51b78afd30f8404918eabbdf",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "30",
+            "price": "0.26",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "790f3f71-a2f5-4c52-9a12-61ccb630b3a0",
+        "taker_order_id": "0xd943289c3c4ce25aee77f21a4e7c8bf228c5e56ae6745e37d9dcdf6144557c14",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "SELL",
+        "size": "8",
+        "fee_rate_bps": "0",
+        "price": "0.74",
+        "status": "CONFIRMED",
+        "match_time": "1749375993",
+        "last_update": "1749376199",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "299f8436-0019-ef59-1ed1-00b91e63cf66",
+        "maker_address": "0x726EF9f3Ab440Bf2e847bd290cF005B869679dC9",
+        "transaction_hash": "0x764560c1c25d2ea2bec9e9afcbad3d7b61ab823caa2f4eb0590e3d92a5dd0d45",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "8",
+            "price": "0.26",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "45123bf6-744e-4228-90e9-50e4e94a1206",
+        "taker_order_id": "0x68658a3c431577d8b83e5c8362341b9bb52c25f1842f561ac91d964b9fbc5860",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "SELL",
+        "size": "6.41",
+        "fee_rate_bps": "0",
+        "price": "0.75",
+        "status": "CONFIRMED",
+        "match_time": "1749366980",
+        "last_update": "1749367155",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "e1d9f9e4-c7bb-494d-b648-decdce3e7944",
+        "maker_address": "0xfCCaFE3b51726a5803719923e9A1C6e0649FaEBA",
+        "transaction_hash": "0xd12232484ca12d01f46175820f21cb5d7ca9c157a2ae18911c75825b3c9506cf",
+        "maker_orders": [
+          {
+            "order_id": "0xae9a24df81cc1f2fae7d33644172121d877410ac7fa040cfd6676c2521b4f634",
+            "owner": "d612e398-8a42-518e-9727-b951f94e9942",
+            "maker_address": "0x427311c6551a20D6BdE2f4b57f10A34F164AFa0d",
+            "matched_amount": "5",
+            "price": "0.75",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "BUY"
+          },
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "1.41",
+            "price": "0.26",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "d978e01c-f855-4584-9f26-67807ff810f4",
+        "taker_order_id": "0x1004bb4300c85d8d990d8b6e07bfbd1dfda2b3df31f43d82eaea51c7ad6f7883",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "76.923075",
+        "fee_rate_bps": "0",
+        "price": "0.26",
+        "status": "CONFIRMED",
+        "match_time": "1749219283",
+        "last_update": "1749219448",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "0da57006-2d07-1bd7-7a49-efb519255b22",
+        "maker_address": "0x5E02Ea6229804cCf72C89e2149478EA9b8a55553",
+        "transaction_hash": "0x5488d95ca89bad3352afb132893390153c79a56d2790bdac5f59f3ed3731e53b",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "76.923075",
+            "price": "0.2599999934999998",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "0f8de888-35d1-4238-a521-98efdeea508c",
+        "taker_order_id": "0x32f19e8a5e822e84290e554315bd2fa6dc15845dfef2a4542eb34af48d8c4818",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "19.230768",
+        "fee_rate_bps": "0",
+        "price": "0.26",
+        "status": "CONFIRMED",
+        "match_time": "1749212907",
+        "last_update": "1749213056",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "340c8259-0a38-4dfa-018a-8670a0b697dc",
+        "maker_address": "0x11aBF2feD28A7077F58134336361c9F3ccc29905",
+        "transaction_hash": "0x6980ee24baee7ae75142a2352254988cbe776c10287fbcab7d2844d8e9d2fc28",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "19.230768",
+            "price": "0.2599999646399977",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "2a1e8403-9e36-49d5-a69c-c99f48c81123",
+        "taker_order_id": "0xca94df36d2f492836d7f716baa275465180b9f12e9bc87037be85101ee197d9a",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "BUY",
+        "size": "228.61",
+        "fee_rate_bps": "0",
+        "price": "0.72",
+        "status": "CONFIRMED",
+        "match_time": "1749109616",
+        "last_update": "1749109796",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "d2dede4a-4bc1-0504-1c8b-7dc779aab092",
+        "maker_address": "0xa8c63F775DDbbE66B56614191747Def3021444E8",
+        "transaction_hash": "0xa8a8eaffb0669849cbff9c1959a04faffd3c8335d350516a77f4c9e843f5db11",
+        "maker_orders": [
+          {
+            "order_id": "0xd79fd829e71dbdfe960b39c6e283c7c4d1cc6e8dd188005ca07508055db9cd21",
+            "owner": "82578315-a9a1-1860-b3f8-4f0cd9fe1f5a",
+            "maker_address": "0x79cbe531Cca9Eb9320b6ce22b6E471a7bB5D331E",
+            "matched_amount": "18.61",
+            "price": "0.28",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          },
+          {
+            "order_id": "0xf5a9155b43b5b72192eb061b927f31340f7fa96e96fe6b3a3e6da20dd63b2b86",
+            "owner": "74ecbfa3-c9d1-57fb-21f3-351451a60df7",
+            "maker_address": "0x768f8b239B0af5e07af13ec2796AB874f0FFD08c",
+            "matched_amount": "10",
+            "price": "0.72",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "SELL"
+          },
+          {
+            "order_id": "0x1398271ae4c04a62513dc460356719a75dd8b55b41c79bcd97d5a9ab43104243",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "200",
+            "price": "0.28",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "a52cff50-79ea-4c5e-b65f-febbe8f93044",
+        "taker_order_id": "0xc3f30d0beba3508233070e33f5646dbce441a3f9a91e7323573758025780054d",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "16.666665",
+        "fee_rate_bps": "0",
+        "price": "0.3",
+        "status": "CONFIRMED",
+        "match_time": "1749108353",
+        "last_update": "1749108536",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "c94a8556-5aea-355a-910d-b71f16a19b72",
+        "maker_address": "0xE0d3a3eB19e83Acb18a22E6392dBCC1D7517B187",
+        "transaction_hash": "0x5f52772ae32a4115fb92fe2a259f45b616ad15e125a87cf059f18eac19ed3888",
+        "maker_orders": [
+          {
+            "order_id": "0x74c74805167b6b4b15bfe902e3dbce7c240de1d9abbf3b2560cdda44d9fbdbf7",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "10",
+            "price": "0.7",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "BUY"
+          },
+          {
+            "order_id": "0x6a93202862107faa3c864a27cb82ea42c9841cf1bf9d6dfb88303090c8570c18",
+            "owner": "4d8e4034-66eb-8f75-c75f-afac46157601",
+            "maker_address": "0x022e37d52b4B21aaf0ec9B5D0ceDf76192b02a77",
+            "matched_amount": "6.666665",
+            "price": "0.2999999249999812",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "ab9e64ae-49cd-4ddb-b09d-af06793eff4f",
+        "taker_order_id": "0xd0a56f498a86f4ce02ca928062d43170b5a912e0f0fe251b81bdbc9805615d37",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "20",
+        "fee_rate_bps": "0",
+        "price": "0.3",
+        "status": "CONFIRMED",
+        "match_time": "1749104505",
+        "last_update": "1749104699",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "da3a1486-950f-5489-9ffc-ba6fafb364cd",
+        "maker_address": "0x67800A00b69E8F982D4955D03D69eA2bd8F2e6Ba",
+        "transaction_hash": "0x6b69881180932e0f5bf155c37b211c9e3eae3ff7d8656ea22396c4141b1344e5",
+        "maker_orders": [
+          {
+            "order_id": "0x74c74805167b6b4b15bfe902e3dbce7c240de1d9abbf3b2560cdda44d9fbdbf7",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "20",
+            "price": "0.7",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "BUY"
+          }
+        ],
+        "trader_side": "MAKER"
+      }
+    ],
+    "place_place_resp": {
+      "errorMsg": "",
+      "orderID": "0x8cf2a6806a31e626e9459a99bfc11136bcedaaf69877560e65fd3a2ca3ddcc16",
+      "takingAmount": "33",
+      "makingAmount": "2.31",
+      "status": "matched",
+      "transactionsHashes": [
+        "0x7f617f5f1a1ed3cd790397b296fd558f97b42846f1d3baf1d48dcf416becac2c"
+      ],
+      "success": true
+    },
+    "order_get_resp": {
+      "id": "0x8cf2a6806a31e626e9459a99bfc11136bcedaaf69877560e65fd3a2ca3ddcc16",
+      "status": "MATCHED",
+      "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+      "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+      "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+      "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+      "side": "BUY",
+      "original_size": "33",
+      "size_matched": "33",
+      "price": "0.07",
+      "outcome": "Yes",
+      "expiration": "0",
+      "order_type": "GTC",
+      "associate_trades": [
+        "641ebcef-f389-49cc-902f-b340e0f838f4"
+      ],
+      "created_at": 1750279169
+    },
+    "ws_market_message_list": [
+      {
+        "event_type": "_internal",
+        "event": "open",
+        "timestamp": 1750279165.4805722
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "timestamp": "1750279162034",
+        "hash": "57d151662cae9c6db12d9b805d46e2b935085af7",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "60"
+          },
+          {
+            "price": "0.03",
+            "size": "200"
+          },
+          {
+            "price": "0.04",
+            "size": "113.63"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "22000"
+          },
+          {
+            "price": "0.94",
+            "size": "5"
+          },
+          {
+            "price": "0.67",
+            "size": "12"
+          },
+          {
+            "price": "0.28",
+            "size": "250"
+          },
+          {
+            "price": "0.23",
+            "size": "514.11"
+          },
+          {
+            "price": "0.09",
+            "size": "538.69"
+          },
+          {
+            "price": "0.08",
+            "size": "527.2"
+          },
+          {
+            "price": "0.07",
+            "size": "200"
+          }
+        ],
+        "event_type": "book",
+        "_rt": 1750279165.530724
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "timestamp": "1750279162034",
+        "hash": "00a849374da9aed7e06ea2137aee82634ff6a93d",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "22000"
+          },
+          {
+            "price": "0.06",
+            "size": "5"
+          },
+          {
+            "price": "0.33",
+            "size": "12"
+          },
+          {
+            "price": "0.72",
+            "size": "250"
+          },
+          {
+            "price": "0.77",
+            "size": "514.11"
+          },
+          {
+            "price": "0.91",
+            "size": "538.69"
+          },
+          {
+            "price": "0.92",
+            "size": "527.2"
+          },
+          {
+            "price": "0.93",
+            "size": "200"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "60"
+          },
+          {
+            "price": "0.97",
+            "size": "200"
+          },
+          {
+            "price": "0.96",
+            "size": "113.63"
+          }
+        ],
+        "event_type": "book",
+        "_rt": 1750279165.530724
+      },
+      {
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "22000"
+          },
+          {
+            "price": "0.94",
+            "size": "5"
+          },
+          {
+            "price": "0.67",
+            "size": "12"
+          },
+          {
+            "price": "0.28",
+            "size": "250"
+          },
+          {
+            "price": "0.23",
+            "size": "514.11"
+          },
+          {
+            "price": "0.09",
+            "size": "538.69"
+          },
+          {
+            "price": "0.08",
+            "size": "527.2"
+          },
+          {
+            "price": "0.07",
+            "size": "167"
+          }
+        ],
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "60"
+          },
+          {
+            "price": "0.03",
+            "size": "200"
+          },
+          {
+            "price": "0.04",
+            "size": "113.63"
+          }
+        ],
+        "event_type": "book",
+        "hash": "ccb2311efae16870a011595fb71bfbeea8833fef",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750279168657",
+        "_rt": 1750279168.7924473
+      },
+      {
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "60"
+          },
+          {
+            "price": "0.97",
+            "size": "200"
+          },
+          {
+            "price": "0.96",
+            "size": "113.63"
+          }
+        ],
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "22000"
+          },
+          {
+            "price": "0.06",
+            "size": "5"
+          },
+          {
+            "price": "0.33",
+            "size": "12"
+          },
+          {
+            "price": "0.72",
+            "size": "250"
+          },
+          {
+            "price": "0.77",
+            "size": "514.11"
+          },
+          {
+            "price": "0.91",
+            "size": "538.69"
+          },
+          {
+            "price": "0.92",
+            "size": "527.2"
+          },
+          {
+            "price": "0.93",
+            "size": "167"
+          }
+        ],
+        "event_type": "book",
+        "hash": "79234f347a5f49445475b91174100812ddfc776e",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750279168657",
+        "_rt": 1750279168.7924473
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "event_type": "last_trade_price",
+        "fee_rate_bps": "0",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "price": "0.07",
+        "side": "BUY",
+        "size": "33",
+        "timestamp": "1750279168674",
+        "_rt": 1750279168.7924473
+      }
+    ],
+    "ws_house_message_list": [
+      {
+        "event_type": "_internal",
+        "event": "open",
+        "timestamp": 1750279166.44173
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "bucket_index": "0",
+        "event_type": "trade",
+        "fee_rate_bps": "0",
+        "id": "641ebcef-f389-49cc-902f-b340e0f838f4",
+        "last_update": "1750279168",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "maker_orders": [
+          {
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "fee_rate_bps": "0",
+            "maker_address": "0xC8ab97a9089a9Ff7E6eF0688e6e591a066946418",
+            "matched_amount": "33",
+            "order_id": "0x5a9f2c4f4b61f740b7ddbc38f3e50364c50c92eca62245323c5eb1901c970c08",
+            "outcome": "No",
+            "owner": "b0290663-e75f-76bb-716e-576cbbbdebf9",
+            "price": "0.93"
+          }
+        ],
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "match_time": "1750279168",
+        "outcome": "Yes",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.07",
+        "side": "BUY",
+        "size": "33",
+        "status": "MATCHED",
+        "taker_order_id": "0x8cf2a6806a31e626e9459a99bfc11136bcedaaf69877560e65fd3a2ca3ddcc16",
+        "timestamp": "1750279168674",
+        "trade_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "trader_side": "TAKER",
+        "transaction_hash": "0x7f617f5f1a1ed3cd790397b296fd558f97b42846f1d3baf1d48dcf416becac2c",
+        "type": "TRADE",
+        "_rt": 1750279168.7949579
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "bucket_index": "0",
+        "event_type": "trade",
+        "fee_rate_bps": "0",
+        "id": "641ebcef-f389-49cc-902f-b340e0f838f4",
+        "last_update": "1750279193",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "maker_orders": [
+          {
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "fee_rate_bps": "0",
+            "maker_address": "0xC8ab97a9089a9Ff7E6eF0688e6e591a066946418",
+            "matched_amount": "33",
+            "order_id": "0x5a9f2c4f4b61f740b7ddbc38f3e50364c50c92eca62245323c5eb1901c970c08",
+            "outcome": "No",
+            "owner": "b0290663-e75f-76bb-716e-576cbbbdebf9",
+            "price": "0.93"
+          }
+        ],
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "match_time": "1750279168",
+        "outcome": "Yes",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.07",
+        "side": "BUY",
+        "size": "33",
+        "status": "MINED",
+        "taker_order_id": "0x8cf2a6806a31e626e9459a99bfc11136bcedaaf69877560e65fd3a2ca3ddcc16",
+        "timestamp": "1750279193984",
+        "trade_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "trader_side": "TAKER",
+        "transaction_hash": "0x7f617f5f1a1ed3cd790397b296fd558f97b42846f1d3baf1d48dcf416becac2c",
+        "type": "TRADE",
+        "_rt": 1750279194.0800197
+      }
+    ]
+  },
+  {
+    "position_list": [
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "asset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 84,
+        "avgPrice": 0.854285,
+        "initialValue": 71.75994,
+        "currentValue": 79.38,
+        "cashPnl": 7.62006,
+        "percentPnl": 10.618821587643467,
+        "totalBought": 84,
+        "realizedPnl": 0,
+        "percentRealizedPnl": 10.618821587643467,
+        "curPrice": 0.945,
+        "redeemable": false,
+        "mergeable": true,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "No",
+        "outcomeIndex": 1,
+        "oppositeOutcome": "Yes",
+        "oppositeAsset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "endDate": "2025-06-30",
+        "negativeRisk": false
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 51.157701,
+        "avgPrice": 0.145214,
+        "initialValue": 7.428814393014,
+        "currentValue": 2.8136735550000003,
+        "cashPnl": -4.615140838014001,
+        "percentPnl": -62.124863993829806,
+        "totalBought": 266,
+        "realizedPnl": -11.522201,
+        "percentRealizedPnl": -92.71580094547784,
+        "curPrice": 0.055,
+        "redeemable": false,
+        "mergeable": true,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "oppositeOutcome": "No",
+        "oppositeAsset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "endDate": "2025-06-30",
+        "negativeRisk": false
+      }
+    ],
+    "data_trade_list": [
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 33,
+        "price": 0.04,
+        "timestamp": 1750279202,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0xbba11c7584a9b94a76c0d77239211af399d5eab4e99d201a519ee789ed546ec6"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 33,
+        "price": 0.07,
+        "timestamp": 1750279172,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x7f617f5f1a1ed3cd790397b296fd558f97b42846f1d3baf1d48dcf416becac2c"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 33,
+        "price": 0.04,
+        "timestamp": 1750263879,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x62a333e731a6c5b1efeb7608e40aa4bcc48fb7bfb1ba8fc4e8937942592d9de5"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 33,
+        "price": 0.06,
+        "timestamp": 1750263875,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x556708b1bc69473b608f4e636af9d3f3dd5d1f42d77f8c545a4a79c1d1544b0b"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 27,
+        "price": 0.94,
+        "timestamp": 1750076981,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "No",
+        "outcomeIndex": 1,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0xf09a99a353399b5dfe9801f097f59ec5ce54f6333c40622ab6c3b18cb7ec20f8"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 27,
+        "price": 0.94,
+        "timestamp": 1750076811,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "No",
+        "outcomeIndex": 1,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x55a88f7e33ead9b78fee3458839e45bf7b36e23e27f00b688d480cce0a18d60f"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 3.846152,
+        "price": 0.2599998647999351,
+        "timestamp": 1749725487,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x4ecea0cb8e118a4ec87efb18c1d7ad11897a473d017fec5e4c1fd7540f62d199"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 3.846152,
+        "price": 0.2599998647999351,
+        "timestamp": 1749645488,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x76a28519964690c04e26003396598687060cf7301841b9be306d77c5fbac640a"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 1.74,
+        "price": 0.26,
+        "timestamp": 1749542927,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x6eaea23b42696506ba8b8ee12b36657ba7cd86d319a4c9ecfea9ee152ec7ec3b"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 3.846152,
+        "price": 0.2599998647999351,
+        "timestamp": 1749459542,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x6550c070f1705e9c415c19cefdcab1a06da5957c9430fd227a5d5ae3aafa9dcc"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 30,
+        "price": 0.26,
+        "timestamp": 1749376631,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x873d74fc7eb2eac726c12ad85ba15d067f970beb51b78afd30f8404918eabbdf"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 8,
+        "price": 0.26,
+        "timestamp": 1749375997,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x764560c1c25d2ea2bec9e9afcbad3d7b61ab823caa2f4eb0590e3d92a5dd0d45"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 1.41,
+        "price": 0.26,
+        "timestamp": 1749366987,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0xd12232484ca12d01f46175820f21cb5d7ca9c157a2ae18911c75825b3c9506cf"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 76.923075,
+        "price": 0.25999999349999986,
+        "timestamp": 1749219288,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x5488d95ca89bad3352afb132893390153c79a56d2790bdac5f59f3ed3731e53b"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "SELL",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 19.230768,
+        "price": 0.25999996463999775,
+        "timestamp": 1749212910,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x6980ee24baee7ae75142a2352254988cbe776c10287fbcab7d2844d8e9d2fc28"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 200,
+        "price": 0.28,
+        "timestamp": 1749109620,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "Yes",
+        "outcomeIndex": 0,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0xa8a8eaffb0669849cbff9c1959a04faffd3c8335d350516a77f4c9e843f5db11"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 10,
+        "price": 0.7,
+        "timestamp": 1749108358,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "No",
+        "outcomeIndex": 1,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x5f52772ae32a4115fb92fe2a259f45b616ad15e125a87cf059f18eac19ed3888"
+      },
+      {
+        "proxyWallet": "0x94e44831dfc1f9f5c1c9216e7c4af0af43b43b11",
+        "side": "BUY",
+        "asset": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "conditionId": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "size": 20,
+        "price": 0.7,
+        "timestamp": 1749104513,
+        "title": "Japan parliament dissolved before July?",
+        "slug": "japan-parliament-dissolved-before-july",
+        "icon": "https://polymarket-upload.s3.us-east-2.amazonaws.com/japan-parliament-dissolved-before-july-LNJi8LCpdNuH.jpg",
+        "eventSlug": "japan-parliament-dissolved-before-july",
+        "outcome": "No",
+        "outcomeIndex": 1,
+        "name": "baserunner",
+        "pseudonym": "Warmhearted-Disagreement",
+        "bio": "",
+        "profileImage": "",
+        "profileImageOptimized": "",
+        "transactionHash": "0x6b69881180932e0f5bf155c37b211c9e3eae3ff7d8656ea22396c4141b1344e5"
+      }
+    ],
+    "clob_trade_list": [
+      {
+        "id": "ad0850d1-a4fb-46d9-948d-88c94d9f9ba8",
+        "taker_order_id": "0xd64893eafe2bed6858077fee8246c291b3a8c2d0b47e423a72631b8a4567658b",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "SELL",
+        "size": "33",
+        "fee_rate_bps": "0",
+        "price": "0.04",
+        "status": "MINED",
+        "match_time": "1750279199",
+        "last_update": "1750279223",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "transaction_hash": "0xbba11c7584a9b94a76c0d77239211af399d5eab4e99d201a519ee789ed546ec6",
+        "maker_orders": [
+          {
+            "order_id": "0xbe892ed79b0087e52e3f98ed035d7efdc61aa9f1bd2189630417a0aca8fd85df",
+            "owner": "b0290663-e75f-76bb-716e-576cbbbdebf9",
+            "maker_address": "0xC8ab97a9089a9Ff7E6eF0688e6e591a066946418",
+            "matched_amount": "33",
+            "price": "0.04",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          }
+        ],
+        "trader_side": "TAKER"
+      },
+      {
+        "id": "641ebcef-f389-49cc-902f-b340e0f838f4",
+        "taker_order_id": "0x8cf2a6806a31e626e9459a99bfc11136bcedaaf69877560e65fd3a2ca3ddcc16",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "33",
+        "fee_rate_bps": "0",
+        "price": "0.07",
+        "status": "MINED",
+        "match_time": "1750279168",
+        "last_update": "1750279193",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "transaction_hash": "0x7f617f5f1a1ed3cd790397b296fd558f97b42846f1d3baf1d48dcf416becac2c",
+        "maker_orders": [
+          {
+            "order_id": "0x5a9f2c4f4b61f740b7ddbc38f3e50364c50c92eca62245323c5eb1901c970c08",
+            "owner": "b0290663-e75f-76bb-716e-576cbbbdebf9",
+            "maker_address": "0xC8ab97a9089a9Ff7E6eF0688e6e591a066946418",
+            "matched_amount": "33",
+            "price": "0.93",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "BUY"
+          }
+        ],
+        "trader_side": "TAKER"
+      },
+      {
+        "id": "8d872f19-760c-4464-a99a-b5f80d559fd0",
+        "taker_order_id": "0x6fb1e19d66089bd717f88638c89a40839a966b59756b1aad50e280de019b743d",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "SELL",
+        "size": "33",
+        "fee_rate_bps": "0",
+        "price": "0.04",
+        "status": "CONFIRMED",
+        "match_time": "1750263871",
+        "last_update": "1750264059",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "transaction_hash": "0x62a333e731a6c5b1efeb7608e40aa4bcc48fb7bfb1ba8fc4e8937942592d9de5",
+        "maker_orders": [
+          {
+            "order_id": "0xbe892ed79b0087e52e3f98ed035d7efdc61aa9f1bd2189630417a0aca8fd85df",
+            "owner": "b0290663-e75f-76bb-716e-576cbbbdebf9",
+            "maker_address": "0xC8ab97a9089a9Ff7E6eF0688e6e591a066946418",
+            "matched_amount": "33",
+            "price": "0.04",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          }
+        ],
+        "trader_side": "TAKER"
+      },
+      {
+        "id": "11710912-bf3e-4f92-8e78-f21e41ad03af",
+        "taker_order_id": "0x7b45f51aecef1eaa76bd2476fb86653a565b4e799d323d43a748e98823e52a89",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "33",
+        "fee_rate_bps": "0",
+        "price": "0.06",
+        "status": "CONFIRMED",
+        "match_time": "1750263867",
+        "last_update": "1750264059",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "transaction_hash": "0x556708b1bc69473b608f4e636af9d3f3dd5d1f42d77f8c545a4a79c1d1544b0b",
+        "maker_orders": [
+          {
+            "order_id": "0xd2fea5c34d715403828ec5e82e81fcba5385a06078777ecb515874b0ba242178",
+            "owner": "022b7be3-67ab-b9e5-c792-dc54bf581735",
+            "maker_address": "0xCcedDFb8933dB63b5dFBfD49620e31e79F609fFE",
+            "matched_amount": "33",
+            "price": "0.06",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "TAKER"
+      },
+      {
+        "id": "2cdd3747-86c0-4113-ab4f-6808fefc5808",
+        "taker_order_id": "0xc79e27f01cfdc961618b36e22c4ea096a416f173046ba91b93014bc05702915d",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "BUY",
+        "size": "27",
+        "fee_rate_bps": "0",
+        "price": "0.94",
+        "status": "CONFIRMED",
+        "match_time": "1750076976",
+        "last_update": "1750077169",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "transaction_hash": "0xf09a99a353399b5dfe9801f097f59ec5ce54f6333c40622ab6c3b18cb7ec20f8",
+        "maker_orders": [
+          {
+            "order_id": "0x2a1254999c3bdb591ef23651228cb23f304607b39efbd401e11be983bbce4658",
+            "owner": "a1091e6f-f32e-1f86-6dee-f222b03704f3",
+            "maker_address": "0xd0e1ae8aD003030299df6e9Be78588B127957C9f",
+            "matched_amount": "14",
+            "price": "0.06",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          },
+          {
+            "order_id": "0x21bc5d58abf651c5c2a751779f66124113c50a1b859a6c4d91e610299f1398d2",
+            "owner": "635cd600-e22c-cfb7-c49b-869f24075142",
+            "maker_address": "0x8e8D8163c34d90cE063c7438637A0E5C3ffA5a27",
+            "matched_amount": "13",
+            "price": "0.94",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "TAKER"
+      },
+      {
+        "id": "baac7644-8706-4467-87e9-76542b19ffb2",
+        "taker_order_id": "0xd01bd04ab791c5b00a671418c039c4fd28b5b2d90e2bd1e1dcc9d211062c7334",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "BUY",
+        "size": "27",
+        "fee_rate_bps": "0",
+        "price": "0.94",
+        "status": "CONFIRMED",
+        "match_time": "1750076806",
+        "last_update": "1750076965",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "transaction_hash": "0x55a88f7e33ead9b78fee3458839e45bf7b36e23e27f00b688d480cce0a18d60f",
+        "maker_orders": [
+          {
+            "order_id": "0x0611f51c91747e126cc7d1ce11aa05b66a41e47e2fce684f54df242fcba3f0ee",
+            "owner": "635cd600-e22c-cfb7-c49b-869f24075142",
+            "maker_address": "0x8e8D8163c34d90cE063c7438637A0E5C3ffA5a27",
+            "matched_amount": "20",
+            "price": "0.94",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "SELL"
+          },
+          {
+            "order_id": "0x2a1254999c3bdb591ef23651228cb23f304607b39efbd401e11be983bbce4658",
+            "owner": "a1091e6f-f32e-1f86-6dee-f222b03704f3",
+            "maker_address": "0xd0e1ae8aD003030299df6e9Be78588B127957C9f",
+            "matched_amount": "7",
+            "price": "0.06",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          }
+        ],
+        "trader_side": "TAKER"
+      },
+      {
+        "id": "46e2a213-aca1-425e-b92d-5bfd3d76967f",
+        "taker_order_id": "0x54b993ef932e238a450f739eef50be8cc7b830017d36f562c01126a02594f188",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "3.846152",
+        "fee_rate_bps": "0",
+        "price": "0.26",
+        "status": "CONFIRMED",
+        "match_time": "1749725481",
+        "last_update": "1749725657",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "657e52d2-0c8d-6322-f26b-784f0701b410",
+        "maker_address": "0x96Ed98F5E22ab822ae75ED084C0Ffc191e10A350",
+        "transaction_hash": "0x4ecea0cb8e118a4ec87efb18c1d7ad11897a473d017fec5e4c1fd7540f62d199",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "3.846152",
+            "price": "0.2599998647999351",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "4643524a-676b-409a-8ef0-5b434231209b",
+        "taker_order_id": "0x61e5f8f73700e74cf831a122d06750878df2011edadd062108edd61008950342",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "3.846152",
+        "fee_rate_bps": "0",
+        "price": "0.26",
+        "status": "CONFIRMED",
+        "match_time": "1749645483",
+        "last_update": "1749645678",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "e71aba12-f337-bba6-26bb-cc305186867c",
+        "maker_address": "0xd5Ac7127E43b2D05e6f0BbEC26157Ede9C54C8FC",
+        "transaction_hash": "0x76a28519964690c04e26003396598687060cf7301841b9be306d77c5fbac640a",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "3.846152",
+            "price": "0.2599998647999351",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "847f04c1-f99c-4054-9aab-7cd05f8ed15c",
+        "taker_order_id": "0x8050ceccad10dc8fe39f0acd89ed4ff13741b61c9ba0c3ec66c2853ae9244862",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "SELL",
+        "size": "1.74",
+        "fee_rate_bps": "0",
+        "price": "0.74",
+        "status": "CONFIRMED",
+        "match_time": "1749542922",
+        "last_update": "1749543111",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "470b9e7f-4aa0-c16a-ee71-80ad28f1ae04",
+        "maker_address": "0xd7c9248C978064aD6FaB70B84C27c59E2b73bbaC",
+        "transaction_hash": "0x6eaea23b42696506ba8b8ee12b36657ba7cd86d319a4c9ecfea9ee152ec7ec3b",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "1.74",
+            "price": "0.26",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "4b9b6d1d-91dd-476d-8bc9-dcc2a68e8442",
+        "taker_order_id": "0x4fd9a7eb3f1eb75f533b7e0471d36b5aba7b8d81c0efd58fe90174020032795b",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "3.846152",
+        "fee_rate_bps": "0",
+        "price": "0.26",
+        "status": "CONFIRMED",
+        "match_time": "1749459535",
+        "last_update": "1749459744",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "0d15bbfe-fb32-1e3e-7720-df5d8fd72d93",
+        "maker_address": "0xbFA6cDEcBD3045cE508B2DbA60E3532Edc712bD5",
+        "transaction_hash": "0x6550c070f1705e9c415c19cefdcab1a06da5957c9430fd227a5d5ae3aafa9dcc",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "3.846152",
+            "price": "0.2599998647999351",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "cb05f6cd-1b25-4f2e-b0f8-52d283244623",
+        "taker_order_id": "0x211030bd726606075ad29e8279da48e81a491525899715c35794e76b3e2b3413",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "SELL",
+        "size": "30",
+        "fee_rate_bps": "0",
+        "price": "0.74",
+        "status": "CONFIRMED",
+        "match_time": "1749376627",
+        "last_update": "1749376811",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "299f8436-0019-ef59-1ed1-00b91e63cf66",
+        "maker_address": "0x726EF9f3Ab440Bf2e847bd290cF005B869679dC9",
+        "transaction_hash": "0x873d74fc7eb2eac726c12ad85ba15d067f970beb51b78afd30f8404918eabbdf",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "30",
+            "price": "0.26",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "790f3f71-a2f5-4c52-9a12-61ccb630b3a0",
+        "taker_order_id": "0xd943289c3c4ce25aee77f21a4e7c8bf228c5e56ae6745e37d9dcdf6144557c14",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "SELL",
+        "size": "8",
+        "fee_rate_bps": "0",
+        "price": "0.74",
+        "status": "CONFIRMED",
+        "match_time": "1749375993",
+        "last_update": "1749376199",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "299f8436-0019-ef59-1ed1-00b91e63cf66",
+        "maker_address": "0x726EF9f3Ab440Bf2e847bd290cF005B869679dC9",
+        "transaction_hash": "0x764560c1c25d2ea2bec9e9afcbad3d7b61ab823caa2f4eb0590e3d92a5dd0d45",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "8",
+            "price": "0.26",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "45123bf6-744e-4228-90e9-50e4e94a1206",
+        "taker_order_id": "0x68658a3c431577d8b83e5c8362341b9bb52c25f1842f561ac91d964b9fbc5860",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "SELL",
+        "size": "6.41",
+        "fee_rate_bps": "0",
+        "price": "0.75",
+        "status": "CONFIRMED",
+        "match_time": "1749366980",
+        "last_update": "1749367155",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "e1d9f9e4-c7bb-494d-b648-decdce3e7944",
+        "maker_address": "0xfCCaFE3b51726a5803719923e9A1C6e0649FaEBA",
+        "transaction_hash": "0xd12232484ca12d01f46175820f21cb5d7ca9c157a2ae18911c75825b3c9506cf",
+        "maker_orders": [
+          {
+            "order_id": "0xae9a24df81cc1f2fae7d33644172121d877410ac7fa040cfd6676c2521b4f634",
+            "owner": "d612e398-8a42-518e-9727-b951f94e9942",
+            "maker_address": "0x427311c6551a20D6BdE2f4b57f10A34F164AFa0d",
+            "matched_amount": "5",
+            "price": "0.75",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "BUY"
+          },
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "1.41",
+            "price": "0.26",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "d978e01c-f855-4584-9f26-67807ff810f4",
+        "taker_order_id": "0x1004bb4300c85d8d990d8b6e07bfbd1dfda2b3df31f43d82eaea51c7ad6f7883",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "76.923075",
+        "fee_rate_bps": "0",
+        "price": "0.26",
+        "status": "CONFIRMED",
+        "match_time": "1749219283",
+        "last_update": "1749219448",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "0da57006-2d07-1bd7-7a49-efb519255b22",
+        "maker_address": "0x5E02Ea6229804cCf72C89e2149478EA9b8a55553",
+        "transaction_hash": "0x5488d95ca89bad3352afb132893390153c79a56d2790bdac5f59f3ed3731e53b",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "76.923075",
+            "price": "0.2599999934999998",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "0f8de888-35d1-4238-a521-98efdeea508c",
+        "taker_order_id": "0x32f19e8a5e822e84290e554315bd2fa6dc15845dfef2a4542eb34af48d8c4818",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "19.230768",
+        "fee_rate_bps": "0",
+        "price": "0.26",
+        "status": "CONFIRMED",
+        "match_time": "1749212907",
+        "last_update": "1749213056",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "340c8259-0a38-4dfa-018a-8670a0b697dc",
+        "maker_address": "0x11aBF2feD28A7077F58134336361c9F3ccc29905",
+        "transaction_hash": "0x6980ee24baee7ae75142a2352254988cbe776c10287fbcab7d2844d8e9d2fc28",
+        "maker_orders": [
+          {
+            "order_id": "0x087c3cacdb10dd76d9a2ca1937911c25c5123176125856dd822b03aea2f9ef51",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "19.230768",
+            "price": "0.2599999646399977",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "2a1e8403-9e36-49d5-a69c-c99f48c81123",
+        "taker_order_id": "0xca94df36d2f492836d7f716baa275465180b9f12e9bc87037be85101ee197d9a",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "side": "BUY",
+        "size": "228.61",
+        "fee_rate_bps": "0",
+        "price": "0.72",
+        "status": "CONFIRMED",
+        "match_time": "1749109616",
+        "last_update": "1749109796",
+        "outcome": "No",
+        "bucket_index": 0,
+        "owner": "d2dede4a-4bc1-0504-1c8b-7dc779aab092",
+        "maker_address": "0xa8c63F775DDbbE66B56614191747Def3021444E8",
+        "transaction_hash": "0xa8a8eaffb0669849cbff9c1959a04faffd3c8335d350516a77f4c9e843f5db11",
+        "maker_orders": [
+          {
+            "order_id": "0xd79fd829e71dbdfe960b39c6e283c7c4d1cc6e8dd188005ca07508055db9cd21",
+            "owner": "82578315-a9a1-1860-b3f8-4f0cd9fe1f5a",
+            "maker_address": "0x79cbe531Cca9Eb9320b6ce22b6E471a7bB5D331E",
+            "matched_amount": "18.61",
+            "price": "0.28",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          },
+          {
+            "order_id": "0xf5a9155b43b5b72192eb061b927f31340f7fa96e96fe6b3a3e6da20dd63b2b86",
+            "owner": "74ecbfa3-c9d1-57fb-21f3-351451a60df7",
+            "maker_address": "0x768f8b239B0af5e07af13ec2796AB874f0FFD08c",
+            "matched_amount": "10",
+            "price": "0.72",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "SELL"
+          },
+          {
+            "order_id": "0x1398271ae4c04a62513dc460356719a75dd8b55b41c79bcd97d5a9ab43104243",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "200",
+            "price": "0.28",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "BUY"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "a52cff50-79ea-4c5e-b65f-febbe8f93044",
+        "taker_order_id": "0xc3f30d0beba3508233070e33f5646dbce441a3f9a91e7323573758025780054d",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "16.666665",
+        "fee_rate_bps": "0",
+        "price": "0.3",
+        "status": "CONFIRMED",
+        "match_time": "1749108353",
+        "last_update": "1749108536",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "c94a8556-5aea-355a-910d-b71f16a19b72",
+        "maker_address": "0xE0d3a3eB19e83Acb18a22E6392dBCC1D7517B187",
+        "transaction_hash": "0x5f52772ae32a4115fb92fe2a259f45b616ad15e125a87cf059f18eac19ed3888",
+        "maker_orders": [
+          {
+            "order_id": "0x74c74805167b6b4b15bfe902e3dbce7c240de1d9abbf3b2560cdda44d9fbdbf7",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "10",
+            "price": "0.7",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "BUY"
+          },
+          {
+            "order_id": "0x6a93202862107faa3c864a27cb82ea42c9841cf1bf9d6dfb88303090c8570c18",
+            "owner": "4d8e4034-66eb-8f75-c75f-afac46157601",
+            "maker_address": "0x022e37d52b4B21aaf0ec9B5D0ceDf76192b02a77",
+            "matched_amount": "6.666665",
+            "price": "0.2999999249999812",
+            "fee_rate_bps": "0",
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "outcome": "Yes",
+            "side": "SELL"
+          }
+        ],
+        "trader_side": "MAKER"
+      },
+      {
+        "id": "ab9e64ae-49cd-4ddb-b09d-af06793eff4f",
+        "taker_order_id": "0xd0a56f498a86f4ce02ca928062d43170b5a912e0f0fe251b81bdbc9805615d37",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "side": "BUY",
+        "size": "20",
+        "fee_rate_bps": "0",
+        "price": "0.3",
+        "status": "CONFIRMED",
+        "match_time": "1749104505",
+        "last_update": "1749104699",
+        "outcome": "Yes",
+        "bucket_index": 0,
+        "owner": "da3a1486-950f-5489-9ffc-ba6fafb364cd",
+        "maker_address": "0x67800A00b69E8F982D4955D03D69eA2bd8F2e6Ba",
+        "transaction_hash": "0x6b69881180932e0f5bf155c37b211c9e3eae3ff7d8656ea22396c4141b1344e5",
+        "maker_orders": [
+          {
+            "order_id": "0x74c74805167b6b4b15bfe902e3dbce7c240de1d9abbf3b2560cdda44d9fbdbf7",
+            "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+            "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+            "matched_amount": "20",
+            "price": "0.7",
+            "fee_rate_bps": "0",
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "outcome": "No",
+            "side": "BUY"
+          }
+        ],
+        "trader_side": "MAKER"
+      }
+    ],
+    "place_place_resp": {
+      "errorMsg": "",
+      "orderID": "0xd64893eafe2bed6858077fee8246c291b3a8c2d0b47e423a72631b8a4567658b",
+      "takingAmount": "1.32",
+      "makingAmount": "33",
+      "status": "matched",
+      "transactionsHashes": [
+        "0xbba11c7584a9b94a76c0d77239211af399d5eab4e99d201a519ee789ed546ec6"
+      ],
+      "success": true
+    },
+    "order_get_resp": {
+      "id": "0x8cf2a6806a31e626e9459a99bfc11136bcedaaf69877560e65fd3a2ca3ddcc16",
+      "status": "MATCHED",
+      "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+      "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+      "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+      "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+      "side": "BUY",
+      "original_size": "33",
+      "size_matched": "33",
+      "price": "0.07",
+      "outcome": "Yes",
+      "expiration": "0",
+      "order_type": "GTC",
+      "associate_trades": [
+        "641ebcef-f389-49cc-902f-b340e0f838f4"
+      ],
+      "created_at": 1750279169
+    },
+    "ws_market_message_list": [
+      {
+        "event_type": "_internal",
+        "event": "open",
+        "timestamp": 1750279165.4805722
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "timestamp": "1750279162034",
+        "hash": "57d151662cae9c6db12d9b805d46e2b935085af7",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "60"
+          },
+          {
+            "price": "0.03",
+            "size": "200"
+          },
+          {
+            "price": "0.04",
+            "size": "113.63"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "22000"
+          },
+          {
+            "price": "0.94",
+            "size": "5"
+          },
+          {
+            "price": "0.67",
+            "size": "12"
+          },
+          {
+            "price": "0.28",
+            "size": "250"
+          },
+          {
+            "price": "0.23",
+            "size": "514.11"
+          },
+          {
+            "price": "0.09",
+            "size": "538.69"
+          },
+          {
+            "price": "0.08",
+            "size": "527.2"
+          },
+          {
+            "price": "0.07",
+            "size": "200"
+          }
+        ],
+        "event_type": "book",
+        "_rt": 1750279165.530724
+      },
+      {
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "timestamp": "1750279162034",
+        "hash": "00a849374da9aed7e06ea2137aee82634ff6a93d",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "22000"
+          },
+          {
+            "price": "0.06",
+            "size": "5"
+          },
+          {
+            "price": "0.33",
+            "size": "12"
+          },
+          {
+            "price": "0.72",
+            "size": "250"
+          },
+          {
+            "price": "0.77",
+            "size": "514.11"
+          },
+          {
+            "price": "0.91",
+            "size": "538.69"
+          },
+          {
+            "price": "0.92",
+            "size": "527.2"
+          },
+          {
+            "price": "0.93",
+            "size": "200"
+          }
+        ],
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "60"
+          },
+          {
+            "price": "0.97",
+            "size": "200"
+          },
+          {
+            "price": "0.96",
+            "size": "113.63"
+          }
+        ],
+        "event_type": "book",
+        "_rt": 1750279165.530724
+      },
+      {
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "22000"
+          },
+          {
+            "price": "0.94",
+            "size": "5"
+          },
+          {
+            "price": "0.67",
+            "size": "12"
+          },
+          {
+            "price": "0.28",
+            "size": "250"
+          },
+          {
+            "price": "0.23",
+            "size": "514.11"
+          },
+          {
+            "price": "0.09",
+            "size": "538.69"
+          },
+          {
+            "price": "0.08",
+            "size": "527.2"
+          },
+          {
+            "price": "0.07",
+            "size": "167"
+          }
+        ],
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "60"
+          },
+          {
+            "price": "0.03",
+            "size": "200"
+          },
+          {
+            "price": "0.04",
+            "size": "113.63"
+          }
+        ],
+        "event_type": "book",
+        "hash": "ccb2311efae16870a011595fb71bfbeea8833fef",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750279168657",
+        "_rt": 1750279168.7924473
+      },
+      {
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "60"
+          },
+          {
+            "price": "0.97",
+            "size": "200"
+          },
+          {
+            "price": "0.96",
+            "size": "113.63"
+          }
+        ],
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "22000"
+          },
+          {
+            "price": "0.06",
+            "size": "5"
+          },
+          {
+            "price": "0.33",
+            "size": "12"
+          },
+          {
+            "price": "0.72",
+            "size": "250"
+          },
+          {
+            "price": "0.77",
+            "size": "514.11"
+          },
+          {
+            "price": "0.91",
+            "size": "538.69"
+          },
+          {
+            "price": "0.92",
+            "size": "527.2"
+          },
+          {
+            "price": "0.93",
+            "size": "167"
+          }
+        ],
+        "event_type": "book",
+        "hash": "79234f347a5f49445475b91174100812ddfc776e",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750279168657",
+        "_rt": 1750279168.7924473
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "event_type": "last_trade_price",
+        "fee_rate_bps": "0",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "price": "0.07",
+        "side": "BUY",
+        "size": "33",
+        "timestamp": "1750279168674",
+        "_rt": 1750279168.7924473
+      },
+      {
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "60"
+          },
+          {
+            "price": "0.97",
+            "size": "200"
+          },
+          {
+            "price": "0.96",
+            "size": "80.63"
+          }
+        ],
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "22000"
+          },
+          {
+            "price": "0.06",
+            "size": "5"
+          },
+          {
+            "price": "0.33",
+            "size": "12"
+          },
+          {
+            "price": "0.72",
+            "size": "250"
+          },
+          {
+            "price": "0.77",
+            "size": "514.11"
+          },
+          {
+            "price": "0.91",
+            "size": "538.69"
+          },
+          {
+            "price": "0.92",
+            "size": "527.2"
+          },
+          {
+            "price": "0.93",
+            "size": "167"
+          }
+        ],
+        "event_type": "book",
+        "hash": "ca05f4c5592759f0217b02577afac8eaaac1a976",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750279199739",
+        "_rt": 1750279199.905055
+      },
+      {
+        "asks": [
+          {
+            "price": "0.99",
+            "size": "22000"
+          },
+          {
+            "price": "0.94",
+            "size": "5"
+          },
+          {
+            "price": "0.67",
+            "size": "12"
+          },
+          {
+            "price": "0.28",
+            "size": "250"
+          },
+          {
+            "price": "0.23",
+            "size": "514.11"
+          },
+          {
+            "price": "0.09",
+            "size": "538.69"
+          },
+          {
+            "price": "0.08",
+            "size": "527.2"
+          },
+          {
+            "price": "0.07",
+            "size": "167"
+          }
+        ],
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "bids": [
+          {
+            "price": "0.01",
+            "size": "60"
+          },
+          {
+            "price": "0.03",
+            "size": "200"
+          },
+          {
+            "price": "0.04",
+            "size": "80.63"
+          }
+        ],
+        "event_type": "book",
+        "hash": "f7e57d67bcf1fb886cc84a062a1aa2f3d921b137",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750279199739",
+        "_rt": 1750279199.905055
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "event_type": "last_trade_price",
+        "fee_rate_bps": "0",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "price": "0.04",
+        "side": "SELL",
+        "size": "33",
+        "timestamp": "1750279199768",
+        "_rt": 1750279199.905055
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "changes": [
+          {
+            "price": "0.09",
+            "side": "SELL",
+            "size": "528.69"
+          },
+          {
+            "price": "0.22",
+            "side": "SELL",
+            "size": "10"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "f7d3bb6547ebee2bc1d356772b60eb3a2a7d767f",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750279230220",
+        "_rt": 1750279230.3541293
+      },
+      {
+        "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+        "changes": [
+          {
+            "price": "0.91",
+            "side": "BUY",
+            "size": "528.69"
+          },
+          {
+            "price": "0.78",
+            "side": "BUY",
+            "size": "10"
+          }
+        ],
+        "event_type": "price_change",
+        "hash": "fb858ed092ca5a57bf07ecb01f540a7a63fc23d0",
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "timestamp": "1750279230220",
+        "_rt": 1750279230.3541293
+      }
+    ],
+    "ws_house_message_list": [
+      {
+        "event_type": "_internal",
+        "event": "open",
+        "timestamp": 1750279166.44173
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "bucket_index": "0",
+        "event_type": "trade",
+        "fee_rate_bps": "0",
+        "id": "641ebcef-f389-49cc-902f-b340e0f838f4",
+        "last_update": "1750279168",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "maker_orders": [
+          {
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "fee_rate_bps": "0",
+            "maker_address": "0xC8ab97a9089a9Ff7E6eF0688e6e591a066946418",
+            "matched_amount": "33",
+            "order_id": "0x5a9f2c4f4b61f740b7ddbc38f3e50364c50c92eca62245323c5eb1901c970c08",
+            "outcome": "No",
+            "owner": "b0290663-e75f-76bb-716e-576cbbbdebf9",
+            "price": "0.93"
+          }
+        ],
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "match_time": "1750279168",
+        "outcome": "Yes",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.07",
+        "side": "BUY",
+        "size": "33",
+        "status": "MATCHED",
+        "taker_order_id": "0x8cf2a6806a31e626e9459a99bfc11136bcedaaf69877560e65fd3a2ca3ddcc16",
+        "timestamp": "1750279168674",
+        "trade_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "trader_side": "TAKER",
+        "transaction_hash": "0x7f617f5f1a1ed3cd790397b296fd558f97b42846f1d3baf1d48dcf416becac2c",
+        "type": "TRADE",
+        "_rt": 1750279168.7949579
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "bucket_index": "0",
+        "event_type": "trade",
+        "fee_rate_bps": "0",
+        "id": "641ebcef-f389-49cc-902f-b340e0f838f4",
+        "last_update": "1750279193",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "maker_orders": [
+          {
+            "asset_id": "57592747685553150613611340787456366637501962219546637383034395492294964829329",
+            "fee_rate_bps": "0",
+            "maker_address": "0xC8ab97a9089a9Ff7E6eF0688e6e591a066946418",
+            "matched_amount": "33",
+            "order_id": "0x5a9f2c4f4b61f740b7ddbc38f3e50364c50c92eca62245323c5eb1901c970c08",
+            "outcome": "No",
+            "owner": "b0290663-e75f-76bb-716e-576cbbbdebf9",
+            "price": "0.93"
+          }
+        ],
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "match_time": "1750279168",
+        "outcome": "Yes",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.07",
+        "side": "BUY",
+        "size": "33",
+        "status": "MINED",
+        "taker_order_id": "0x8cf2a6806a31e626e9459a99bfc11136bcedaaf69877560e65fd3a2ca3ddcc16",
+        "timestamp": "1750279193984",
+        "trade_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "trader_side": "TAKER",
+        "transaction_hash": "0x7f617f5f1a1ed3cd790397b296fd558f97b42846f1d3baf1d48dcf416becac2c",
+        "type": "TRADE",
+        "_rt": 1750279194.0800197
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "bucket_index": "0",
+        "event_type": "trade",
+        "fee_rate_bps": "0",
+        "id": "ad0850d1-a4fb-46d9-948d-88c94d9f9ba8",
+        "last_update": "1750279199",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "maker_orders": [
+          {
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "fee_rate_bps": "0",
+            "maker_address": "0xC8ab97a9089a9Ff7E6eF0688e6e591a066946418",
+            "matched_amount": "33",
+            "order_id": "0xbe892ed79b0087e52e3f98ed035d7efdc61aa9f1bd2189630417a0aca8fd85df",
+            "outcome": "Yes",
+            "owner": "b0290663-e75f-76bb-716e-576cbbbdebf9",
+            "price": "0.04"
+          }
+        ],
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "match_time": "1750279199",
+        "outcome": "Yes",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.04",
+        "side": "SELL",
+        "size": "33",
+        "status": "MATCHED",
+        "taker_order_id": "0xd64893eafe2bed6858077fee8246c291b3a8c2d0b47e423a72631b8a4567658b",
+        "timestamp": "1750279199768",
+        "trade_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "trader_side": "TAKER",
+        "transaction_hash": "0xbba11c7584a9b94a76c0d77239211af399d5eab4e99d201a519ee789ed546ec6",
+        "type": "TRADE",
+        "_rt": 1750279199.905968
+      },
+      {
+        "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+        "bucket_index": "0",
+        "event_type": "trade",
+        "fee_rate_bps": "0",
+        "id": "ad0850d1-a4fb-46d9-948d-88c94d9f9ba8",
+        "last_update": "1750279223",
+        "maker_address": "0x94e44831dFc1F9F5C1c9216e7C4AF0aF43b43b11",
+        "maker_orders": [
+          {
+            "asset_id": "6440090635192488865132228381636833414767679330047840018301239171465725271264",
+            "fee_rate_bps": "0",
+            "maker_address": "0xC8ab97a9089a9Ff7E6eF0688e6e591a066946418",
+            "matched_amount": "33",
+            "order_id": "0xbe892ed79b0087e52e3f98ed035d7efdc61aa9f1bd2189630417a0aca8fd85df",
+            "outcome": "Yes",
+            "owner": "b0290663-e75f-76bb-716e-576cbbbdebf9",
+            "price": "0.04"
+          }
+        ],
+        "market": "0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f",
+        "match_time": "1750279199",
+        "outcome": "Yes",
+        "owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "price": "0.04",
+        "side": "SELL",
+        "size": "33",
+        "status": "MINED",
+        "taker_order_id": "0xd64893eafe2bed6858077fee8246c291b3a8c2d0b47e423a72631b8a4567658b",
+        "timestamp": "1750279223133",
+        "trade_owner": "94a4a84a-379a-4c1a-743d-9eb348be557e",
+        "trader_side": "TAKER",
+        "transaction_hash": "0xbba11c7584a9b94a76c0d77239211af399d5eab4e99d201a519ee789ed546ec6",
+        "type": "TRADE",
+        "_rt": 1750279223.297863
+      }
+    ]
+  }
+]

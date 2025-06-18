@@ -25,7 +25,7 @@ class MasterClient:
             key=polymarket_creds['pk'],
             chain_id=POLYGON,
             signature_type=1,
-            funder=polymarket_creds['contract'],
+            funder=polymarket_creds['address'],
         )
         api_creds = ApiCreds(
             api_key=polymarket_creds['ApiCreds']['api_key'],

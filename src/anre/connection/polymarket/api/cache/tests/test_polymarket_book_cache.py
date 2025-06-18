@@ -6,7 +6,7 @@ from anre.utils import testutil
 from anre.utils.Json.Json import Json
 
 
-class TestPolymarketApiCachePublic(testutil.TestCase):
+class TestPolymarketBookCache(testutil.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         _file_path = anre_config.path.get_path_to_root_dir(

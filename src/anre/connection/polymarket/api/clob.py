@@ -15,7 +15,7 @@ from py_clob_client.clob_types import (
 )
 from py_clob_client.constants import POLYGON
 from py_clob_client.order_builder.constants import BUY, SELL
-
+from anre.connection.polymarket.api.types import HouseTradeRec
 from anre.config.config import config as anre_config
 
 assert BUY == 'BUY'
@@ -24,6 +24,7 @@ assert SELL == 'SELL'
 
 class ClobClient:
     _clob_internal_client: Optional[ClobInternalClient] = None
+    _house_address = anre_config.cred.get_polymarket_creds()['address']
 
     def __init__(self):
         if self._clob_internal_client is None:
@@ -39,7 +40,7 @@ class ClobClient:
             key=polymarket_creds['pk'],
             chain_id=POLYGON,
             signature_type=1,
-            funder=polymarket_creds['contract'],
+            funder=polymarket_creds['address'],
         )
         api_creds = ApiCreds(
             api_key=polymarket_creds['ApiCreds']['key'],
@@ -131,23 +132,23 @@ class ClobClient:
         params = OpenOrderParams(id=order_id, market=condition_id, asset_id=asset_id)
         return self._clob_internal_client.get_orders(params, next_cursor=next_cursor)
 
-    def get_house_trades(
+    def get_house_trade_dict_list(
         self,
         id: str = None,
         maker_address: str = None,
-        market: str = None,
+        condition_id: str = None,
         asset_id: str = None,
         before: int = None,
         after: int = None,
         next_cursor: str = "",
         sleep_time=0.3,
-    ):
+    ) -> list[dict]:
         return self.collect_chunks(
             fun=partial(
-                self.get_house_trades_chunk,
+                self.get_house_trade_dict_list_chunk,
                 id=id,
                 maker_address=maker_address,
-                market=market,
+                market=condition_id,
                 asset_id=asset_id,
                 before=before,
                 after=after,
@@ -156,7 +157,7 @@ class ClobClient:
             sleep_time=sleep_time,
         )
 
-    def get_house_trades_chunk(
+    def get_house_trade_dict_list_chunk(
         self,
         id: str = None,
         maker_address: str = None,
@@ -179,6 +180,38 @@ class ClobClient:
             next_cursor=next_cursor,
         )
         return trades
+
+    @classmethod
+    def parse_house_trade_dict_list(cls, trade_dict_list: list[dict]) -> list[HouseTradeRec]:
+        rec_list = []
+        for trade_dict in trade_dict_list:
+            if trade_dict['status'] != 'FAILED':
+                if trade_dict['trader_side'] == 'MAKER':
+                    assert trade_dict['maker_address'] != cls._house_address
+                    for sub_dict in trade_dict['maker_orders']:
+                        if sub_dict['maker_address'] == cls._house_address:
+                            rec = HouseTradeRec(
+                                conditionId=trade_dict['market'],
+                                assetId=sub_dict['asset_id'],
+                                timestamp=int(trade_dict['match_time']),
+                                size=float(sub_dict['matched_amount']),
+                                price=float(sub_dict['price']),
+                                outcome=sub_dict['outcome'],
+                                side=sub_dict['side'],
+                            )
+                            rec_list.append(rec)
+                elif trade_dict['trader_side'] == 'TAKER':
+                    rec = HouseTradeRec(
+                        conditionId=trade_dict['market'],
+                        assetId=trade_dict['asset_id'],
+                        timestamp=int(trade_dict['match_time']),
+                        size=float(trade_dict['size']),
+                        price=float(trade_dict['price']),
+                        outcome=trade_dict['outcome'],
+                        side=trade_dict['side'],
+                    )
+                    rec_list.append(rec)
+        return rec_list
 
     def place_order(
         self,
@@ -251,4 +284,3 @@ def __demo__():
     self = ClobClient()
     print(self)
 
-    self.get_house_positions()
