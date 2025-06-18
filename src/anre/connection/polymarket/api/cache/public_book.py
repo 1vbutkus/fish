@@ -3,7 +3,7 @@ from dataclasses import dataclass, field
 from anre.connection.polymarket.api.cache.base import AssetBook as BaseAssetBook
 from anre.connection.polymarket.api.cache.base import Book1000
 from anre.connection.polymarket.api.cache.base import MarketOrderBook as BaseMarketOrderBook
-from anre.connection.polymarket.api.cache.house import HouseOrderBook
+from anre.connection.polymarket.api.cache.house_book import HouseOrderBook
 
 
 @dataclass(frozen=False, repr=False)
