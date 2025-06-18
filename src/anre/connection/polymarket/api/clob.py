@@ -10,7 +10,6 @@ from py_clob_client.clob_types import (
     OpenOrderParams,
     OrderArgs,
     OrderType,
-    PositionsArgs,
     PriceHistoryArgs,
     TradeParams,
 )
@@ -30,7 +29,7 @@ class ClobClient:
         if self._clob_internal_client is None:
             self._clob_internal_client = self._create_clob_internal_client()
         assert isinstance(self._clob_internal_client, ClobInternalClient)
-        self._house_user = anre_config.cred.get_polymarket_creds()['contract']
+
 
     @staticmethod
     def _create_clob_internal_client():
@@ -132,7 +131,7 @@ class ClobClient:
         params = OpenOrderParams(id=order_id, market=condition_id, asset_id=asset_id)
         return self._clob_internal_client.get_orders(params, next_cursor=next_cursor)
 
-    def get_our_trades_chunk(
+    def get_house_trades(
         self,
         id: str = None,
         maker_address: str = None,
@@ -140,7 +139,32 @@ class ClobClient:
         asset_id: str = None,
         before: int = None,
         after: int = None,
-        next_cursor: str = "MA==",
+        next_cursor: str = "",
+        sleep_time=0.3,
+    ):
+        return self.collect_chunks(
+            fun=partial(
+                self.get_house_trades_chunk,
+                id=id,
+                maker_address=maker_address,
+                market=market,
+                asset_id=asset_id,
+                before=before,
+                after=after,
+            ),
+            next_cursor=next_cursor,
+            sleep_time=sleep_time,
+        )
+
+    def get_house_trades_chunk(
+        self,
+        id: str = None,
+        maker_address: str = None,
+        market: str = None,
+        asset_id: str = None,
+        before: int = None,
+        after: int = None,
+        next_cursor: str = "",
     ):
         params = TradeParams(
             id=id,
@@ -220,19 +244,7 @@ class ClobClient:
         # Decode Base64 to bytes, then decode bytes back to string
         return int(base64.b64decode(encoded_value).decode())
 
-    def get_any_user_positions(self, user: str, **kwargs) -> list[dict]:
-        # this is not exactly clob, but let it be
-        params = PositionsArgs(user=user, **kwargs)
-        params = {key: value for key, value in params.__dict__.items() if value is not None}
-        url = "https://data-api.polymarket.com/positions"
-        response = requests.request("GET", url, params=params)
-        if response.status_code == 200:
-            return response.json()
-        else:
-            raise Exception(f"Error response from API: HTTP {response.status_code}")
 
-    def get_house_positions(self, **kwargs):
-        return self.get_any_user_positions(user=self._house_user, **kwargs)
 
 
 def __demo__():
