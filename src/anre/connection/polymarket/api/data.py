@@ -71,7 +71,7 @@ class TradesArgs:
     user: str
     limit: int = None  # max 500
     offset: int = None
-    takerOnly: bool = None
+    takerOnly: bool = False
     filterType: str = None
     filterAmount: int | float = None
     market: str = None
@@ -104,9 +104,9 @@ class DataClient:
     def __init__(self):
         self._house_user = anre_config.cred.get_polymarket_creds()['contract']
 
-    def get_user_positions(self, user: str, limit: int = None, **kwargs) -> list[dict]:
+    def get_user_positions(self, user: str, limit: int = None, condition_id: str = None, **kwargs) -> list[dict]:
         # this is not exactly clob, but let it be
-        params = PositionsArgs(user=user, limit=limit, **kwargs)
+        params = PositionsArgs(user=user, limit=limit, market=condition_id, **kwargs)
         params = {key: value for key, value in params.__dict__.items() if value is not None}
         url = self._url + "/positions"
         return get(url, params=params)
@@ -114,9 +114,9 @@ class DataClient:
     def get_house_positions(self, **kwargs):
         return self.get_user_positions(user=self._house_user, **kwargs)
 
-    def get_user_trades(self, user: str, limit: int = None, **kwargs) -> list[dict]:
+    def get_user_trades(self, user: str, limit: int = None, condition_id: str = None, **kwargs) -> list[dict]:
         # this is not exactly clob, but let it be
-        params = TradesArgs(user=user, limit=limit, **kwargs)
+        params = TradesArgs(user=user, limit=limit, market=condition_id, **kwargs)
         params = {key: value for key, value in params.__dict__.items() if value is not None}
         url = self._url + "/trades"
         return get(url, params=params)
