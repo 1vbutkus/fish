@@ -10,6 +10,8 @@ class HouseTradeRec:
     size: float
     price: float
     timestamp: int | float
+    transactionHash: str
+    status: str = 'UNKNOWN'
 
     def __post_init__(self):
         assert self.outcome in ['Yes', 'No']

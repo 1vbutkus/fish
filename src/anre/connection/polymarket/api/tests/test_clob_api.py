@@ -58,5 +58,5 @@ class TestClobApi(testutil.TestCase):
 
         condition_id = '0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f'
         trade_dict_list = client.get_house_trade_dict_list(condition_id=condition_id)
-        house_trade_rec_list = client.parse_house_trade_dict_list(trade_dict_list=trade_dict_list)
-        assert isinstance(house_trade_rec_list, list)
+        house_trade_rec_dict = client.parse_house_trade_dict_list(trade_dict_list=trade_dict_list)
+        assert isinstance(house_trade_rec_dict, dict)

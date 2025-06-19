@@ -3,11 +3,8 @@ import time
 from anre.config.config import config as anre_config
 from anre.connection.polymarket.api.clob import ClobClient
 from anre.connection.polymarket.api.data import DataClient
-
 from anre.connection.polymarket.api.websocket.websocket import PolymarketWebSocket
 from anre.utils.Json.Json import Json
-
-
 
 
 def run_book_steps_and_save_to_file(overwrite: bool = False):
@@ -146,6 +143,7 @@ def run_book_steps_and_save_to_file(overwrite: bool = False):
     )
     Json.dump(book_change_step_list, path=_file_path, overwrite=True, useIndent=True)
 
+
 def run_trade_steps_and_save_to_file(overwrite: bool = False):
     condition_id = '0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f'  # condition_id = '0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f'
     clob_client = ClobClient()
@@ -165,7 +163,6 @@ def run_trade_steps_and_save_to_file(overwrite: bool = False):
     ask1000 = int(1000 * min([float(el['price']) for el in mob_dict['asks']]))
     assert bid1000 >= 40
     assert ask1000 <= 960
-
 
     # nuotrauka
     position_list_0 = data_client.get_house_position_dict_list(condition_id=condition_id)
@@ -255,8 +252,6 @@ def run_trade_steps_and_save_to_file(overwrite: bool = False):
         'src/anre/connection/polymarket/api/cache/tests/resources/trade_change_step_list.json'
     )
     Json.dump(book_change_step_list, path=_file_path, overwrite=True, useIndent=True)
-
-
 
 
 if __name__ == '__main__':

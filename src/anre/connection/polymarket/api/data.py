@@ -1,11 +1,10 @@
-
 from dataclasses import dataclass
-from requests import Response
+
 import requests
+from requests import Response
 
 from anre.config.config import config as anre_config
 from anre.connection.polymarket.api.types import HouseTradeRec
-
 
 
 class PolyException(Exception):
@@ -68,7 +67,11 @@ class TradesArgs:
 def request(endpoint: str, method: str, headers=None, data=None, params=None):
     try:
         resp = requests.request(
-            method=method, url=endpoint, headers=headers, json=(data if data else None), params=params
+            method=method,
+            url=endpoint,
+            headers=headers,
+            json=(data if data else None),
+            params=params,
         )
         if resp.status_code != 200:
             raise PolyApiException(resp)
@@ -90,7 +93,9 @@ class DataClient:
     _url = "https://data-api.polymarket.com"
     _house_address = anre_config.cred.get_polymarket_creds()['address']
 
-    def get_user_position_dict_list(self, user: str, limit: int = None, condition_id: str = None, **kwargs) -> list[dict]:
+    def get_user_position_dict_list(
+        self, user: str, limit: int = None, condition_id: str = None, **kwargs
+    ) -> list[dict]:
         # this is not exactly clob, but let it be
         params = PositionsArgs(user=user, limit=limit, market=condition_id, **kwargs)
         params = {key: value for key, value in params.__dict__.items() if value is not None}
@@ -100,7 +105,9 @@ class DataClient:
     def get_house_position_dict_list(self, **kwargs) -> list[dict]:
         return self.get_user_position_dict_list(user=self._house_address, **kwargs)
 
-    def get_user_trade_dict_list(self, user: str, limit: int = None, condition_id: str = None, **kwargs) -> list[dict]:
+    def get_user_trade_dict_list(
+        self, user: str, limit: int = None, condition_id: str = None, **kwargs
+    ) -> list[dict]:
         # this is not exactly clob, but let it be
         params = TradesArgs(user=user, limit=limit, market=condition_id, **kwargs)
         params = {key: value for key, value in params.__dict__.items() if value is not None}
@@ -111,7 +118,7 @@ class DataClient:
         return self.get_user_trade_dict_list(user=self._house_address, **kwargs)
 
     @staticmethod
-    def parse_house_trade_dict_list(house_trade_dict_list: list[dict]) -> list[HouseTradeRec]:
+    def parse_house_trade_dict_list(house_trade_dict_list: list[dict]) -> dict[str, HouseTradeRec]:
         def _get_house_trade_rec(date_trade_rec_dict):
             return HouseTradeRec(
                 conditionId=date_trade_rec_dict['conditionId'],
@@ -121,10 +128,14 @@ class DataClient:
                 size=date_trade_rec_dict['size'],
                 price=date_trade_rec_dict['price'],
                 timestamp=date_trade_rec_dict['timestamp'],
+                transactionHash=date_trade_rec_dict['transactionHash'],
             )
-        house_trade_rec_list = [_get_house_trade_rec(date_trade_rec_dict) for date_trade_rec_dict in house_trade_dict_list]
-        return house_trade_rec_list
 
+        house_trade_rec_dict = {
+            date_trade_rec_dict['transactionHash']: _get_house_trade_rec(date_trade_rec_dict)
+            for date_trade_rec_dict in house_trade_dict_list
+        }
+        return house_trade_rec_dict
 
 
 def __demo__():
@@ -132,4 +143,3 @@ def __demo__():
     print(self)
 
     self.get_house_position_dict_list(limit=3)
-

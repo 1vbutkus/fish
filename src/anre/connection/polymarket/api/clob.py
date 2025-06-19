@@ -3,7 +3,6 @@ import time
 from functools import partial
 from typing import Callable, Literal, Optional
 
-import requests
 from py_clob_client.client import ClobClient as ClobInternalClient
 from py_clob_client.clob_types import (
     ApiCreds,
@@ -15,8 +14,9 @@ from py_clob_client.clob_types import (
 )
 from py_clob_client.constants import POLYGON
 from py_clob_client.order_builder.constants import BUY, SELL
-from anre.connection.polymarket.api.types import HouseTradeRec
+
 from anre.config.config import config as anre_config
+from anre.connection.polymarket.api.types import HouseTradeRec
 
 assert BUY == 'BUY'
 assert SELL == 'SELL'
@@ -30,7 +30,6 @@ class ClobClient:
         if self._clob_internal_client is None:
             self._clob_internal_client = self._create_clob_internal_client()
         assert isinstance(self._clob_internal_client, ClobInternalClient)
-
 
     @staticmethod
     def _create_clob_internal_client():
@@ -182,8 +181,8 @@ class ClobClient:
         return trades
 
     @classmethod
-    def parse_house_trade_dict_list(cls, trade_dict_list: list[dict]) -> list[HouseTradeRec]:
-        rec_list = []
+    def parse_house_trade_dict_list(cls, trade_dict_list: list[dict]) -> dict[str, HouseTradeRec]:
+        rec_dict = {}
         for trade_dict in trade_dict_list:
             if trade_dict['status'] != 'FAILED':
                 if trade_dict['trader_side'] == 'MAKER':
@@ -198,8 +197,10 @@ class ClobClient:
                                 price=float(sub_dict['price']),
                                 outcome=sub_dict['outcome'],
                                 side=sub_dict['side'],
+                                transactionHash=trade_dict['transaction_hash'],
+                                status=trade_dict['status'],
                             )
-                            rec_list.append(rec)
+                            rec_dict[rec.transactionHash] = rec
                 elif trade_dict['trader_side'] == 'TAKER':
                     rec = HouseTradeRec(
                         conditionId=trade_dict['market'],
@@ -209,9 +210,11 @@ class ClobClient:
                         price=float(trade_dict['price']),
                         outcome=trade_dict['outcome'],
                         side=trade_dict['side'],
+                        transactionHash=trade_dict['transaction_hash'],
+                        status=trade_dict['status'],
                     )
-                    rec_list.append(rec)
-        return rec_list
+                    rec_dict[rec.transactionHash] = rec
+        return rec_dict
 
     def place_order(
         self,
@@ -278,9 +281,6 @@ class ClobClient:
         return int(base64.b64decode(encoded_value).decode())
 
 
-
-
 def __demo__():
     self = ClobClient()
     print(self)
-
