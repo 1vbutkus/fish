@@ -50,113 +50,117 @@ class ClobClient:
         api_client.set_api_creds(api_creds)
         return api_client
 
-    def get_market_info(self, condition_id: str) -> dict:
+    def _collect_chunks(
+        self,
+        fun: Callable,
+        cursor: str | int = "",
+        sleep_time: float = 0.5,
+        chunk_limit: int = None,
+    ) -> list[dict]:
+        assert sleep_time >= 0.01
+        data = []
+        run_cursor = ''
+        count = 0
+        while cursor != "LTE=":
+            count += 1
+            run_cursor = cursor
+            result = fun(cursor=run_cursor)
+            data.extend(result['data'])
+            cursor = result['next_cursor']
+            if chunk_limit is not None and count >= chunk_limit:
+                break
+            if cursor != "LTE=":
+                time.sleep(sleep_time)
+        return data
+
+    def get_single_market_info(self, condition_id: str) -> dict:
         return self._clob_internal_client.get_market(condition_id=condition_id)
 
-    def get_markets_chunk(self, next_cursor: str = "") -> dict:
+    def get_market_info_chunk(self, cursor: str | int = "") -> dict:
         """Get available CLOB markets
 
         Please limit 50 request per 10 seconds.
 
-        :param next_cursor: str, "" means the beginning and ‘LTE=’ means the end
+        :param cursor: str, "" means the beginning and ‘LTE=’ means the end
         :return: dict with keys: data, next_cursor, count, limit
         """
-        return self._clob_internal_client.get_markets(next_cursor=next_cursor)
+        if isinstance(cursor, int):
+            cursor = self.number_to_cursor(cursor)
+        return self._clob_internal_client.get_markets(next_cursor=cursor)
 
-    def get_sampling_markets_chunk(self, next_cursor: str = "") -> dict:
+    def get_market_info_list(
+        self, cursor: str | int = "", sleep_time=0.5, chunk_limit: int = None
+    ) -> list[dict]:
+        return self._collect_chunks(
+            fun=partial(
+                self.get_market_info_chunk,
+            ),
+            cursor=cursor,
+            sleep_time=sleep_time,
+            chunk_limit=chunk_limit,
+        )
+
+    def get_sampling_market_info_chunk(self, cursor: str = "") -> dict:
         """Get available CLOB markets that have rewards enabled. Single chunk.
 
         Please limit 50 request per 10 seconds.
 
-        :param next_cursor: str, "" means the beginning and ‘LTE=’ means the end
+        :param cursor: str, "" means the beginning and ‘LTE=’ means the end
         :return: dict with keys: data, next_cursor, count, limit
         """
-        return self._clob_internal_client.get_sampling_markets(next_cursor=next_cursor)
+        if isinstance(cursor, int):
+            cursor = self.number_to_cursor(cursor)
+        return self._clob_internal_client.get_sampling_markets(next_cursor=cursor)
 
-    def get_simplified_markets_chunk(self, next_cursor: str = "") -> dict:
-        """Get available CLOB markets expressed in a simplified schema. Single chunk."""
-        return self._clob_internal_client.get_simplified_markets(next_cursor=next_cursor)
-
-    def get_sampling_simplified_markets_chunk(self, next_cursor: str = "") -> dict:
-        """Get available CLOB markets expressed in a simplified schema. Single chunk."""
-        return self._clob_internal_client.get_sampling_simplified_markets(next_cursor=next_cursor)
-
-    def get_market_order_book(self, token_id: str) -> dict:
-        return self._clob_internal_client.get_order_book(token_id=token_id)
-
-    def get_mob_list(self, token_ids: list[str]) -> list[dict]:
-        return self._clob_internal_client.get_order_books(token_ids=token_ids)
-
-    def collect_chunks(
-        self, fun: Callable, next_cursor: str = "", sleep_time: float = 0.3
+    def get_sampling_market_info_list(
+        self, cursor: str | int = "", sleep_time=0.5, chunk_limit: int = None
     ) -> list[dict]:
-        data = []
-        while next_cursor != "LTE=":
-            result = fun(next_cursor=next_cursor)
-            data.extend(result['data'])
-            next_cursor = result['next_cursor']
-            if next_cursor != "LTE=":
-                time.sleep(sleep_time)
-        return data
-
-    def get_house_order(self, order_id: str = None):
-        return self._clob_internal_client.get_order(order_id=order_id)
-
-    def get_house_orders(
-        self,
-        order_id: str = None,
-        condition_id: str = None,
-        asset_id: str = None,
-        next_cursor: str = "",
-        sleep_time=0.3,
-    ):
-        return self.collect_chunks(
+        return self._collect_chunks(
             fun=partial(
-                self.get_house_orders_chunk,
-                order_id=order_id,
-                condition_id=condition_id,
-                asset_id=asset_id,
+                self.get_sampling_market_info_chunk,
             ),
-            next_cursor=next_cursor,
+            cursor=cursor,
             sleep_time=sleep_time,
+            chunk_limit=chunk_limit,
         )
 
-    def get_house_orders_chunk(
-        self,
-        order_id: str = None,
-        condition_id: str = None,
-        asset_id: str = None,
-        next_cursor: str = "",
-    ):
-        params = OpenOrderParams(id=order_id, market=condition_id, asset_id=asset_id)
-        return self._clob_internal_client.get_orders(params, next_cursor=next_cursor)
+    def get_simplified_markets_info_chunk(self, cursor: str | int = "") -> dict:
+        """Get available CLOB markets expressed in a simplified schema. Single chunk."""
+        if isinstance(cursor, int):
+            cursor = self.number_to_cursor(cursor)
+        return self._clob_internal_client.get_simplified_markets(next_cursor=cursor)
 
-    def get_house_trade_dict_list(
-        self,
-        id: str = None,
-        maker_address: str = None,
-        condition_id: str = None,
-        asset_id: str = None,
-        before: int = None,
-        after: int = None,
-        next_cursor: str = "",
-        sleep_time=0.3,
+    def get_simplified_markets_info_list(
+        self, cursor: str | int = "", sleep_time=0.5, chunk_limit: int = None
     ) -> list[dict]:
-        return self.collect_chunks(
+        return self._collect_chunks(
             fun=partial(
-                self.get_house_trade_dict_list_chunk,
-                id=id,
-                maker_address=maker_address,
-                market=condition_id,
-                asset_id=asset_id,
-                before=before,
-                after=after,
+                self.get_simplified_markets_info_chunk,
             ),
-            next_cursor=next_cursor,
+            cursor=cursor,
             sleep_time=sleep_time,
+            chunk_limit=chunk_limit,
         )
 
-    def get_house_trade_dict_list_chunk(
+    def get_sampling_simplified_market_info_chunk(self, cursor: str | int = "") -> dict:
+        """Get available CLOB markets expressed in a simplified schema. That have rewards enabled. Single chunk."""
+        if isinstance(cursor, int):
+            cursor = self.number_to_cursor(cursor)
+        return self._clob_internal_client.get_sampling_simplified_markets(next_cursor=cursor)
+
+    def get_sampling_simplified_markets_info_list(
+        self, cursor: str | int = "", sleep_time=0.5, chunk_limit: int = None
+    ) -> list[dict]:
+        return self._collect_chunks(
+            fun=partial(
+                self.get_sampling_simplified_market_info_chunk,
+            ),
+            cursor=cursor,
+            sleep_time=sleep_time,
+            chunk_limit=chunk_limit,
+        )
+
+    def get_house_trade_dict_chunk(
         self,
         id: str = None,
         maker_address: str = None,
@@ -164,8 +168,10 @@ class ClobClient:
         asset_id: str = None,
         before: int = None,
         after: int = None,
-        next_cursor: str = "",
-    ):
+        cursor: str | int = "",
+    ) -> dict:
+        if isinstance(cursor, int):
+            cursor = self.number_to_cursor(cursor)
         params = TradeParams(
             id=id,
             maker_address=maker_address,
@@ -176,9 +182,36 @@ class ClobClient:
         )
         trades = self._clob_internal_client.get_trades(
             params=params,
-            next_cursor=next_cursor,
+            next_cursor=cursor,
         )
         return trades
+
+    def get_house_trade_dict_list(
+        self,
+        id: str = None,
+        maker_address: str = None,
+        condition_id: str = None,
+        asset_id: str = None,
+        before: int = None,
+        after: int = None,
+        cursor: str | int = "",
+        sleep_time=0.5,
+        chunk_limit: int = None,
+    ) -> list[dict]:
+        return self._collect_chunks(
+            fun=partial(
+                self.get_house_trade_dict_chunk,
+                id=id,
+                maker_address=maker_address,
+                market=condition_id,
+                asset_id=asset_id,
+                before=before,
+                after=after,
+            ),
+            cursor=cursor,
+            sleep_time=sleep_time,
+            chunk_limit=chunk_limit,
+        )
 
     @classmethod
     def parse_house_trade_dict_list(cls, trade_dict_list: list[dict]) -> dict[str, HouseTradeRec]:
@@ -215,6 +248,48 @@ class ClobClient:
                     )
                     rec_dict[rec.transactionHash] = rec
         return rec_dict
+
+    def get_single_house_order_dict(self, order_id: str = None) -> dict:
+        return self._clob_internal_client.get_order(order_id=order_id)
+
+    def get_house_order_dict_chunk(
+        self,
+        order_id: str = None,
+        condition_id: str = None,
+        asset_id: str = None,
+        cursor: str | int = "",
+    ):
+        if isinstance(cursor, int):
+            cursor = self.number_to_cursor(cursor)
+        params = OpenOrderParams(id=order_id, market=condition_id, asset_id=asset_id)
+        return self._clob_internal_client.get_orders(params, next_cursor=cursor)
+
+    def get_house_order_dict_list(
+        self,
+        order_id: str = None,
+        condition_id: str = None,
+        asset_id: str = None,
+        cursor: str | int = "",
+        sleep_time=0.5,
+        chunk_limit: int = None,
+    ) -> list[dict]:
+        return self._collect_chunks(
+            fun=partial(
+                self.get_house_order_dict_chunk,
+                order_id=order_id,
+                condition_id=condition_id,
+                asset_id=asset_id,
+            ),
+            cursor=cursor,
+            sleep_time=sleep_time,
+            chunk_limit=chunk_limit,
+        )
+
+    def get_single_mob(self, token_id: str) -> dict:
+        return self._clob_internal_client.get_order_book(token_id=token_id)
+
+    def get_mob_list(self, token_ids: list[str]) -> list[dict]:
+        return self._clob_internal_client.get_order_books(token_ids=token_ids)
 
     def place_order(
         self,
@@ -278,6 +353,9 @@ class ClobClient:
         :return: Decoded string.
         """
         # Decode Base64 to bytes, then decode bytes back to string
+        assert isinstance(encoded_value, str)
+        if not encoded_value:
+            return 0
         return int(base64.b64decode(encoded_value).decode())
 
 

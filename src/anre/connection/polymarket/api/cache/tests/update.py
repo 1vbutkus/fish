@@ -11,14 +11,14 @@ def run_book_steps_and_save_to_file(overwrite: bool = False):
     condition_id = '0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f'  # condition_id = '0xae546fe6f033bb5f9f7904bff4dbb142659953229c458ec0d0726d4c0c32f65f'
     clob_client = ClobClient()
 
-    clob_market_info_dict = clob_client.get_market_info(condition_id=condition_id)
+    clob_market_info_dict = clob_client.get_single_market_info(condition_id=condition_id)
     asset_ids = [el['token_id'] for el in clob_market_info_dict['tokens']]
     asset_id, counter_asser_id = asset_ids
 
     ### isalomisus ordersiu,kad nemaisytu
     clob_client.cancel_orders_by_market(condition_id=condition_id)
     time.sleep(1)
-    clob_house_order_list_0 = clob_client.get_house_orders(condition_id=condition_id)
+    clob_house_order_list_0 = clob_client.get_house_order_dict_list(condition_id=condition_id)
     assert len(clob_house_order_list_0) == 0
 
     # imam nulini stata
@@ -43,12 +43,9 @@ def run_book_steps_and_save_to_file(overwrite: bool = False):
     assert place_resp['status'] == 'live'
     time.sleep(5)
 
-    clob_client.get_house_orders(asset_id=asset_id)
-    clob_client.get_house_orders(asset_id=counter_asser_id)
-
     # pasimam pradini statusa(su egzistuojanciu orderiu)
     clob_mob_list_1 = clob_client.get_mob_list(token_ids=asset_ids)
-    clob_house_order_list_1 = clob_client.get_house_orders(condition_id=condition_id)
+    clob_house_order_list_1 = clob_client.get_house_order_dict_list(condition_id=condition_id)
 
     # startuojam streamus
     market_ws = PolymarketWebSocket.new_markets(asset_ids=asset_ids)
@@ -94,19 +91,19 @@ def run_book_steps_and_save_to_file(overwrite: bool = False):
 
     # pasiimam nuotrauka
     clob_mob_list_2 = clob_client.get_mob_list(token_ids=asset_ids)
-    clob_house_order_list_2 = clob_client.get_house_orders(condition_id=condition_id)
+    clob_house_order_list_2 = clob_client.get_house_order_dict_list(condition_id=condition_id)
     ws_market_message_list_2 = market_ws.messenger.get_peek_messages()
     ws_house_message_list_2 = house_ws.messenger.get_peek_messages()
 
     # cancel orders
     clob_client.cancel_orders_by_market(condition_id=condition_id)
     time.sleep(5)
-    _house_orders = clob_client.get_house_orders(condition_id=condition_id)
+    _house_orders = clob_client.get_house_order_dict_list(condition_id=condition_id)
     assert len(_house_orders) == 0
 
     # pasiimam nuotrauka
     clob_mob_list_3 = clob_client.get_mob_list(token_ids=asset_ids)
-    clob_house_order_list_3 = clob_client.get_house_orders(condition_id=condition_id)
+    clob_house_order_list_3 = clob_client.get_house_order_dict_list(condition_id=condition_id)
     ws_market_message_list_3 = market_ws.messenger.get_peek_messages()
     ws_house_message_list_3 = house_ws.messenger.get_peek_messages()
 
@@ -149,7 +146,7 @@ def run_trade_steps_and_save_to_file(overwrite: bool = False):
     clob_client = ClobClient()
     data_client = DataClient()
 
-    clob_market_info_dict = clob_client.get_market_info(condition_id=condition_id)
+    clob_market_info_dict = clob_client.get_single_market_info(condition_id=condition_id)
     asset_ids = [el['token_id'] for el in clob_market_info_dict['tokens']]
     asset_id, counter_asser_id = asset_ids
 
@@ -189,7 +186,9 @@ def run_trade_steps_and_save_to_file(overwrite: bool = False):
         side='BUY',
     )
     time.sleep(30)
-    order_get_resp_1 = clob_client.get_house_order(order_id=place_place_resp_1['orderID'])
+    order_get_resp_1 = clob_client.get_single_house_order_dict(
+        order_id=place_place_resp_1['orderID']
+    )
 
     # nuotrauka
     position_list_1 = data_client.get_house_position_dict_list(condition_id=condition_id)
@@ -206,7 +205,9 @@ def run_trade_steps_and_save_to_file(overwrite: bool = False):
         side='SELL',
     )
     time.sleep(30)
-    order_get_resp_2 = clob_client.get_house_order(order_id=place_place_resp_1['orderID'])
+    order_get_resp_2 = clob_client.get_single_house_order_dict(
+        order_id=place_place_resp_1['orderID']
+    )
 
     # nuotrauka
     position_list_2 = data_client.get_house_position_dict_list(condition_id=condition_id)
