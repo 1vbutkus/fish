@@ -1,3 +1,4 @@
+import datetime
 from typing import Any
 
 import httpx
@@ -7,12 +8,10 @@ class GammaClient:
     BASE_URL = "https://gamma-api.polymarket.com"
     MARKETS_PATH = "/markets"
     EVENTS_PATH = "/events"
-    POSITIONS_PATH = "/positions"
 
     def __init__(self):
         self._markets_endpoint = self._generate_endpoint(self.MARKETS_PATH)
         self._events_endpoint = self._generate_endpoint(self.EVENTS_PATH)
-        self._positions_endpoint = self._generate_endpoint(self.POSITIONS_PATH)
 
     def _generate_endpoint(self, path: str) -> str:
         """Generates full API endpoint URL."""
@@ -38,11 +37,11 @@ class GammaClient:
     def get_positions_query(self, query_params: dict[str, Any] | None = None) -> list[dict]:
         return self._perform_get_request(self._positions_endpoint, query_params)
 
-    def get_market(self, market_id: int) -> dict:
+    def get_single_market_info(self, market_id: int) -> dict:
         market_url = self._generate_endpoint(f"{self.MARKETS_PATH}/{market_id}")
         return self._perform_get_request(market_url, query_params=None)
 
-    def get_markets(
+    def get_market_info_list(
         self,
         slug: str = None,
         archived: bool = None,
@@ -52,6 +51,10 @@ class GammaClient:
         offset: int = 0,
         order: str = None,
         ascending: bool = None,
+        start_date_min: str | datetime.datetime = None,
+        start_date_max: str | datetime.datetime = None,
+        end_date_min: str | datetime.datetime = None,
+        end_date_max: str | datetime.datetime = None,
         **kwargs: Any,
     ) -> list[dict]:
         query_params = {}
@@ -71,10 +74,35 @@ class GammaClient:
             query_params["closed"] = closed
         if order is not None:
             query_params["order"] = order
+        if start_date_min is not None:
+            query_params["start_date_min"] = (
+                start_date_min.strftime("%Y-%m-%dT%H:%M:%SZ")
+                if isinstance(start_date_min, datetime.datetime)
+                else start_date_min
+            )
+        if start_date_max is not None:
+            query_params["start_date_max"] = (
+                start_date_max.strftime("%Y-%m-%dT%H:%M:%SZ")
+                if isinstance(start_date_max, datetime.datetime)
+                else start_date_max
+            )
+        if end_date_min is not None:
+            query_params["end_date_min"] = (
+                end_date_min.strftime("%Y-%m-%dT%H:%M:%SZ")
+                if isinstance(end_date_min, datetime.datetime)
+                else end_date_min
+            )
+        if end_date_max is not None:
+            query_params["end_date_max"] = (
+                end_date_max.strftime("%Y-%m-%dT%H:%M:%SZ")
+                if isinstance(end_date_max, datetime.datetime)
+                else end_date_max
+            )
+
         query_params.update(kwargs)
         return self.get_markets_query(query_params)
 
-    def get_events(
+    def get_event_info_list(
         self,
         slug: str = None,
         archived: bool = None,
@@ -84,6 +112,10 @@ class GammaClient:
         offset: int = 0,
         order: str = None,
         ascending: bool = None,
+        start_date_min: str | datetime.datetime = None,
+        start_date_max: str | datetime.datetime = None,
+        end_date_min: str | datetime.datetime = None,
+        end_date_max: str | datetime.datetime = None,
         **kwargs: Any,
     ) -> list[dict]:
         query_params = {}
@@ -103,17 +135,39 @@ class GammaClient:
             query_params["closed"] = closed
         if order is not None:
             query_params["order"] = order
+        if start_date_min is not None:
+            query_params["start_date_min"] = (
+                start_date_min.strftime("%Y-%m-%dT%H:%M:%SZ")
+                if isinstance(start_date_min, datetime.datetime)
+                else start_date_min
+            )
+        if start_date_max is not None:
+            query_params["start_date_max"] = (
+                start_date_max.strftime("%Y-%m-%dT%H:%M:%SZ")
+                if isinstance(start_date_max, datetime.datetime)
+                else start_date_max
+            )
+        if end_date_min is not None:
+            query_params["end_date_min"] = (
+                end_date_min.strftime("%Y-%m-%dT%H:%M:%SZ")
+                if isinstance(end_date_min, datetime.datetime)
+                else end_date_min
+            )
+        if end_date_max is not None:
+            query_params["end_date_max"] = (
+                end_date_max.strftime("%Y-%m-%dT%H:%M:%SZ")
+                if isinstance(end_date_max, datetime.datetime)
+                else end_date_max
+            )
+
         query_params.update(kwargs)
         return self.get_events_query(query_params)
-
-    def get_positions(self, user: str, **kwargs: Any):
-        query_params = {'user': user}
-        query_params.update(kwargs)
-        return self.get_positions_query(query_params)
 
 
 def __demo__():
     gamma = GammaClient()
 
-    markets = gamma.get_markets(limit=100, active=True, closed=False, end_date_min='2025-07-08')
+    markets = gamma.get_market_info_list(
+        limit=100, active=True, closed=False, end_date_min='2025-07-08'
+    )
     len(markets)
