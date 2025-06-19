@@ -12,7 +12,7 @@ class HouseAssetBook(BaseAssetBook):
 
 
 @dataclass(frozen=False, repr=False)
-class HouseOrderBook(BaseMarketOrderBook):
+class HouseOrderBookCache(BaseMarketOrderBook):
     condition_id: str
     yes_asset_book: HouseAssetBook
     no_asset_book: HouseAssetBook
@@ -24,7 +24,7 @@ class HouseOrderBook(BaseMarketOrderBook):
         )
 
     def __eq__(self, other):
-        if not isinstance(other, HouseOrderBook):
+        if not isinstance(other, HouseOrderBookCache):
             return False
         return (
             self.condition_id == other.condition_id
@@ -33,7 +33,9 @@ class HouseOrderBook(BaseMarketOrderBook):
         )
 
     @classmethod
-    def new_init(cls, condition_id: str, yes_asset_id: str, no_asset_id: str) -> 'HouseOrderBook':
+    def new_init(
+        cls, condition_id: str, yes_asset_id: str, no_asset_id: str
+    ) -> 'HouseOrderBookCache':
         yes_asset_book = HouseAssetBook(asset_id=yes_asset_id)
         no_asset_book = HouseAssetBook(asset_id=no_asset_id)
         return cls(
@@ -53,7 +55,7 @@ class HouseOrderBook(BaseMarketOrderBook):
     def counter_price(price: float) -> float:
         return 1 - price
 
-    def update_from_clob_house_order_list(
+    def update_reset_from_clob_house_order_list(
         self, clob_house_order_list: list[dict], validate: bool = True
     ):
         live_order_dict = {order['id']: order for order in clob_house_order_list}
@@ -68,7 +70,9 @@ class HouseOrderBook(BaseMarketOrderBook):
         if validate:
             self.validate()
 
-    def update_from_ws_message_list(self, ws_message_list: list[dict], validate: bool = True):
+    def update_iteration_from_ws_message_list(
+        self, ws_message_list: list[dict], validate: bool = True
+    ):
         for ws_message in ws_message_list:
             if ws_message["event_type"] in ["order", "trade"]:
                 if ws_message['status'] == 'LIVE':

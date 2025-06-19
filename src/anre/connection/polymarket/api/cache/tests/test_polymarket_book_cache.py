@@ -1,7 +1,7 @@
 from anre.config.config import config as anre_config
-from anre.connection.polymarket.api.cache.house_book import HouseOrderBook
+from anre.connection.polymarket.api.cache.house_book import HouseOrderBookCache
 from anre.connection.polymarket.api.cache.net_book import NetMarketOrderBook
-from anre.connection.polymarket.api.cache.public_book import PublicMarketOrderBook
+from anre.connection.polymarket.api.cache.public_book import PublicMarketOrderBookCache
 from anre.utils import testutil
 from anre.utils.Json.Json import Json
 
@@ -19,13 +19,13 @@ class TestPolymarketBookCache(testutil.TestCase):
         book_change_step_list = self.book_change_step_list
 
         clob_market_info_dict = book_change_step_list[0]['clob_market_info_dict']
-        market_order_book_cred = PublicMarketOrderBook.get_market_order_book_cred(
+        market_order_book_cred = PublicMarketOrderBookCache.get_market_order_book_cred(
             clob_market_info_dict=clob_market_info_dict
         )
 
         ### zero step
         _clob_mob_list = book_change_step_list[0]['clob_mob_list']
-        clob_public_mob_cache_0 = PublicMarketOrderBook.new_init(**market_order_book_cred)
+        clob_public_mob_cache_0 = PublicMarketOrderBookCache.new_init(**market_order_book_cred)
         clob_public_mob_cache_0.update_from_clob_mob_list(
             clob_mob_list=_clob_mob_list, validate=True
         )
@@ -34,13 +34,13 @@ class TestPolymarketBookCache(testutil.TestCase):
         ## public
         # clob
         _clob_mob_list = book_change_step_list[1]['clob_mob_list']
-        clob_public_mob_cache_1 = PublicMarketOrderBook.new_init(**market_order_book_cred)
+        clob_public_mob_cache_1 = PublicMarketOrderBookCache.new_init(**market_order_book_cred)
         clob_public_mob_cache_1.update_from_clob_mob_list(
             clob_mob_list=_clob_mob_list, validate=True
         )
         # ws
         _ws_market_message_list = book_change_step_list[1]['ws_market_message_list']
-        ws_public_mob_cache_1 = PublicMarketOrderBook.new_init(**market_order_book_cred)
+        ws_public_mob_cache_1 = PublicMarketOrderBookCache.new_init(**market_order_book_cred)
         ws_public_mob_cache_1.update_from_ws_message_list(
             ws_message_list=_ws_market_message_list, validate=True
         )
@@ -49,17 +49,17 @@ class TestPolymarketBookCache(testutil.TestCase):
         ## house
         # clob
         clob_house_order_list_1 = book_change_step_list[1]['clob_house_order_list']
-        clob_house_mob_cache_1 = HouseOrderBook.new_init(**market_order_book_cred)
-        clob_house_mob_cache_1.update_from_clob_house_order_list(
+        clob_house_mob_cache_1 = HouseOrderBookCache.new_init(**market_order_book_cred)
+        clob_house_mob_cache_1.update_reset_from_clob_house_order_list(
             clob_house_order_list=clob_house_order_list_1, validate=True
         )
         # ws. Note: in this we do not have ws messages, but we create to test construtor
         _ws_house_message_list = book_change_step_list[1]['ws_house_message_list']
-        ws_house_mob_cache_1 = HouseOrderBook.new_init(**market_order_book_cred)
-        ws_house_mob_cache_1.update_from_clob_house_order_list(
+        ws_house_mob_cache_1 = HouseOrderBookCache.new_init(**market_order_book_cred)
+        ws_house_mob_cache_1.update_reset_from_clob_house_order_list(
             clob_house_order_list=clob_house_order_list_1, validate=True
         )
-        ws_house_mob_cache_1.update_from_ws_message_list(
+        ws_house_mob_cache_1.update_iteration_from_ws_message_list(
             ws_message_list=_ws_house_message_list, validate=True
         )
         assert clob_house_mob_cache_1 == ws_house_mob_cache_1
@@ -75,13 +75,13 @@ class TestPolymarketBookCache(testutil.TestCase):
         ## public
         # clob
         _clob_mob_list = book_change_step_list[2]['clob_mob_list']
-        clob_public_mob_cache_2 = PublicMarketOrderBook.new_init(**market_order_book_cred)
+        clob_public_mob_cache_2 = PublicMarketOrderBookCache.new_init(**market_order_book_cred)
         clob_public_mob_cache_2.update_from_clob_mob_list(
             clob_mob_list=_clob_mob_list, validate=True
         )
         # ws
         _ws_market_message_list = book_change_step_list[2]['ws_market_message_list']
-        ws_public_mob_cache_2 = PublicMarketOrderBook.new_init(**market_order_book_cred)
+        ws_public_mob_cache_2 = PublicMarketOrderBookCache.new_init(**market_order_book_cred)
         ws_public_mob_cache_2.update_from_ws_message_list(
             ws_message_list=_ws_market_message_list, validate=True
         )
@@ -90,18 +90,18 @@ class TestPolymarketBookCache(testutil.TestCase):
         ## house
         # clob
         _clob_house_order_list = book_change_step_list[2]['clob_house_order_list']
-        clob_house_mob_cache_2 = HouseOrderBook.new_init(**market_order_book_cred)
-        clob_house_mob_cache_2.update_from_clob_house_order_list(
+        clob_house_mob_cache_2 = HouseOrderBookCache.new_init(**market_order_book_cred)
+        clob_house_mob_cache_2.update_reset_from_clob_house_order_list(
             clob_house_order_list=_clob_house_order_list, validate=True
         )
         # ws
         _ws_house_message_list = book_change_step_list[2]['ws_house_message_list']
-        ws_house_mob_cache_2 = HouseOrderBook.new_init(**market_order_book_cred)
+        ws_house_mob_cache_2 = HouseOrderBookCache.new_init(**market_order_book_cred)
         # note we generate init phase with old state and update with ws messages
-        ws_house_mob_cache_2.update_from_clob_house_order_list(
+        ws_house_mob_cache_2.update_reset_from_clob_house_order_list(
             clob_house_order_list=clob_house_order_list_1, validate=True
         )
-        ws_house_mob_cache_2.update_from_ws_message_list(
+        ws_house_mob_cache_2.update_iteration_from_ws_message_list(
             ws_message_list=_ws_house_message_list, validate=True
         )
         assert clob_house_mob_cache_2.equals_book_values(ws_house_mob_cache_2)
@@ -116,13 +116,13 @@ class TestPolymarketBookCache(testutil.TestCase):
         ## public
         # clob
         _clob_mob_list = book_change_step_list[3]['clob_mob_list']
-        clob_public_mob_cache_3 = PublicMarketOrderBook.new_init(**market_order_book_cred)
+        clob_public_mob_cache_3 = PublicMarketOrderBookCache.new_init(**market_order_book_cred)
         clob_public_mob_cache_3.update_from_clob_mob_list(
             clob_mob_list=_clob_mob_list, validate=True
         )
         # ws
         _ws_market_message_list = book_change_step_list[3]['ws_market_message_list']
-        ws_public_mob_cache_3 = PublicMarketOrderBook.new_init(**market_order_book_cred)
+        ws_public_mob_cache_3 = PublicMarketOrderBookCache.new_init(**market_order_book_cred)
         ws_public_mob_cache_3.update_from_ws_message_list(
             ws_message_list=_ws_market_message_list, validate=True
         )
@@ -131,18 +131,18 @@ class TestPolymarketBookCache(testutil.TestCase):
         ## house
         # clob
         _clob_house_order_list = book_change_step_list[3]['clob_house_order_list']
-        clob_house_mob_cache_3 = HouseOrderBook.new_init(**market_order_book_cred)
-        clob_house_mob_cache_3.update_from_clob_house_order_list(
+        clob_house_mob_cache_3 = HouseOrderBookCache.new_init(**market_order_book_cred)
+        clob_house_mob_cache_3.update_reset_from_clob_house_order_list(
             clob_house_order_list=_clob_house_order_list, validate=True
         )
         # ws
         _ws_house_message_list = book_change_step_list[3]['ws_house_message_list']
-        ws_house_mob_cache_3 = HouseOrderBook.new_init(**market_order_book_cred)
+        ws_house_mob_cache_3 = HouseOrderBookCache.new_init(**market_order_book_cred)
         # note we generate init phase with old state and update with ws messages
-        ws_house_mob_cache_3.update_from_clob_house_order_list(
+        ws_house_mob_cache_3.update_reset_from_clob_house_order_list(
             clob_house_order_list=clob_house_order_list_1, validate=True
         )
-        ws_house_mob_cache_3.update_from_ws_message_list(
+        ws_house_mob_cache_3.update_iteration_from_ws_message_list(
             ws_message_list=_ws_house_message_list, validate=True
         )
         assert clob_house_mob_cache_3.equals_book_values(ws_house_mob_cache_3)

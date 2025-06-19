@@ -3,7 +3,6 @@ from dataclasses import dataclass, field
 from anre.connection.polymarket.api.cache.base import AssetBook as BaseAssetBook
 from anre.connection.polymarket.api.cache.base import Book1000
 from anre.connection.polymarket.api.cache.base import MarketOrderBook as BaseMarketOrderBook
-from anre.connection.polymarket.api.cache.house_book import HouseOrderBook
 
 
 @dataclass(frozen=False, repr=False)
@@ -67,7 +66,7 @@ class PublicAssetBook(BaseAssetBook):
 
 
 @dataclass(frozen=False, repr=False)
-class PublicMarketOrderBook(BaseMarketOrderBook):
+class PublicMarketOrderBookCache(BaseMarketOrderBook):
     condition_id: str
     yes_asset_book: PublicAssetBook
     no_asset_book: PublicAssetBook
@@ -80,22 +79,12 @@ class PublicMarketOrderBook(BaseMarketOrderBook):
     @classmethod
     def new_init(
         cls, condition_id: str, yes_asset_id: str, no_asset_id: str
-    ) -> 'PublicMarketOrderBook':
+    ) -> 'PublicMarketOrderBookCache':
         yes_asset_book = PublicAssetBook(asset_id=yes_asset_id)
         no_asset_book = PublicAssetBook(asset_id=no_asset_id)
         return cls(
             condition_id=condition_id, yes_asset_book=yes_asset_book, no_asset_book=no_asset_book
         )
-
-    def get_net_market_order_book(self, house_order_book: HouseOrderBook):
-        house_order_book
-
-    # @classmethod
-    # def new_from_clob_mob_list(cls, clob_mob_list: list[dict], market_order_book_cred: dict) -> 'PublicMarketOrderBook':
-    #     cache = cls.new_init(**market_order_book_cred)
-    #     for clob_mob in clob_mob_list:
-    #         cache._update_from_clob_mob(clob_mob=clob_mob)
-    #     return cache
 
     def update_from_clob_mob_list(self, clob_mob_list: list[dict], validate: bool = True):
         for clob_mob in clob_mob_list:

@@ -2,8 +2,8 @@ from dataclasses import dataclass
 
 from anre.connection.polymarket.api.cache.base import AssetBook
 from anre.connection.polymarket.api.cache.base import MarketOrderBook as BaseMarketOrderBook
-from anre.connection.polymarket.api.cache.house_book import HouseOrderBook
-from anre.connection.polymarket.api.cache.public_book import PublicMarketOrderBook
+from anre.connection.polymarket.api.cache.house_book import HouseOrderBookCache
+from anre.connection.polymarket.api.cache.public_book import PublicMarketOrderBookCache
 
 
 @dataclass
@@ -15,8 +15,8 @@ class NetMarketOrderBook(BaseMarketOrderBook):
     @classmethod
     def new(
         cls,
-        public_market_order_book: PublicMarketOrderBook,
-        house_order_book: HouseOrderBook,
+        public_market_order_book: PublicMarketOrderBookCache,
+        house_order_book: HouseOrderBookCache,
         validate: bool = True,
     ) -> 'NetMarketOrderBook':
         temp_market_order_book = public_market_order_book.sub(house_order_book, validate=False)

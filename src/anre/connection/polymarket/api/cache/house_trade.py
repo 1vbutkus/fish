@@ -16,12 +16,18 @@ class HouseTradeCache(GeneralBaseMutable):
 
     def update_from_clob_trade_dict_list(self, clob_trade_dict_list: list[dict]) -> None:
         trade_rec_dict = ClobClient.parse_house_trade_dict_list(clob_trade_dict_list)
+        assert all([
+            trade_rec.conditionId == self.condition_id for trade_rec in trade_rec_dict.values()
+        ])
         self._house_trade_rec_dict.update(trade_rec_dict)
 
     def update_from_ws_trade_dict_list(self, ws_trade_dict_list: list[dict]) -> None:
         subset = [el for el in ws_trade_dict_list if el.get('type') == 'TRADE']
         # panasu, kad strukura atitinka
         trade_rec_dict = ClobClient.parse_house_trade_dict_list(subset)
+        assert all([
+            trade_rec.conditionId == self.condition_id for trade_rec in trade_rec_dict.values()
+        ])
         self._house_trade_rec_dict.update(trade_rec_dict)
 
     def update_from_data_trade_dict_list(self, data_trade_dict_list: list[dict]) -> None:
