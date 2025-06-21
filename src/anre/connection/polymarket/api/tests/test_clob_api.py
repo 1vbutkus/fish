@@ -140,9 +140,13 @@ class TestClobApi(testutil.TestCase):
         time.sleep(2)
         order_dict_list = client.get_house_order_dict_list(condition_id=condition_id)
         assert len(order_dict_list) == old_count + 1
+        order_id = order_dict['id']
+
+        is_order_scoring = client.is_order_scoring(order_id=order_id)
+        assert isinstance(is_order_scoring, bool)
 
         # client.cancel_orders_by_market(condition_id=condition_id)
-        cancel_resp = client.cancel_orders_by_id(order_ids=[order_dict['id']])
-        assert order_dict['id'] in cancel_resp['canceled']
+        cancel_resp = client.cancel_orders_by_id(order_ids=[order_id])
+        assert order_id in cancel_resp['canceled']
         order_dict_list = client.get_house_order_dict_list(condition_id=condition_id)
         assert len(order_dict_list) == old_count

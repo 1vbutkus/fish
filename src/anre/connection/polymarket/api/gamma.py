@@ -34,12 +34,9 @@ class GammaClient:
     def get_events_query(self, query_params: dict[str, Any] | None = None) -> list[dict]:
         return self._perform_get_request(self._events_endpoint, query_params)
 
-    def get_positions_query(self, query_params: dict[str, Any] | None = None) -> list[dict]:
-        return self._perform_get_request(self._positions_endpoint, query_params)
-
-    def get_single_market_info(self, market_id: int) -> dict:
-        market_url = self._generate_endpoint(f"{self.MARKETS_PATH}/{market_id}")
-        return self._perform_get_request(market_url, query_params=None)
+    # def get_single_market_info(self, market_id: int) -> dict:
+    #     market_url = self._generate_endpoint(f"{self.MARKETS_PATH}/{market_id}")
+    #     return self._perform_get_request(market_url, query_params=None)
 
     def get_market_info_list(
         self,
@@ -50,6 +47,8 @@ class GammaClient:
         limit: int = 20,
         offset: int = 0,
         order: str = None,
+        clob_token_ids: list[str] = None,
+        condition_ids: list[str] = None,
         ascending: bool = None,
         start_date_min: str | datetime.datetime = None,
         start_date_max: str | datetime.datetime = None,
@@ -74,6 +73,10 @@ class GammaClient:
             query_params["closed"] = closed
         if order is not None:
             query_params["order"] = order
+        if clob_token_ids is not None:
+            query_params["clob_token_ids"] = clob_token_ids
+        if condition_ids is not None:
+            query_params["condition_ids"] = condition_ids
         if start_date_min is not None:
             query_params["start_date_min"] = (
                 start_date_min.strftime("%Y-%m-%dT%H:%M:%SZ")

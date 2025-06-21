@@ -8,6 +8,7 @@ from py_clob_client.clob_types import (
     ApiCreds,
     OpenOrderParams,
     OrderArgs,
+    OrderScoringParams,
     OrderType,
     PriceHistoryArgs,
     TradeParams,
@@ -334,6 +335,11 @@ class ClobClient:
         )
         price_history = self._clob_internal_client.get_price_history(params)
         return price_history
+
+    def is_order_scoring(self, order_id: str) -> bool:
+        params = OrderScoringParams(orderId=order_id)
+        resp = self._clob_internal_client.is_order_scoring(params=params)
+        return resp['scoring']
 
     @staticmethod
     def number_to_cursor(value: str | int) -> str:
