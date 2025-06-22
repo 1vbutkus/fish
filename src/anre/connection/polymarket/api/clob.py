@@ -17,7 +17,7 @@ from py_clob_client.constants import POLYGON
 from py_clob_client.order_builder.constants import BUY, SELL
 
 from anre.config.config import config as anre_config
-from anre.connection.polymarket.api.types import HouseTradeRec
+from anre.connection.polymarket.api.types import BoolMarketCred, HouseTradeRec
 
 assert BUY == 'BUY'
 assert SELL == 'SELL'
@@ -286,10 +286,10 @@ class ClobClient:
             chunk_limit=chunk_limit,
         )
 
-    def get_single_mob(self, token_id: str) -> dict:
+    def get_single_mob_dict(self, token_id: str) -> dict:
         return self._clob_internal_client.get_order_book(token_id=token_id)
 
-    def get_mob_list(self, token_ids: list[str]) -> list[dict]:
+    def get_mob_dict_list(self, token_ids: list[str]) -> list[dict]:
         return self._clob_internal_client.get_order_books(token_ids=token_ids)
 
     def place_order(
@@ -300,6 +300,7 @@ class ClobClient:
         side: Literal["BUY", "SELL"],
         order_type: str = "GTC",
     ):
+        assert side in ['BUY', 'SELL']
         params = OrderArgs(
             price=price,
             size=size,
@@ -363,6 +364,29 @@ class ClobClient:
         if not encoded_value:
             return 0
         return int(base64.b64decode(encoded_value).decode())
+
+    def get_server_time(self) -> int:
+        return self._clob_internal_client.get_server_time()
+
+    @classmethod
+    def get_bool_market_cred_from_market_info(cls, market_info: dict) -> BoolMarketCred:
+        assert isinstance(market_info, dict), f'market_info is not dict. It is: {market_info}'
+        yes_asset_ids = [el['token_id'] for el in market_info['tokens'] if el['outcome'] == 'Yes']
+        assert len(yes_asset_ids) == 1, (
+            f'market_info does not have exactly one yes asset. It has: {yes_asset_ids}'
+        )
+        yes_asset_id = yes_asset_ids[0]
+        no_asset_ids = [el['token_id'] for el in market_info['tokens'] if el['outcome'] == 'No']
+        assert len(no_asset_ids) == 1, (
+            f'clob_market_dict does not have exactly one no asset. It has: {no_asset_ids}'
+        )
+        no_asset_id = no_asset_ids[0]
+        market_order_book_cred = BoolMarketCred(
+            condition_id=market_info['condition_id'],
+            yes_asset_id=yes_asset_id,
+            no_asset_id=no_asset_id,
+        )
+        return market_order_book_cred
 
 
 def __demo__():

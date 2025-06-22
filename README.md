@@ -21,8 +21,9 @@ Commands to maintain code quality:
 mypy .
 ruff format
 ruff check --fix
-pytest -n auto
-pytest -n auto -m "not slow" # avoids slower integration tests
+export FISH_RUN_API_TESTS=1
+pytest 
+pytest -m "not slow" # avoids slower integration tests
 ```
 
 

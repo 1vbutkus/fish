@@ -104,32 +104,6 @@ class MarketOrderBook(GeneralBaseMutable):
             condition_id=condition_id, yes_asset_book=yes_asset_book, no_asset_book=no_asset_book
         )
 
-    @classmethod
-    def get_market_order_book_cred(cls, clob_market_info_dict: dict) -> dict:
-        assert isinstance(clob_market_info_dict, dict), (
-            f'clob_market_dict is not dict. It is: {clob_market_info_dict}'
-        )
-        yes_asset_ids = [
-            el['token_id'] for el in clob_market_info_dict['tokens'] if el['outcome'] == 'Yes'
-        ]
-        assert len(yes_asset_ids) == 1, (
-            f'clob_market_dict does not have exactly one yes asset. It has: {yes_asset_ids}'
-        )
-        yes_asset_id = yes_asset_ids[0]
-        no_asset_ids = [
-            el['token_id'] for el in clob_market_info_dict['tokens'] if el['outcome'] == 'No'
-        ]
-        assert len(no_asset_ids) == 1, (
-            f'clob_market_dict does not have exactly one no asset. It has: {no_asset_ids}'
-        )
-        no_asset_id = no_asset_ids[0]
-        market_order_book_cred = dict(
-            condition_id=clob_market_info_dict['condition_id'],
-            yes_asset_id=yes_asset_id,
-            no_asset_id=no_asset_id,
-        )
-        return market_order_book_cred
-
     def _validate_book_symetry(self):
         assert len(self.yes_asset_book.book1000.bids) == len(self.no_asset_book.book1000.asks)
         pairs = zip(

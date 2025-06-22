@@ -22,7 +22,7 @@ def run_book_steps_and_save_to_file(overwrite: bool = False):
     assert len(clob_house_order_list_0) == 0
 
     # imam nulini stata
-    clob_mob_list_0 = clob_client.get_mob_list(token_ids=asset_ids)
+    clob_mob_list_0 = clob_client.get_mob_dict_list(token_ids=asset_ids)
 
     # get best prices
     mob_dict = [mb for mb in clob_mob_list_0 if mb['asset_id'] == asset_id][0]
@@ -44,7 +44,7 @@ def run_book_steps_and_save_to_file(overwrite: bool = False):
     time.sleep(5)
 
     # pasimam pradini statusa(su egzistuojanciu orderiu)
-    clob_mob_list_1 = clob_client.get_mob_list(token_ids=asset_ids)
+    clob_mob_list_1 = clob_client.get_mob_dict_list(token_ids=asset_ids)
     clob_house_order_list_1 = clob_client.get_house_order_dict_list(condition_id=condition_id)
 
     # startuojam streamus
@@ -90,7 +90,7 @@ def run_book_steps_and_save_to_file(overwrite: bool = False):
     time.sleep(5)
 
     # pasiimam nuotrauka
-    clob_mob_list_2 = clob_client.get_mob_list(token_ids=asset_ids)
+    clob_mob_list_2 = clob_client.get_mob_dict_list(token_ids=asset_ids)
     clob_house_order_list_2 = clob_client.get_house_order_dict_list(condition_id=condition_id)
     ws_market_message_list_2 = market_ws.messenger.get_peek_messages()
     ws_house_message_list_2 = house_ws.messenger.get_peek_messages()
@@ -102,7 +102,7 @@ def run_book_steps_and_save_to_file(overwrite: bool = False):
     assert len(_house_orders) == 0
 
     # pasiimam nuotrauka
-    clob_mob_list_3 = clob_client.get_mob_list(token_ids=asset_ids)
+    clob_mob_list_3 = clob_client.get_mob_dict_list(token_ids=asset_ids)
     clob_house_order_list_3 = clob_client.get_house_order_dict_list(condition_id=condition_id)
     ws_market_message_list_3 = market_ws.messenger.get_peek_messages()
     ws_house_message_list_3 = house_ws.messenger.get_peek_messages()
@@ -151,7 +151,7 @@ def run_trade_steps_and_save_to_file(overwrite: bool = False):
     asset_id, counter_asser_id = asset_ids
 
     # imam nulini stata
-    clob_mob_list_0 = clob_client.get_mob_list(token_ids=asset_ids)
+    clob_mob_list_0 = clob_client.get_mob_dict_list(token_ids=asset_ids)
 
     # get best prices
     mob_dict = [mb for mb in clob_mob_list_0 if mb['asset_id'] == asset_id][0]

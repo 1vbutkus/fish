@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+from anre.utils.dataStructure.general import GeneralBaseFrozen
+
 
 @dataclass
 class HouseTradeRec:
@@ -16,3 +18,10 @@ class HouseTradeRec:
     def __post_init__(self):
         assert self.outcome in ['Yes', 'No']
         assert self.side in ['BUY', 'SELL']
+
+
+@dataclass(frozen=True, repr=False)
+class BoolMarketCred(GeneralBaseFrozen):
+    condition_id: str
+    yes_asset_id: str
+    no_asset_id: str

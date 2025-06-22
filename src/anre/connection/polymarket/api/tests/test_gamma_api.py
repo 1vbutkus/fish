@@ -23,7 +23,12 @@ class TestGammaApi(testutil.TestCase):
         market_info = market_info_list[0]
         _market_info = client.get_single_market_info(market_id=market_info['id'])
         assert market_info['conditionId'] == _market_info['conditionId']
-        # siap dictai nera lygus
+        # siap dict'ai nera lygus
+
+        slug = market_info['slug']
+        _market_info_list = client.get_market_info_list(slug=slug)
+        assert len(_market_info_list) == 1
+        assert _market_info_list[0] == market_info
 
         event_info_list = client.get_event_info_list(limit=30, active=True, closed=False)
         assert len(event_info_list) == 30

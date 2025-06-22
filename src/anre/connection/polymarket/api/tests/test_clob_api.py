@@ -1,6 +1,7 @@
 import time
 
 from anre.connection.polymarket.api.clob import ClobClient
+from anre.connection.polymarket.api.types import BoolMarketCred
 from anre.utils import testutil
 
 
@@ -41,6 +42,9 @@ class TestClobApi(testutil.TestCase):
         assert isinstance(market_info, dict)
         assert market_info
         assert market_info == market_info_list[0]
+
+        bool_market_cred = client.get_bool_market_cred_from_market_info(market_info=market_info)
+        assert isinstance(bool_market_cred, BoolMarketCred)
 
     def test_simplified_market_info(self) -> None:
         client = self.client
@@ -97,9 +101,9 @@ class TestClobApi(testutil.TestCase):
         ### look for market data
         price_history = client.get_price_history(token_id=token_id, interval='1m', fidelity=10)
         assert price_history
-        mob = client.get_single_mob(token_id=token_id)
+        mob = client.get_single_mob_dict(token_id=token_id)
         assert mob
-        mob_list = client.get_mob_list(token_ids=token_ids)
+        mob_list = client.get_mob_dict_list(token_ids=token_ids)
         assert mob_list
 
     def test_smoke_house_orders(self) -> None:
@@ -150,3 +154,9 @@ class TestClobApi(testutil.TestCase):
         assert order_id in cancel_resp['canceled']
         order_dict_list = client.get_house_order_dict_list(condition_id=condition_id)
         assert len(order_dict_list) == old_count
+
+    def test_server_time(self):
+        client = self.client
+
+        server_time = client.get_server_time()
+        assert server_time > 0
