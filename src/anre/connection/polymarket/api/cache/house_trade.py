@@ -3,6 +3,7 @@ from dataclasses import dataclass, field
 
 import pandas as pd
 
+from anre.connection.polymarket.api.clob.parse import ClobTradeParser
 from anre.connection.polymarket.api.clob.client import ClobClient
 from anre.connection.polymarket.api.data import DataClient
 from anre.connection.polymarket.api.types import HouseTradeRec
@@ -15,7 +16,7 @@ class HouseTradeCache(GeneralBaseMutable):
     _house_trade_rec_dict: dict[str, HouseTradeRec] = field(default_factory=dict)
 
     def update_from_clob_trade_dict_list(self, clob_trade_dict_list: list[dict]) -> None:
-        trade_rec_dict = ClobClient.parse_house_trade_dict_list(clob_trade_dict_list)
+        trade_rec_dict = ClobTradeParser.parse_house_trade_dict_list(clob_trade_dict_list)
         assert all([
             trade_rec.conditionId == self.condition_id for trade_rec in trade_rec_dict.values()
         ])
@@ -24,7 +25,7 @@ class HouseTradeCache(GeneralBaseMutable):
     def update_from_ws_trade_dict_list(self, ws_trade_dict_list: list[dict]) -> None:
         subset = [el for el in ws_trade_dict_list if el.get('type') == 'TRADE']
         # panasu, kad strukura atitinka
-        trade_rec_dict = ClobClient.parse_house_trade_dict_list(subset)
+        trade_rec_dict = ClobTradeParser.parse_house_trade_dict_list(subset)
         assert all([
             trade_rec.conditionId == self.condition_id for trade_rec in trade_rec_dict.values()
         ])

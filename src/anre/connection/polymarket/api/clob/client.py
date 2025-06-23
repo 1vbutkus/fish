@@ -3,6 +3,7 @@ import time
 from functools import partial
 from typing import Callable, Literal, Optional
 
+from anre.config.config import config as anre_config
 from py_clob_client.client import ClobClient as ClobInternalClient
 from py_clob_client.clob_types import (
     ApiCreds,
@@ -15,9 +16,6 @@ from py_clob_client.clob_types import (
 )
 from py_clob_client.constants import POLYGON
 from py_clob_client.order_builder.constants import BUY, SELL
-
-from anre.config.config import config as anre_config
-from anre.connection.polymarket.api.types import BoolMarketCred, HouseTradeRec
 
 assert BUY == 'BUY'
 assert SELL == 'SELL'
@@ -52,11 +50,11 @@ class ClobClient:
         return api_client
 
     def _collect_chunks(
-        self,
-        fun: Callable,
-        cursor: str | int = "",
-        sleep_time: float = 0.5,
-        chunk_limit: int = None,
+            self,
+            fun: Callable,
+            cursor: str | int = "",
+            sleep_time: float = 0.5,
+            chunk_limit: int = None,
     ) -> list[dict]:
         assert sleep_time >= 0.01
         data = []
@@ -90,7 +88,7 @@ class ClobClient:
         return self._clob_internal_client.get_markets(next_cursor=cursor)
 
     def get_market_info_list(
-        self, cursor: str | int = "", sleep_time=0.5, chunk_limit: int = None
+            self, cursor: str | int = "", sleep_time=0.5, chunk_limit: int = None
     ) -> list[dict]:
         return self._collect_chunks(
             fun=partial(
@@ -114,7 +112,7 @@ class ClobClient:
         return self._clob_internal_client.get_sampling_markets(next_cursor=cursor)
 
     def get_sampling_market_info_list(
-        self, cursor: str | int = "", sleep_time=0.5, chunk_limit: int = None
+            self, cursor: str | int = "", sleep_time=0.5, chunk_limit: int = None
     ) -> list[dict]:
         return self._collect_chunks(
             fun=partial(
@@ -132,7 +130,7 @@ class ClobClient:
         return self._clob_internal_client.get_simplified_markets(next_cursor=cursor)
 
     def get_simplified_markets_info_list(
-        self, cursor: str | int = "", sleep_time=0.5, chunk_limit: int = None
+            self, cursor: str | int = "", sleep_time=0.5, chunk_limit: int = None
     ) -> list[dict]:
         return self._collect_chunks(
             fun=partial(
@@ -150,7 +148,7 @@ class ClobClient:
         return self._clob_internal_client.get_sampling_simplified_markets(next_cursor=cursor)
 
     def get_sampling_simplified_markets_info_list(
-        self, cursor: str | int = "", sleep_time=0.5, chunk_limit: int = None
+            self, cursor: str | int = "", sleep_time=0.5, chunk_limit: int = None
     ) -> list[dict]:
         return self._collect_chunks(
             fun=partial(
@@ -162,14 +160,14 @@ class ClobClient:
         )
 
     def get_house_trade_dict_chunk(
-        self,
-        id: str = None,
-        maker_address: str = None,
-        market: str = None,
-        asset_id: str = None,
-        before: int = None,
-        after: int = None,
-        cursor: str | int = "",
+            self,
+            id: str = None,
+            maker_address: str = None,
+            market: str = None,
+            asset_id: str = None,
+            before: int = None,
+            after: int = None,
+            cursor: str | int = "",
     ) -> dict:
         if isinstance(cursor, int):
             cursor = self.number_to_cursor(cursor)
@@ -188,16 +186,16 @@ class ClobClient:
         return trades
 
     def get_house_trade_dict_list(
-        self,
-        id: str = None,
-        maker_address: str = None,
-        condition_id: str = None,
-        asset_id: str = None,
-        before: int = None,
-        after: int = None,
-        cursor: str | int = "",
-        sleep_time=0.5,
-        chunk_limit: int = None,
+            self,
+            id: str = None,
+            maker_address: str = None,
+            condition_id: str = None,
+            asset_id: str = None,
+            before: int = None,
+            after: int = None,
+            cursor: str | int = "",
+            sleep_time=0.5,
+            chunk_limit: int = None,
     ) -> list[dict]:
         return self._collect_chunks(
             fun=partial(
@@ -214,51 +212,15 @@ class ClobClient:
             chunk_limit=chunk_limit,
         )
 
-    @classmethod
-    def parse_house_trade_dict_list(cls, trade_dict_list: list[dict]) -> dict[str, HouseTradeRec]:
-        rec_dict = {}
-        for trade_dict in trade_dict_list:
-            if trade_dict['status'] != 'FAILED':
-                if trade_dict['trader_side'] == 'MAKER':
-                    assert trade_dict['maker_address'] != cls._house_address
-                    for sub_dict in trade_dict['maker_orders']:
-                        if sub_dict['maker_address'] == cls._house_address:
-                            rec = HouseTradeRec(
-                                conditionId=trade_dict['market'],
-                                assetId=sub_dict['asset_id'],
-                                timestamp=int(trade_dict['match_time']),
-                                size=float(sub_dict['matched_amount']),
-                                price=float(sub_dict['price']),
-                                outcome=sub_dict['outcome'],
-                                side=sub_dict['side'],
-                                transactionHash=trade_dict['transaction_hash'],
-                                status=trade_dict['status'],
-                            )
-                            rec_dict[rec.transactionHash] = rec
-                elif trade_dict['trader_side'] == 'TAKER':
-                    rec = HouseTradeRec(
-                        conditionId=trade_dict['market'],
-                        assetId=trade_dict['asset_id'],
-                        timestamp=int(trade_dict['match_time']),
-                        size=float(trade_dict['size']),
-                        price=float(trade_dict['price']),
-                        outcome=trade_dict['outcome'],
-                        side=trade_dict['side'],
-                        transactionHash=trade_dict['transaction_hash'],
-                        status=trade_dict['status'],
-                    )
-                    rec_dict[rec.transactionHash] = rec
-        return rec_dict
-
     def get_single_house_order_dict(self, order_id: str = None) -> dict:
         return self._clob_internal_client.get_order(order_id=order_id)
 
     def get_house_order_dict_chunk(
-        self,
-        order_id: str = None,
-        condition_id: str = None,
-        asset_id: str = None,
-        cursor: str | int = "",
+            self,
+            order_id: str = None,
+            condition_id: str = None,
+            asset_id: str = None,
+            cursor: str | int = "",
     ):
         if isinstance(cursor, int):
             cursor = self.number_to_cursor(cursor)
@@ -266,13 +228,13 @@ class ClobClient:
         return self._clob_internal_client.get_orders(params, next_cursor=cursor)
 
     def get_house_order_dict_list(
-        self,
-        order_id: str = None,
-        condition_id: str = None,
-        asset_id: str = None,
-        cursor: str | int = "",
-        sleep_time=0.5,
-        chunk_limit: int = None,
+            self,
+            order_id: str = None,
+            condition_id: str = None,
+            asset_id: str = None,
+            cursor: str | int = "",
+            sleep_time=0.5,
+            chunk_limit: int = None,
     ) -> list[dict]:
         return self._collect_chunks(
             fun=partial(
@@ -293,12 +255,12 @@ class ClobClient:
         return self._clob_internal_client.get_order_books(token_ids=token_ids)
 
     def place_order(
-        self,
-        token_id: str,
-        price: float,
-        size: float,
-        side: Literal["BUY", "SELL"],
-        order_type: str = "GTC",
+            self,
+            token_id: str,
+            price: float,
+            size: float,
+            side: Literal["BUY", "SELL"],
+            order_type: str = "GTC",
     ):
         assert side in ['BUY', 'SELL']
         params = OrderArgs(
@@ -324,12 +286,12 @@ class ClobClient:
         )
 
     def get_price_history(
-        self,
-        token_id: str,
-        from_ts: int = None,
-        to_ts: int = None,
-        interval: str = None,
-        fidelity: int = None,
+            self,
+            token_id: str,
+            from_ts: int = None,
+            to_ts: int = None,
+            interval: str = None,
+            fidelity: int = None,
     ):
         params = PriceHistoryArgs(
             market=token_id, startTs=from_ts, end=to_ts, interval=interval, fidelity=fidelity
@@ -368,32 +330,6 @@ class ClobClient:
     def get_server_time(self) -> int:
         return self._clob_internal_client.get_server_time()
 
-    ### PARSE ###
-
-    @classmethod
-    def get_bool_market_cred_from_market_info(cls, market_info: dict) -> BoolMarketCred:
-        assert isinstance(market_info, dict), f'market_info is not dict. It is: {market_info}'
-        yes_asset_ids = [el['token_id'] for el in market_info['tokens'] if el['outcome'] == 'Yes']
-        assert len(yes_asset_ids) == 1, (
-            f'market_info does not have exactly one yes asset. It has: {yes_asset_ids}'
-        )
-        yes_asset_id = yes_asset_ids[0]
-        no_asset_ids = [el['token_id'] for el in market_info['tokens'] if el['outcome'] == 'No']
-        assert len(no_asset_ids) == 1, (
-            f'clob_market_dict does not have exactly one no asset. It has: {no_asset_ids}'
-        )
-        no_asset_id = no_asset_ids[0]
-        market_order_book_cred = BoolMarketCred(
-            condition_id=market_info['condition_id'],
-            yes_asset_id=yes_asset_id,
-            no_asset_id=no_asset_id,
-        )
-        return market_order_book_cred
-
-    # @classmethod
-    # def get_is_market_bool_from_market_info(cls, market_info: dict) -> bool:
-    #     set([item['outcome'] for item in market_info['tokens']]
-    #
 
 def __demo__():
     self = ClobClient()

@@ -1,6 +1,6 @@
 import time
 
-from anre.connection.polymarket.api.clob.client import ClobClient
+from anre.connection.polymarket.api.clob import ClobClient, ClobTradeParser, ClobMarketInfoParser
 from anre.connection.polymarket.api.types import BoolMarketCred
 from anre.utils import testutil
 
@@ -43,7 +43,7 @@ class TestClobApi(testutil.TestCase):
         assert market_info
         assert market_info == market_info_list[0]
 
-        bool_market_cred = client.get_bool_market_cred_from_market_info(market_info=market_info)
+        bool_market_cred = ClobMarketInfoParser.get_bool_market_cred(market_info=market_info)
         assert isinstance(bool_market_cred, BoolMarketCred)
 
     def test_simplified_market_info(self) -> None:
@@ -78,7 +78,7 @@ class TestClobApi(testutil.TestCase):
         house_trade_dict_list = client.get_house_trade_dict_list(chunk_limit=2)
         assert isinstance(house_trade_dict_list, list)
 
-        house_trade_rec_dict = client.parse_house_trade_dict_list(
+        house_trade_rec_dict = ClobTradeParser.parse_house_trade_dict_list(
             trade_dict_list=house_trade_dict_list
         )
         assert isinstance(house_trade_rec_dict, dict)

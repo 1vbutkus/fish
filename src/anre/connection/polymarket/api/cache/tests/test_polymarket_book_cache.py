@@ -2,7 +2,7 @@ from anre.config.config import config as anre_config
 from anre.connection.polymarket.api.cache.house_book import HouseOrderBookCache
 from anre.connection.polymarket.api.cache.net_book import NetMarketOrderBook
 from anre.connection.polymarket.api.cache.public_book import PublicMarketOrderBookCache
-from anre.connection.polymarket.api.clob.client import ClobClient
+from anre.connection.polymarket.api.clob import ClobMarketInfoParser
 from anre.utils import testutil
 from anre.utils.Json.Json import Json
 
@@ -21,7 +21,7 @@ class TestPolymarketBookCache(testutil.TestCase):
 
         clob_market_info_dict = book_change_step_list[0]['clob_market_info_dict']
 
-        bool_market_cred = ClobClient.get_bool_market_cred_from_market_info(
+        bool_market_cred = ClobMarketInfoParser.get_bool_market_cred(
             market_info=clob_market_info_dict
         )
         market_order_book_cred = bool_market_cred.to_dict()
