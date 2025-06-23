@@ -54,7 +54,7 @@ class Book1000(GeneralBaseMutable):
                 self.bids[price1000] += size1000
             else:
                 self.bids[price1000] = size1000
-        elif side == 'ASK':
+        elif side == 'SELL':
             if price1000 in self.asks:
                 self.asks[price1000] += size1000
             else:

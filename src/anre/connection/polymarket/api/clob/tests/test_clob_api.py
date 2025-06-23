@@ -106,6 +106,14 @@ class TestClobApi(testutil.TestCase):
         mob_list = client.get_mob_dict_list(token_ids=token_ids)
         assert mob_list
 
+        top_level_price_dict = client.get_top_level_price_dict(token_ids=token_ids)
+        assert isinstance(top_level_price_dict, dict)
+        assert top_level_price_dict
+
+        top_level_price_midpoint = client.get_top_level_price_midpoint_dict(token_ids=token_ids)
+        assert isinstance(top_level_price_midpoint, dict)
+        assert top_level_price_midpoint
+
     def test_smoke_house_orders(self) -> None:
         client = self.client
 

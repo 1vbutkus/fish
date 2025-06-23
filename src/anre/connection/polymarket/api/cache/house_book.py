@@ -45,8 +45,8 @@ class HouseOrderBookCache(BaseMarketOrderBook):
     @staticmethod
     def counter_side(side: str) -> str:
         if side == 'BUY':
-            return 'ASK'
-        elif side == 'ASK':
+            return 'SELL'
+        elif side == 'SELL':
             return 'BUY'
         else:
             raise ValueError(f'unknown side: {side}')

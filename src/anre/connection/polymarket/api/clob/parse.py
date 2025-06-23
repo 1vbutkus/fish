@@ -1,25 +1,43 @@
+import datetime
+from typing import Optional
+
 from anre.config.config import config as anre_config
 from anre.connection.polymarket.api.types import BoolMarketCred, HouseTradeRec
+from anre.utils.time.convert import Convert as TimeConvert
 
 
 class ClobMarketInfoParser:
-
     def __init__(self, market_info: dict) -> None:
-        self._market_info = market_info
+        self.market_info = market_info
 
     def __getattr__(self, name):
         # This will be called only for attributes that are not defined as properties
-        if name in self._market_info:
-            return self._market_info[name]
+        if name in self.market_info:
+            return self.market_info[name]
         raise AttributeError(f"'{self.__class__.__name__}' object has no attribute '{name}'")
 
     @property
     def is_market_bool(self) -> bool:
-        return self.get_is_market_bool(self._market_info)
+        return self.get_is_market_bool(self.market_info)
 
     @property
     def bool_market_cred(self) -> BoolMarketCred:
-        return self.get_bool_market_cred(self._market_info)
+        return self.get_bool_market_cred(self.market_info)
+
+    @property
+    def accepting_order_dt(self) -> datetime.datetime:
+        return TimeConvert.str2dt(self.market_info['accepting_order_timestamp'])
+
+    @property
+    def game_start_dt(self) -> Optional[datetime.datetime]:
+        game_start_time = self.self.market_info['game_start_time']
+        if game_start_time is not None:
+            return TimeConvert.str2dt(game_start_time)
+        return None
+
+    @property
+    def end_dt(self) -> datetime.datetime:
+        return TimeConvert.str2dt(self.market_info['end_date_iso'])
 
     @classmethod
     def get_is_market_bool(cls, market_info: dict) -> bool:
