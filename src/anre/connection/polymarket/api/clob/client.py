@@ -368,6 +368,8 @@ class ClobClient:
     def get_server_time(self) -> int:
         return self._clob_internal_client.get_server_time()
 
+    ### PARSE ###
+
     @classmethod
     def get_bool_market_cred_from_market_info(cls, market_info: dict) -> BoolMarketCred:
         assert isinstance(market_info, dict), f'market_info is not dict. It is: {market_info}'
@@ -388,6 +390,10 @@ class ClobClient:
         )
         return market_order_book_cred
 
+    # @classmethod
+    # def get_is_market_bool_from_market_info(cls, market_info: dict) -> bool:
+    #     set([item['outcome'] for item in market_info['tokens']]
+    #
 
 def __demo__():
     self = ClobClient()

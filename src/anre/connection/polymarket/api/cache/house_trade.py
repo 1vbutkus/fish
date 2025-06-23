@@ -3,7 +3,7 @@ from dataclasses import dataclass, field
 
 import pandas as pd
 
-from anre.connection.polymarket.api.clob import ClobClient
+from anre.connection.polymarket.api.clob.client import ClobClient
 from anre.connection.polymarket.api.data import DataClient
 from anre.connection.polymarket.api.types import HouseTradeRec
 from anre.utils.dataStructure.general import GeneralBaseMutable

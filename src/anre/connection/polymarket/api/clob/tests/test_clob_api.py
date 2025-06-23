@@ -1,6 +1,6 @@
 import time
 
-from anre.connection.polymarket.api.clob import ClobClient
+from anre.connection.polymarket.api.clob.client import ClobClient
 from anre.connection.polymarket.api.types import BoolMarketCred
 from anre.utils import testutil
 
