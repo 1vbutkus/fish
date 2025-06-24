@@ -1,0 +1,13 @@
+
+Dummy:
+  strategyLabel: Dummy
+  tagDict: {}
+  comment: ''
+  configDict: {}
+
+NotDummy:
+  strategyLabel: NotDummy
+  tagDict: {}
+  comment: ''
+  configDict: {}
+

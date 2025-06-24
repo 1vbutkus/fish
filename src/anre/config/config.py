@@ -41,6 +41,13 @@ class _Path:
     def get_path_to_cache_dir(cls, *args: Any) -> str:
         return cls.get_path_to_data_dir('_cache', *args)
 
+    @classmethod
+    def get_path_to_resource_dir(cls, *args: Any) -> str:
+        return cls.get_path_to_root_dir('resource', *args)
+
+
+
+
 
 ######################################### cred #####################################################
 
