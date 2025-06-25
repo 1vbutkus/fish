@@ -1223,6 +1223,18 @@ files = [
 dev = ["black", "coveralls", "mypy", "pre-commit", "pylint", "pytest (>=5)", "pytest-benchmark", "pytest-cov"]
 
 [[package]]
+name = "dataclass-type-validator"
+version = "0.1.2"
+description = "Dataclass Type Validator Library"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "dataclass-type-validator-0.1.2.tar.gz", hash = "sha256:575f5ea89b5965ab5b3079cd67115b37a75a529fe221c35159e036e99faa0eb4"},
+    {file = "dataclass_type_validator-0.1.2-py3-none-any.whl", hash = "sha256:85b759f17ee106245f8748b9f5381bd9ad225dbeef573feee3ce46cdbfaaa8a7"},
+]
+
+[[package]]
 name = "debugpy"
 version = "1.8.14"
 description = "An implementation of the Debug Adapter Protocol for Python"
@@ -3124,6 +3136,18 @@ jupyter-server = ">=1.8,<3"
 
 [package.extras]
 test = ["pytest", "pytest-console-scripts", "pytest-jupyter", "pytest-tornasync"]
+
+[[package]]
+name = "ntplib"
+version = "0.4.0"
+description = "Python NTP library"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "ntplib-0.4.0-py2.py3-none-any.whl", hash = "sha256:8d27375329ed7ff38755f7b6d4658b28edc147cadf40338a63a0da8133469d60"},
+    {file = "ntplib-0.4.0.tar.gz", hash = "sha256:899d8fb5f8c2555213aea95efca02934c7343df6ace9d7628a5176b176906267"},
+]
 
 [[package]]
 name = "numba"
@@ -5659,4 +5683,4 @@ viz = ["cartopy", "matplotlib", "nc-time-axis", "seaborn"]
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.11"
-content-hash = "3606a9511e229a635d9ed3af120c6e1770c57ea739791af79056077f688e8155"
+content-hash = "06c24e09b3d9faa9add6bf6cb7670faae08c3a0d04545bf2d65f0abf92c9003a"

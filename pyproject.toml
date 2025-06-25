@@ -47,6 +47,8 @@ notebook = "<7"
 py-clob-client = {path = "libs/py-clob-client", develop = true}
 typer = "^0.16.0"
 sortedcontainers = "^2.4.0"
+dataclass-type-validator = "^0.1.2"
+ntplib = "^0.4.0"
 
 [tool.poetry.build]
 script = "build.py"
