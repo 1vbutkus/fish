@@ -49,6 +49,7 @@ typer = "^0.16.0"
 sortedcontainers = "^2.4.0"
 dataclass-type-validator = "^0.1.2"
 ntplib = "^0.4.0"
+pygame = "^2.6.1"
 
 [tool.poetry.build]
 script = "build.py"
