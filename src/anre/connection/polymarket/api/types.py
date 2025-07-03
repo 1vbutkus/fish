@@ -23,5 +23,5 @@ class HouseTradeRec:
 @dataclass(frozen=True, repr=False)
 class BoolMarketCred(GeneralBaseFrozen):
     condition_id: str
-    yes_asset_id: str
-    no_asset_id: str
+    main_asset_id: str
+    counter_asset_id: str

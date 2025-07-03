@@ -9,8 +9,8 @@ from anre.connection.polymarket.api.cache.public_book import PublicMarketOrderBo
 @dataclass
 class NetBoolMarketOrderBook(BaseMarketOrderBook):
     condition_id: str
-    yes_asset_book: AssetBook
-    no_asset_book: AssetBook
+    main_asset_book: AssetBook
+    counter_asset_book: AssetBook
 
     @classmethod
     def new(
@@ -22,9 +22,11 @@ class NetBoolMarketOrderBook(BaseMarketOrderBook):
         temp_market_order_book = public_market_order_book.sub(house_order_book, validate=False)
         instance = cls(
             condition_id=temp_market_order_book.condition_id,
-            yes_asset_book=temp_market_order_book.yes_asset_book,
-            no_asset_book=temp_market_order_book.no_asset_book,
+            main_asset_book=temp_market_order_book.main_asset_book,
+            counter_asset_book=temp_market_order_book.counter_asset_book,
         )
         if validate:
             instance.validate()
+            assert all([item >= -0.01 for item in instance.main_asset_book.book1000.bids.values()])
+            assert all([item >= -0.01 for item in instance.main_asset_book.book1000.asks.values()])
         return instance

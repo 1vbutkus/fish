@@ -25,8 +25,20 @@ class ClobMarketInfoParser:
         return self.get_bool_market_cred(self.market_info)
 
     @property
+    def bool_market_cred(self) -> BoolMarketCred:
+        return self.get_bool_market_cred(self.market_info)
+
+    @property
     def accepting_order_dt(self) -> datetime.datetime:
         return TimeConvert.str2dt(self.market_info['accepting_order_timestamp'])
+
+    @property
+    def tick1000(self) -> int:
+        return max(1, int(round(self.market_info['minimum_tick_size'] * 1000)))
+
+    @property
+    def minimum_order_size(self) -> int:
+        return self.market_info['minimum_order_size']
 
     @property
     def game_start_dt(self) -> Optional[datetime.datetime]:
@@ -63,8 +75,8 @@ class ClobMarketInfoParser:
         no_asset_id = no_asset_ids[0]
         market_order_book_cred = BoolMarketCred(
             condition_id=market_info['condition_id'],
-            yes_asset_id=yes_asset_id,
-            no_asset_id=no_asset_id,
+            main_asset_id=yes_asset_id,
+            counter_asset_id=no_asset_id,
         )
         return market_order_book_cred
 

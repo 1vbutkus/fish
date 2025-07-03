@@ -1,4 +1,2 @@
-
-
 class BaseMonitor:
     pass

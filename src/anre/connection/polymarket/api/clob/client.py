@@ -74,6 +74,11 @@ class ClobClient:
                 time.sleep(sleep_time)
         return data
 
+    def get_tick1000(self, token_id: str) -> int:
+        _tick_size = self._clob_internal_client.get_tick_size(token_id=token_id)
+        tick1000 = int(round(1000 * float(_tick_size)))
+        return min(tick1000, 1)
+
     def get_single_market_info(self, condition_id: str) -> dict:
         return self._clob_internal_client.get_market(condition_id=condition_id)
 

@@ -10,6 +10,18 @@ class TestClobApi(testutil.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         client = ClobClient()
+
+        simplified_markets_info_list = client.get_sampling_simplified_markets_info_list(
+            chunk_limit=1
+        )
+        token_ids = [
+            item['token_id']
+            for markets_info in simplified_markets_info_list
+            for item in markets_info['tokens']
+        ]
+        token_ids = token_ids[:10]
+
+        cls.token_ids = token_ids
         cls.client = client
 
     def test_market_info(self) -> None:
@@ -86,16 +98,7 @@ class TestClobApi(testutil.TestCase):
 
     def test_market_deeper_data(self) -> None:
         client = self.client
-
-        simplified_markets_info_list = client.get_sampling_simplified_markets_info_list(
-            chunk_limit=1
-        )
-        token_ids = [
-            item['token_id']
-            for markets_info in simplified_markets_info_list
-            for item in markets_info['tokens']
-        ]
-        token_ids = token_ids[:10]
+        token_ids = self.token_ids
         token_id = token_ids[0]
 
         ### look for market data
@@ -168,3 +171,11 @@ class TestClobApi(testutil.TestCase):
 
         server_time = client.get_server_time()
         assert server_time > 0
+
+    def test_tick(self):
+        client = self.client
+        token_ids = self.token_ids
+        token_id = token_ids[0]
+
+        tick1000 = client.get_tick1000(token_id=token_id)
+        assert tick1000 > 0

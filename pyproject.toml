@@ -64,6 +64,7 @@ norecursedirs = ['museum', '.env', 'libs', 'build']
 log_level = 'WARNING'
 filterwarnings = [
     "ignore:X does not have valid feature names",
+    "ignore:pkg_resources is deprecated as an API.",
 ]
 markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",

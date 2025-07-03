@@ -31,8 +31,10 @@ class TestClobParse(testutil.TestCase):
         assert isinstance(parser.accepting_order_dt, datetime.datetime)
         assert isinstance(parser.end_dt, datetime.datetime)
         assert isinstance(parser.game_start_dt, datetime.datetime) or parser.game_start_dt is None
+        assert isinstance(parser.tick1000, int)
+        assert isinstance(parser.minimum_order_size, int)
 
-    def test_house_trafades(self) -> None:
+    def test_house_trades(self) -> None:
         client = self.client
 
         trade_dict_list = client.get_house_trade_dict_list(chunk_limit=1)

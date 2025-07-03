@@ -301,36 +301,53 @@ class StrategyBox:
 
 
 def __dummy__():
-    from anre.connection.polymarket.master_client import MasterClient
     from anre.trading.monitor.monitors.boolMarket.flyBoolMarket import (
         FlyBoolMarket as FlyBoolMarketMonitor,
     )
+    from anre.trading.strategy.action.factory import Factory as ActionFactory
     from anre.trading.strategy.brain.brains.dummy.dummy import Dummy as DummyStrategyBrain
 
-    client = MasterClient()
-
+    # client = MasterClient()
     # simplified_markets_info_list = client.clob_client.get_sampling_simplified_markets_info_list()
     # simplified_markets_info_list.sort(key=lambda x: x['rewards']['min_size'])
     # condition_id = simplified_markets_info_list[100]['condition_id']
     condition_id = '0x9a68a7a12600327a3c388d7ad4d9a0bfcdf60870811427fcc01fab0c4410824c'
 
     strategy_brain = DummyStrategyBrain.new()
-    monitor = FlyBoolMarketMonitor(condition_id=condition_id)
+    monitor = FlyBoolMarketMonitor(condition_id=condition_id, default_gtt=3600)
+    monitor.iteration()
 
     # monitor.get_top_level_price_dict()
+    bool_market_cred = monitor.market_info_parser.bool_market_cred
     public_market_order_book, house_order_book, net_market_order_book = (
         monitor.get_market_order_books()
     )
     bid1000, ask1000 = net_market_order_book.get_main_asset_best_price1000s()
 
-    step1000 = 10
-    target_bid1000 = bid1000 - step1000 * 2
-    target_ask1000 = ask1000 + step1000 * 2
+    tick1000 = monitor.get_tick1000()
+    step1000 = tick1000
+    target_level: int = 1
 
-    cls = StrategyBox
-    self = cls(
-        strategy_brain=strategy_brain,
-        monitor=monitor,
+    target_bid1000 = bid1000 - step1000 * target_level
+    target_bid1000 = min(target_bid1000, ask1000 - tick1000)
+    target_ask1000 = ask1000 + step1000 * target_level
+    target_ask1000 = max(target_ask1000, bid1000 + tick1000)
+
+    ### check if already hae the order
+    house_order_book
+
+    ### cancel
+    # if have in too aggressive place, cancel it
+
+    # if we have not in other side, we can apply patience
+
+    ### place (we can apply patience)
+    action = ActionFactory.new_place_bool_market_order(
+        main_asset_id=bool_market_cred.main_asset_id,
+        counter_asset_id=bool_market_cred.counter_asset_id,
+        main_price1000=target_bid1000,
+        size=10,
+        bool_side='MAIN',
     )
 
-    self.iteration()
+    ###

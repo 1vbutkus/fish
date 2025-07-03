@@ -68,22 +68,24 @@ class PublicAssetBook(BaseAssetBook):
 @dataclass(frozen=False, repr=False)
 class PublicMarketOrderBookCache(BaseMarketOrderBook):
     condition_id: str
-    yes_asset_book: PublicAssetBook
-    no_asset_book: PublicAssetBook
+    main_asset_book: PublicAssetBook
+    counter_asset_book: PublicAssetBook
 
     def __post_init__(self):
-        assert self.yes_asset_book.asset_id != self.no_asset_book.asset_id, (
-            f'yes_asset_id and no_asset_id must be different. Got: {self.yes_asset_book.asset_id} and {self.no_asset_book.asset_id}'
+        assert self.main_asset_book.asset_id != self.counter_asset_book.asset_id, (
+            f'main_asset_book and counter_asset_book must be different. Got: {self.main_asset_book.asset_id} and {self.counter_asset_book.asset_id}'
         )
 
     @classmethod
     def new_init(
-        cls, condition_id: str, yes_asset_id: str, no_asset_id: str
+        cls, condition_id: str, main_asset_id: str, counter_asset_id: str
     ) -> 'PublicMarketOrderBookCache':
-        yes_asset_book = PublicAssetBook(asset_id=yes_asset_id)
-        no_asset_book = PublicAssetBook(asset_id=no_asset_id)
+        main_asset_book = PublicAssetBook(asset_id=main_asset_id)
+        counter_asset_book = PublicAssetBook(asset_id=counter_asset_id)
         return cls(
-            condition_id=condition_id, yes_asset_book=yes_asset_book, no_asset_book=no_asset_book
+            condition_id=condition_id,
+            main_asset_book=main_asset_book,
+            counter_asset_book=counter_asset_book,
         )
 
     def update_from_clob_mob_list(self, clob_mob_list: list[dict], validate: bool = True):
@@ -103,10 +105,10 @@ class PublicMarketOrderBookCache(BaseMarketOrderBook):
         assert clob_mob['market'] == self.condition_id, (
             f'message is not for this condition_id. Expected: {self.condition_id}, got: {clob_mob["condition_id"]}'
         )
-        if clob_mob['asset_id'] == self.yes_asset_book.asset_id:
-            self.yes_asset_book.update_from_clob_message(message=clob_mob)
-        elif clob_mob['asset_id'] == self.no_asset_book.asset_id:
-            self.no_asset_book.update_from_clob_message(message=clob_mob)
+        if clob_mob['asset_id'] == self.main_asset_book.asset_id:
+            self.main_asset_book.update_from_clob_message(message=clob_mob)
+        elif clob_mob['asset_id'] == self.counter_asset_book.asset_id:
+            self.counter_asset_book.update_from_clob_message(message=clob_mob)
         else:
             raise ValueError(f'unknown asset_id: {clob_mob["asset_id"]}')
 
@@ -119,10 +121,10 @@ class PublicMarketOrderBookCache(BaseMarketOrderBook):
             assert ws_message['market'] == self.condition_id, (
                 f'message is not for this condition_id. Expected: {self.condition_id}, got: {ws_message["condition_id"]}'
             )
-            if ws_message['asset_id'] == self.yes_asset_book.asset_id:
-                self.yes_asset_book.update_from_ws_message(message=ws_message)
-            elif ws_message['asset_id'] == self.no_asset_book.asset_id:
-                self.no_asset_book.update_from_ws_message(message=ws_message)
+            if ws_message['asset_id'] == self.main_asset_book.asset_id:
+                self.main_asset_book.update_from_ws_message(message=ws_message)
+            elif ws_message['asset_id'] == self.counter_asset_book.asset_id:
+                self.counter_asset_book.update_from_ws_message(message=ws_message)
             else:
                 raise ValueError(f'unknown asset_id: {ws_message["asset_id"]}')
 

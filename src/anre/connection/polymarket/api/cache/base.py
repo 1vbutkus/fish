@@ -84,20 +84,20 @@ class AssetBook(GeneralBaseMutable):
 @dataclass(frozen=False, repr=False)
 class BoolMarketOrderBook(GeneralBaseMutable):
     condition_id: str
-    yes_asset_book: AssetBook
-    no_asset_book: AssetBook
+    main_asset_book: AssetBook
+    counter_asset_book: AssetBook
 
     def copy(self) -> 'BoolMarketOrderBook':
         return deepcopy(self)
 
     def equals_book_values(self, other: 'BoolMarketOrderBook') -> bool:
         return (
-            self.yes_asset_book.book1000 == other.yes_asset_book.book1000
-            and self.no_asset_book.book1000 == other.no_asset_book.book1000
+            self.main_asset_book.book1000 == other.main_asset_book.book1000
+            and self.counter_asset_book.book1000 == other.counter_asset_book.book1000
         )
 
     def get_main_asset_best_price1000s(self) -> tuple[int, int]:
-        book1000 = self.yes_asset_book.book1000
+        book1000 = self.main_asset_book.book1000
         if book1000.bids:
             best_bid = book1000.bids.keys()[-1]
         else:
@@ -121,19 +121,19 @@ class BoolMarketOrderBook(GeneralBaseMutable):
         )
 
     def _validate_book_symetry(self):
-        assert len(self.yes_asset_book.book1000.bids) == len(self.no_asset_book.book1000.asks)
+        assert len(self.main_asset_book.book1000.bids) == len(self.counter_asset_book.book1000.asks)
         pairs = zip(
-            self.yes_asset_book.book1000.bids.items(),
-            reversed(self.no_asset_book.book1000.asks.items()),
+            self.main_asset_book.book1000.bids.items(),
+            reversed(self.counter_asset_book.book1000.asks.items()),
         )
         for yes_i, no_i in pairs:
             assert yes_i[0] + no_i[0] == 1000
             assert yes_i[1] == no_i[1]
 
-        assert len(self.yes_asset_book.book1000.asks) == len(self.no_asset_book.book1000.bids)
+        assert len(self.main_asset_book.book1000.asks) == len(self.counter_asset_book.book1000.bids)
         pairs = zip(
-            self.yes_asset_book.book1000.asks.items(),
-            reversed(self.no_asset_book.book1000.bids.items()),
+            self.main_asset_book.book1000.asks.items(),
+            reversed(self.counter_asset_book.book1000.bids.items()),
         )
         for yes_i, no_i in pairs:
             assert yes_i[0] + no_i[0] == 1000
@@ -147,16 +147,16 @@ class BoolMarketOrderBook(GeneralBaseMutable):
 
         pairs = zip(
             (
-                other.yes_asset_book.book1000.bids,
-                other.yes_asset_book.book1000.asks,
-                other.no_asset_book.book1000.bids,
-                other.no_asset_book.book1000.asks,
+                other.main_asset_book.book1000.bids,
+                other.main_asset_book.book1000.asks,
+                other.counter_asset_book.book1000.bids,
+                other.counter_asset_book.book1000.asks,
             ),
             (
-                temp.yes_asset_book.book1000.bids,
-                temp.yes_asset_book.book1000.asks,
-                temp.no_asset_book.book1000.bids,
-                temp.no_asset_book.book1000.asks,
+                temp.main_asset_book.book1000.bids,
+                temp.main_asset_book.book1000.asks,
+                temp.counter_asset_book.book1000.bids,
+                temp.counter_asset_book.book1000.asks,
             ),
         )
         for other_dict, temp_dict in pairs:
@@ -166,13 +166,13 @@ class BoolMarketOrderBook(GeneralBaseMutable):
                 else:
                     temp_dict[price] = -value
 
-        temp.yes_asset_book.book1000.remove_zero_size_records()
-        temp.no_asset_book.book1000.remove_zero_size_records()
+        temp.main_asset_book.book1000.remove_zero_size_records()
+        temp.counter_asset_book.book1000.remove_zero_size_records()
 
         instance = self.__class__(
             condition_id=temp.condition_id,
-            yes_asset_book=temp.yes_asset_book,
-            no_asset_book=temp.no_asset_book,
+            main_asset_book=temp.main_asset_book,
+            counter_asset_book=temp.counter_asset_book,
         )
         if validate:
             instance.validate()
