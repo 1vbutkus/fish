@@ -3,20 +3,21 @@ import time
 from functools import partial
 from typing import Callable, Literal, Optional
 
-from anre.config.config import config as anre_config
 from py_clob_client.client import ClobClient as ClobInternalClient
 from py_clob_client.clob_types import (
     ApiCreds,
+    BookParams,
     OpenOrderParams,
     OrderArgs,
     OrderScoringParams,
     OrderType,
     PriceHistoryArgs,
     TradeParams,
-    BookParams,
 )
 from py_clob_client.constants import POLYGON
 from py_clob_client.order_builder.constants import BUY, SELL
+
+from anre.config.config import config as anre_config
 
 assert BUY == 'BUY'
 assert SELL == 'SELL'

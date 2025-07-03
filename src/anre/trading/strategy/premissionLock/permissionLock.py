@@ -1,5 +1,5 @@
-from typing import Dict, Set, Optional
 from threading import Lock
+from typing import Dict, Optional, Set
 
 
 class PermissionLock:
@@ -19,7 +19,6 @@ class PermissionLock:
     }
 
     def __init__(self, allowedValues: Optional[Set[int]] = None):
-
         assert allowedValues is None or isinstance(allowedValues, set)
 
         self._changeLock = Lock()
@@ -37,7 +36,7 @@ class PermissionLock:
     def register_levelMap(self, valueInt: int, valueStr: str):
         assert isinstance(valueInt, int)
         assert isinstance(valueStr, str)
-        assert valueInt not in self._valueMapToStr, f'valueInt is already registered'
+        assert valueInt not in self._valueMapToStr, 'valueInt is already registered'
         self._valueMapToStr[valueInt] = valueStr
 
     def get_valueStr_fromInt(self, valueInt: int) -> str:
@@ -56,7 +55,9 @@ class PermissionLock:
             if override:
                 self._lockDict[owner] = valueInt
             else:
-                assert owner not in self._lockDict, f'owner is already have lock, use override=True or release_lock'
+                assert owner not in self._lockDict, (
+                    'owner is already have lock, use override=True or release_lock'
+                )
                 self._lockDict[owner] = valueInt
 
     def put_lock_backoff(self, owner: str, override: bool = False):
@@ -82,6 +83,7 @@ class PermissionLock:
         with self._changeLock:
             for owner in list(self._lockDict.keys()):
                 self._lockDict[owner] = 0
+
 
 def __dummy__():
     self = PermissionLock()

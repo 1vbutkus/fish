@@ -4,7 +4,6 @@ from anre.trading.strategy.premissionLock.permissionLock import PermissionLock
 
 
 class TestPermissionLock(unittest.TestCase):
-
     def test_happyPath(self):
         permissionLock = PermissionLock()
 

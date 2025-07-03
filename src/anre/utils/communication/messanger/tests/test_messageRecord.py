@@ -7,7 +7,6 @@ from anre.utils.communication.messanger.messageRecord import MessageRecord
 
 
 class TestMessageRecord(unittest.TestCase):
-
     def test_smoke(self):
         messageRecord = MessageRecord(
             msg='msg',

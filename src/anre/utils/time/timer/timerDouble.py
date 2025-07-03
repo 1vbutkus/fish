@@ -6,9 +6,7 @@ from anre.utils.time.timer.timerPseudo import TimerPseudo
 
 
 class TimerDouble(ITimer, object):
-
     def __init__(self, timerOriginal: ITimer):
-
         self._timerOriginal = timerOriginal
         self._timerInAction: Union[ITimer, TimerPseudo] = self._timerOriginal
         self._modeLabel = 'original'
@@ -31,14 +29,14 @@ class TimerDouble(ITimer, object):
     def is_real(self) -> bool:
         return self._timerOriginal.is_real
 
-    def nowDt(self, offset=0.) -> datetime.datetime:
+    def nowDt(self, offset=0.0) -> datetime.datetime:
         return self._timerInAction.nowDt(offset=offset)
 
-    def nowS(self, offset=0.) -> float:
+    def nowS(self, offset=0.0) -> float:
         return self._timerInAction.nowS(offset=offset)
 
-    def nowDt_original(self, offset=0.) -> datetime.datetime:
+    def nowDt_original(self, offset=0.0) -> datetime.datetime:
         return self._timerOriginal.nowDt(offset=offset)
 
-    def nowS_original(self, offset=0.) -> float:
+    def nowS_original(self, offset=0.0) -> float:
         return self._timerOriginal.nowS(offset=offset)

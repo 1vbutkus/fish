@@ -1,6 +1,6 @@
 from anre.config.config import config as anre_config
 from anre.connection.polymarket.api.cache.house_book import HouseOrderBookCache
-from anre.connection.polymarket.api.cache.net_book import NetMarketOrderBook
+from anre.connection.polymarket.api.cache.net_book import NetBoolMarketOrderBook
 from anre.connection.polymarket.api.cache.public_book import PublicMarketOrderBookCache
 from anre.connection.polymarket.api.clob import ClobMarketInfoParser
 from anre.utils import testutil
@@ -32,6 +32,8 @@ class TestPolymarketBookCache(testutil.TestCase):
         clob_public_mob_cache_0.update_from_clob_mob_list(
             clob_mob_list=_clob_mob_list, validate=True
         )
+        bid, ask = clob_public_mob_cache_0.get_main_asset_best_price1000s()
+        assert bid < ask
 
         ### first step
         ## public
@@ -67,7 +69,7 @@ class TestPolymarketBookCache(testutil.TestCase):
         )
         assert clob_house_mob_cache_1 == ws_house_mob_cache_1
         # net book
-        net_market_order_book_1 = NetMarketOrderBook.new(
+        net_market_order_book_1 = NetBoolMarketOrderBook.new(
             public_market_order_book=clob_public_mob_cache_1,
             house_order_book=clob_house_mob_cache_1,
             validate=True,
@@ -109,11 +111,13 @@ class TestPolymarketBookCache(testutil.TestCase):
         )
         assert clob_house_mob_cache_2.equals_book_values(ws_house_mob_cache_2)
         # not book
-        net_market_order_book_2 = NetMarketOrderBook.new(
+        net_market_order_book_2 = NetBoolMarketOrderBook.new(
             public_market_order_book=clob_public_mob_cache_2,
             house_order_book=clob_house_mob_cache_2,
             validate=True,
         )
+        bid, ask = net_market_order_book_2.get_main_asset_best_price1000s()
+        assert bid < ask
 
         ### third step
         ## public
@@ -150,7 +154,7 @@ class TestPolymarketBookCache(testutil.TestCase):
         )
         assert clob_house_mob_cache_3.equals_book_values(ws_house_mob_cache_3)
         # not book
-        net_market_order_book_3 = NetMarketOrderBook.new(
+        net_market_order_book_3 = NetBoolMarketOrderBook.new(
             public_market_order_book=clob_public_mob_cache_3,
             house_order_book=clob_house_mob_cache_3,
             validate=True,

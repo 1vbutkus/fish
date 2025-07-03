@@ -30,7 +30,6 @@ class TimerReal(ITimer, object):
 
     @classmethod
     def _get_offset(cls, force=False):
-
         if cls.wasSinc and not force:
             return cls.offsetSec
         else:
@@ -74,8 +73,8 @@ class TimerReal(ITimer, object):
                 print(msg)
                 return cls.offsetSec
 
-    def nowDt(self, offset=0.) -> datetime.datetime:
+    def nowDt(self, offset=0.0) -> datetime.datetime:
         return datetime.datetime.utcnow() + self.offsetDt + datetime.timedelta(seconds=offset)
 
-    def nowS(self, offset=0.) -> float:
+    def nowS(self, offset=0.0) -> float:
         return time.time() + self.offsetSec + offset

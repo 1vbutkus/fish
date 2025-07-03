@@ -82,22 +82,38 @@ class AssetBook(GeneralBaseMutable):
 
 
 @dataclass(frozen=False, repr=False)
-class MarketOrderBook(GeneralBaseMutable):
+class BoolMarketOrderBook(GeneralBaseMutable):
     condition_id: str
     yes_asset_book: AssetBook
     no_asset_book: AssetBook
 
-    def copy(self) -> 'MarketOrderBook':
+    def copy(self) -> 'BoolMarketOrderBook':
         return deepcopy(self)
 
-    def equals_book_values(self, other: 'MarketOrderBook') -> bool:
+    def equals_book_values(self, other: 'BoolMarketOrderBook') -> bool:
         return (
             self.yes_asset_book.book1000 == other.yes_asset_book.book1000
             and self.no_asset_book.book1000 == other.no_asset_book.book1000
         )
 
+    def get_main_asset_best_price1000s(self) -> tuple[int, int]:
+        book1000 = self.yes_asset_book.book1000
+        if book1000.bids:
+            best_bid = book1000.bids.keys()[-1]
+        else:
+            best_bid = 0
+
+        if book1000.asks:
+            best_ask = book1000.asks.keys()[0]
+        else:
+            best_ask = 1000
+
+        return best_bid, best_ask
+
     @classmethod
-    def new_init(cls, condition_id: str, yes_asset_id: str, no_asset_id: str) -> 'MarketOrderBook':
+    def new_init(
+        cls, condition_id: str, yes_asset_id: str, no_asset_id: str
+    ) -> 'BoolMarketOrderBook':
         yes_asset_book = AssetBook(asset_id=yes_asset_id)
         no_asset_book = AssetBook(asset_id=no_asset_id)
         return cls(
@@ -126,7 +142,7 @@ class MarketOrderBook(GeneralBaseMutable):
     def validate(self):
         self._validate_book_symetry()
 
-    def sub(self, other: 'MarketOrderBook', validate: bool = True) -> 'MarketOrderBook':
+    def sub(self, other: 'BoolMarketOrderBook', validate: bool = True) -> 'BoolMarketOrderBook':
         temp = self.copy()
 
         pairs = zip(

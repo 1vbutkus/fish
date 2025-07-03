@@ -1,24 +1,7 @@
-import datetime
-from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from enum import Enum
-from typing import Optional
 
-from cachetools import TTLCache, cached
-from anre.connection.polymarket.api.clob import ClobClient, ClobMarketInfoParser
 from anre.connection.polymarket.master_client import MasterClient
-from anre.trading.strategy.action.actions.base import StrategyAction
-from anre.utils.time.convert import Convert as TimeConvert
-from anre.config.config import config as anre_config
-from anre.connection.polymarket.api.cache.house_book import HouseOrderBookCache
-from anre.connection.polymarket.api.cache.net_book import NetMarketOrderBook
-from anre.connection.polymarket.api.cache.public_book import PublicMarketOrderBookCache
-from anre.connection.polymarket.api.clob import ClobMarketInfoParser
-from anre.utils import testutil
-from anre.utils.Json.Json import Json
-
-
-
 
 
 def __dummy__():
@@ -38,14 +21,10 @@ class ActionGateEnum(Enum):
     NOTRADE = 'NoTrade'
 
 
-
 @dataclass
 class TradingState:
     is_pending_actions: bool = False
     position_gate_state: PositionGateStateEnum = PositionGateStateEnum.NONE
-
-
-
 
 
 class StrategyBox:

@@ -3,7 +3,7 @@ import logging
 import traceback
 import warnings
 from collections import Counter
-from typing import Literal, Callable, Optional, List
+from typing import Callable, List, Literal, Optional
 
 from anre.utils.communication.alarm.alarm import alarm
 from anre.utils.communication.messanger.messageRecord import MessageRecord
@@ -14,9 +14,16 @@ from anre.utils.time.timer.timerReal import TimerReal
 
 
 class Messenger:
-
     @classmethod
-    def new(cls, timer: ITimer = None, name: str = 'bird.messenger', quiet: bool = False, collectMessages: bool = False, alarmLevel: int = 40, popLevel=40):
+    def new(
+        cls,
+        timer: ITimer = None,
+        name: str = 'bird.messenger',
+        quiet: bool = False,
+        collectMessages: bool = False,
+        alarmLevel: int = 40,
+        popLevel=40,
+    ):
         runtimeConfig = RuntimeConfig(
             quiet=quiet,
             collectMessages=collectMessages,
@@ -25,10 +32,20 @@ class Messenger:
         )
         return cls(timer=timer, name=name, runtimeConfig=runtimeConfig)
 
-    def __init__(self, timer: ITimer = None, name: str = 'bird.messenger', quiet: bool = False, collectMessages: bool = False, runtimeConfig: RuntimeConfig = None):
-
+    def __init__(
+        self,
+        timer: ITimer = None,
+        name: str = 'bird.messenger',
+        quiet: bool = False,
+        collectMessages: bool = False,
+        runtimeConfig: RuntimeConfig = None,
+    ):
         if runtimeConfig is None:
-            warnings.warn('Please use Messenger.new(...) instead of Messenger(...)', DeprecationWarning, stacklevel=2)
+            warnings.warn(
+                'Please use Messenger.new(...) instead of Messenger(...)',
+                DeprecationWarning,
+                stacklevel=2,
+            )
             runtimeConfig = RuntimeConfig(
                 quiet=quiet,
                 collectMessages=collectMessages,
@@ -78,7 +95,9 @@ class Messenger:
 
     def _spread_message(self, msg: str, level: int, soundAlert: bool = None, popAlert: bool = None):
         publishTime = self._timer.nowDt()
-        messageRecord = MessageRecord(msg=msg, callerName=self._name, level=level, publishTime=publishTime)
+        messageRecord = MessageRecord(
+            msg=msg, callerName=self._name, level=level, publishTime=publishTime
+        )
 
         if self._runtimeConfig.collectMessages:
             self._messageLog.append(messageRecord)
@@ -117,7 +136,10 @@ class Messenger:
     def clear_messageLog(self) -> None:
         self._messageLog.clear()
 
-    def get_msgCount(self, level: Optional[Literal["DEBUG", "INFO", "NOTE", "WARNING", "ERROR", "CRITICAL"]] = None) -> int:
+    def get_msgCount(
+        self,
+        level: Optional[Literal["DEBUG", "INFO", "NOTE", "WARNING", "ERROR", "CRITICAL"]] = None,
+    ) -> int:
         if level is None:
             return sum(self._counter.values())
 

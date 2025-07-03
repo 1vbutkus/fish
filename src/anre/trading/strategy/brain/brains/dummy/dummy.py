@@ -10,10 +10,9 @@ class Dummy(StrategyBrain):
     configClass = Config
     strategyLabel = 'Dummy'
 
-
     def get_report_dict(self) -> Dict[str, Any]:
         return {}
 
-    def update_state_and_get_action_list(self, action_freez: bool) -> list[StrategyAction]:
-        assert self.isSetObjects
+    def update_state_and_get_action_list(self, action_freeze: bool) -> list[StrategyAction]:
+        assert self.is_setting_object_finished
         return []

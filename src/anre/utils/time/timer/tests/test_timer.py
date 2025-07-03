@@ -10,7 +10,6 @@ from anre.utils.time.timer.timerReal import TimerReal
 
 
 class TestTimer(unittest.TestCase):
-
     def test_smokeTest(self):
         timers = [TimerReal(), TimerNaive(), TimerDouble(timerOriginal=TimerNaive()), TimerPseudo()]
         for timer in timers:

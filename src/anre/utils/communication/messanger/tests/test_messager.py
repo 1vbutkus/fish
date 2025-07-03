@@ -5,7 +5,6 @@ from anre.utils.communication.messanger.messenger import Messenger
 
 
 class TestMessenger(unittest.TestCase):
-
     def test_default(self):
         messenger = Messenger.new(alarmLevel=100, popLevel=100)
         messenger.info('Some info message 1')

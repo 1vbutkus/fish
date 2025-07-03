@@ -1,4 +1,4 @@
 from .client import ClobClient
-from .parse import ClobTradeParser, ClobMarketInfoParser
+from .parse import ClobMarketInfoParser, ClobTradeParser
 
 __all__ = ["ClobClient", "ClobTradeParser", "ClobMarketInfoParser"]
