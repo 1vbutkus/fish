@@ -30,5 +30,6 @@ class MasterClient:
 def __dummy__():
     self = MasterClient()
 
+    self.get_clob_client()
     self.clob_client.get_sampling_simplified_markets_info_list()
     self.clob_client.get_market_info_chunk()

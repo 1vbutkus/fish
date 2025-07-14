@@ -15,12 +15,14 @@ from typing import Any, Dict, List, Optional, Tuple
 
 from anre.trading.monitor.base import BaseMonitor
 from anre.trading.strategy.action.actions.base import StrategyAction
+from anre.trading.strategy.action.executor.executor import StrategyActionExecutor
 from anre.trading.strategy.brain.brains.base.brainBase import StrategyBrain
 from anre.trading.strategy.premissionLock.permissionLock import PermissionLock
 from anre.utils.communication.messanger.messenger import Messenger
 from anre.utils.functionsRunLog import FunctionsRunLog
 from anre.utils.time.timer.iTimer import ITimer
 from anre.utils.time.timer.timerReal import TimerReal
+from anre.trading.strategy.patience.patience import Patience
 
 logger = logging.getLogger(__name__)
 
@@ -313,6 +315,9 @@ def __dummy__():
     # condition_id = simplified_markets_info_list[100]['condition_id']
     condition_id = '0x9a68a7a12600327a3c388d7ad4d9a0bfcdf60870811427fcc01fab0c4410824c'
 
+    patience = Patience()
+    executor = StrategyActionExecutor()
+
     strategy_brain = DummyStrategyBrain.new()
     monitor = FlyBoolMarketMonitor(condition_id=condition_id, default_gtt=3600)
     monitor.iteration()
@@ -327,27 +332,78 @@ def __dummy__():
     tick1000 = monitor.get_tick1000()
     step1000 = tick1000
     target_level: int = 1
+    keep_offset_shallow_level = 1
+    keep_offset_deep_level = 1
+    size = 10
 
-    target_bid1000 = bid1000 - step1000 * target_level
-    target_bid1000 = min(target_bid1000, ask1000 - tick1000)
-    target_ask1000 = ask1000 + step1000 * target_level
-    target_ask1000 = max(target_ask1000, bid1000 + tick1000)
+    target_long_price1000 = bid1000 - step1000 * target_level
+    target_long_price1000 = min(target_long_price1000, ask1000 - tick1000)
+    target_short_price1000 = ask1000 + step1000 * target_level
+    target_short_price1000 = max(target_short_price1000, bid1000 + tick1000)
 
-    ### check if already hae the order
-    house_order_book
+    keep_long_price1000_range = [target_long_price1000 - keep_offset_deep_level * step1000, target_long_price1000 + keep_offset_shallow_level * step1000]
+    keep_short_price1000_range = [target_short_price1000 - keep_offset_deep_level * step1000, target_short_price1000 + keep_offset_shallow_level * step1000]
 
-    ### cancel
-    # if have in too aggressive place, cancel it
 
-    # if we have not in other side, we can apply patience
 
-    ### place (we can apply patience)
-    action = ActionFactory.new_place_bool_market_order(
-        main_asset_id=bool_market_cred.main_asset_id,
-        counter_asset_id=bool_market_cred.counter_asset_id,
-        main_price1000=target_bid1000,
-        size=10,
-        bool_side='MAIN',
-    )
 
-    ###
+    ### check if already have the order
+    is_long_order_OK = False
+    is_short_order_OK = False
+    cancel_action_list = []
+    for order_dict in monitor.get_house_order_dict_list():
+        if order_dict['asset_id'] == bool_market_cred.main_asset_id:
+            main_price1000 = order_dict['price1000']
+        elif order_dict['asset_id'] == bool_market_cred.counter_asset_id:
+            main_price1000 = 1000 - order_dict['price1000']
+        else:
+            raise ValueError(f'Unknown asset_id {order_dict["asset_id"]}')
+        if order_dict['bool_side'] == 'LONG':
+            if keep_long_price1000_range[0] <= main_price1000 <= keep_long_price1000_range[1] and order_dict['remaining_size1000'] == int(round(1000*size)):
+                is_long_order_OK = True
+            else:
+                action = ActionFactory.new_cancel_orders_by_ids(order_ids=[order_dict['id']])
+                cancel_action_list.append(action)
+        elif order_dict['bool_side'] == 'SHORT':
+            if keep_short_price1000_range[0] <= main_price1000 <= keep_short_price1000_range[1] and order_dict['remaining_size1000'] == int(round(1000*size)):
+                is_short_order_OK = True
+            else:
+                action = ActionFactory.new_cancel_orders_by_ids(order_ids=[order_dict['id']])
+                cancel_action_list.append(action)
+
+    ### place
+    place_action_list = []
+    if not is_long_order_OK:
+        action = ActionFactory.new_place_bool_market_order(
+            main_asset_id=bool_market_cred.main_asset_id,
+            counter_asset_id=bool_market_cred.counter_asset_id,
+            main_price1000=target_long_price1000,
+            size=size,
+            bool_side='LONG',
+        )
+        place_action_list.append(action)
+    if not is_short_order_OK:
+        action = ActionFactory.new_place_bool_market_order(
+            main_asset_id=bool_market_cred.main_asset_id,
+            counter_asset_id=bool_market_cred.counter_asset_id,
+            main_price1000=target_short_price1000,
+            size=10,
+            bool_side='SHORT',
+        )
+        place_action_list.append(action)
+
+
+
+    ### patience
+    patience.start_iteration()
+    for action in cancel_action_list:
+        patience.proc_actionWish(action=action, iterationRequre=0)
+    for action in place_action_list:
+        patience.proc_actionWish(action=action, iterationRequre=1)
+    action_list = patience.finish_iteration()
+
+    ### execute
+    executor.execute_actions(action_list=action_list)
+
+
+

@@ -10,10 +10,10 @@ class PlaceBoolMarketOrder(StrategyAction):
         counter_asset_id: str,
         main_price1000: int,
         size: float,
-        bool_side: Literal["MAIN", "COUNTER"],
+        bool_side: Literal["LONG", "SHORT"],
         order_type: str = "GTC",
     ):
-        assert bool_side in ("MAIN", "COUNTER"), f"bool_side must be LONG or SHORT, got {bool_side}"
+        assert bool_side in ("LONG", "SHORT"), f"bool_side must be LONG or SHORT, got {bool_side}"
         assert isinstance(main_price1000, int), f"price1000 must int, got {main_price1000}"
         assert isinstance(main_asset_id, str) and main_asset_id
         assert isinstance(counter_asset_id, str) and counter_asset_id
@@ -32,3 +32,14 @@ class PlaceBoolMarketOrder(StrategyAction):
         self.size = size
         self.bool_side = bool_side
         self.order_type = order_type
+
+    def __repr__(self):
+        return (
+            f"PlaceBoolMarketOrder(main_token_id={self.main_token_id}, "
+            f"counter_token_id={self.counter_token_id}, "
+            f"main_price1000={self.main_price1000}, "
+            f"size={self.size}, "
+            f"bool_side={self.bool_side}, "
+            f"order_type={self.order_type})"
+        )
+

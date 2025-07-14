@@ -60,7 +60,6 @@ class ClobClient:
     ) -> list[dict]:
         assert sleep_time >= 0.01
         data = []
-        run_cursor = ''
         count = 0
         while cursor != "LTE=":
             count += 1
@@ -284,7 +283,7 @@ class ClobClient:
     def cancel_orders_all(self):
         return self._clob_internal_client.cancel_all()
 
-    def cancel_orders_by_id(self, order_ids: list[str]):
+    def cancel_orders_by_ids(self, order_ids: list[str]):
         return self._clob_internal_client.cancel_orders(order_ids=order_ids)
 
     def cancel_orders_by_market(self, condition_id: str = "", asset_id: str = ""):

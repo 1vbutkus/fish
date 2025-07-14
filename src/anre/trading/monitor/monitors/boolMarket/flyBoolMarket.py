@@ -54,6 +54,9 @@ class FlyBoolMarket(BaseMonitor):
             house_order_book=house_mob,
             validate=True,
         )
+        for order_dict in house_order_dict_list:
+            ClobMarketInfoParser.alter_house_order_with_extra_info(order_dict)
+
         self._cache['public_mob'] = public_mob
         self._cache['house_mob'] = house_mob
         self._cache['net_mob'] = net_mob

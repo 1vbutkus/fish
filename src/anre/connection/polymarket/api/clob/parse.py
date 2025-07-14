@@ -25,10 +25,6 @@ class ClobMarketInfoParser:
         return self.get_bool_market_cred(self.market_info)
 
     @property
-    def bool_market_cred(self) -> BoolMarketCred:
-        return self.get_bool_market_cred(self.market_info)
-
-    @property
     def accepting_order_dt(self) -> datetime.datetime:
         return TimeConvert.str2dt(self.market_info['accepting_order_timestamp'])
 
@@ -79,6 +75,18 @@ class ClobMarketInfoParser:
             counter_asset_id=no_asset_id,
         )
         return market_order_book_cred
+
+    @classmethod
+    def alter_house_order_with_extra_info(cls, order_dict: dict):
+        order_dict['remaining_size1000'] = int(round(1000 * (float(order_dict['original_size']) - float(order_dict['size_matched']))))
+        order_dict['price1000'] = int(round(1000*float(order_dict['price'])))
+        if (order_dict['side'] == 'BUY' and order_dict['outcome'] == 'Yes') or (order_dict['side'] == 'SELL' and order_dict['outcome'] == 'No'):
+            order_dict['bool_side'] = 'LONG'
+        elif (order_dict['side'] == 'BUY' and order_dict['outcome'] == 'No') or (order_dict['side'] == 'SELL' and order_dict['outcome'] == 'Yes'):
+            order_dict['bool_side'] = 'SHORT'
+        else:
+            order_dict['bool_side'] = None
+
 
 
 class ClobTradeParser:
