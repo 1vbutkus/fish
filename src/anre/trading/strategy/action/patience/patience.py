@@ -61,7 +61,7 @@ class Patience:
             key = (action.__class__.__name__, procLabel, action.token_id, action.price, action.size, action.side, action.order_type)
 
         elif isinstance(action, CancelOrdersByIds):
-            key = (action.__class__.__name__, procLabel, set(action.order_ids))
+            key = (action.__class__.__name__, procLabel, tuple(sorted(action.order_ids)))
 
         else:
             key = (action.__class__.__name__, procLabel, str(action))
