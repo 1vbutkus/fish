@@ -1,4 +1,5 @@
 import unittest
+
 import pytest
 
 from anre.trading.strategy.brain.brains.dummy.dummy import Dummy as DummyStrategyBrain

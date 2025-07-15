@@ -1,7 +1,9 @@
 import unittest
 
 from anre.trading.strategy.brain.brains.fixed_market_maker.config import Config
-from anre.trading.strategy.brain.brains.fixed_market_maker.fixed_market_maker import FixedMarketMaker as FixedMarketMakerStrategyBrain
+from anre.trading.strategy.brain.brains.fixed_market_maker.fixed_market_maker import (
+    FixedMarketMaker as FixedMarketMakerStrategyBrain,
+)
 from anre.trading.strategy.brain.cred import StrategyBrainCred
 from anre.trading.strategy.parameter.parameter import Parameter
 

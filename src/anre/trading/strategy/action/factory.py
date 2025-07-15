@@ -1,11 +1,10 @@
 from typing import Literal
 
-from anre.trading.strategy.action.actions.place_bool_market_order import PlaceBoolMarketOrder
 from anre.trading.strategy.action.actions.cancel_orders_by_ids import CancelOrdersByIds
+from anre.trading.strategy.action.actions.place_bool_market_order import PlaceBoolMarketOrder
 
 
 class Factory:
-
     @classmethod
     def new_place_bool_market_order(
         cls,
@@ -30,7 +29,4 @@ class Factory:
         cls,
         order_ids: list[str],
     ) -> CancelOrdersByIds:
-        return CancelOrdersByIds(
-            order_ids=order_ids
-        )
-
+        return CancelOrdersByIds(order_ids=order_ids)

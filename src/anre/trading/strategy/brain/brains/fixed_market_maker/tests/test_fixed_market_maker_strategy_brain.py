@@ -1,7 +1,10 @@
 import unittest
+
 import pytest
 
-from anre.trading.strategy.brain.brains.fixed_market_maker.fixed_market_maker import FixedMarketMaker as FixedMarketMakerStrategyBrain
+from anre.trading.strategy.brain.brains.fixed_market_maker.fixed_market_maker import (
+    FixedMarketMaker as FixedMarketMakerStrategyBrain,
+)
 
 
 class TestFixedMarketMakingStrategy(unittest.TestCase):

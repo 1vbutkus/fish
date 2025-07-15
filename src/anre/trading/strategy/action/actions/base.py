@@ -1,6 +1,5 @@
 import uuid
 from abc import ABC
-import abc
 
 
 class StrategyAction(ABC):
@@ -12,7 +11,7 @@ class StrategyAction(ABC):
         self._is_pending: bool = False
         self._is_success: bool = False
         self._is_failed: bool = False
-        self._is_done: bool = False   # failed or success
+        self._is_done: bool = False  # failed or success
         self._related_order_ids: list[str] = []
 
     def set_aborted(self):

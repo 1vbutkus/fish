@@ -14,13 +14,18 @@ class Config(StrategyConfigBase):
     keep_offset_shallow_level: int = 0  # tolerancija, kuriam intervale toleruoti jau egzistuojancio orderio nuokrypi nuo dabartinio targeto
     keep_offset_deep_level: int = 0
     share_size = 10
-    step1000: Optional[int] = None   # jei None, tai bus tick size
+    step1000: Optional[int] = None  # jei None, tai bus tick size
     place_patience: int = 1
 
     def __post_init__(self):
-        assert self.keep_offset_shallow_level >= 0, f'keep_offset_shallow_level must be >= 0, got: {self.keep_offset_shallow_level}'
-        assert self.keep_offset_deep_level >= 0, f'keep_offset_deep_level must be >= 0, got: {self.keep_offset_deep_level}'
-        assert self.step1000 is None or 0 < self.step1000 <= 10, f'step1000 must be None or 0 < step1000 <= 10, got: {self.step1000}'
+        assert self.keep_offset_shallow_level >= 0, (
+            f'keep_offset_shallow_level must be >= 0, got: {self.keep_offset_shallow_level}'
+        )
+        assert self.keep_offset_deep_level >= 0, (
+            f'keep_offset_deep_level must be >= 0, got: {self.keep_offset_deep_level}'
+        )
+        assert self.step1000 is None or 0 < self.step1000 <= 10, (
+            f'step1000 must be None or 0 < step1000 <= 10, got: {self.step1000}'
+        )
         assert self.share_size >= 1, f'risk_size must be >= 1, got: {self.share_size}'
         assert self.place_patience >= 0, f'place_patience must be >= 0, got: {self.place_patience}'
-

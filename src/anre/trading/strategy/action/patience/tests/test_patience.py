@@ -1,12 +1,10 @@
 import unittest
 
-from anre.trading.strategy.action.actions.base import StrategyAction
 from anre.trading.strategy.action.actions.place_bool_market_order import PlaceBoolMarketOrder
 from anre.trading.strategy.patience.patience import Patience
 
 
 class TestModelUserBrainReplay(unittest.TestCase):
-
     def test_happyPath_single(self):
         patience = Patience()
 
@@ -40,7 +38,6 @@ class TestModelUserBrainReplay(unittest.TestCase):
         actionList = patience.finish_iteration()
         assert not actionList
 
-
     def test_change_mind_single(self):
         patience = Patience()
 
@@ -68,7 +65,6 @@ class TestModelUserBrainReplay(unittest.TestCase):
         actionList = patience.finish_iteration()
         assert not actionList
 
-
     def test_happyPath_two_actions(self):
         patience = Patience()
 
@@ -88,7 +84,6 @@ class TestModelUserBrainReplay(unittest.TestCase):
             bool_side='MAIN',
             order_type='GTC',
         )
-
 
         # single start, no action
         patience.start_iteration()
@@ -118,7 +113,6 @@ class TestModelUserBrainReplay(unittest.TestCase):
         assert actionList[0] is action2
 
     def test_pauseRelease(self):
-
         patience = Patience()
 
         action = PlaceBoolMarketOrder(
@@ -150,5 +144,3 @@ class TestModelUserBrainReplay(unittest.TestCase):
         actionList = patience.finish_iteration()
         assert len(actionList) == 1
         assert actionList[0] is action
-
-

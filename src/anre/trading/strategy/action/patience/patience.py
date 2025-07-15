@@ -1,5 +1,5 @@
 from threading import Lock
-from typing import Tuple, List
+from typing import List, Tuple
 
 from anre.trading.strategy.action.actions.base import StrategyAction
 from anre.trading.strategy.action.actions.cancel_orders_by_ids import CancelOrdersByIds
@@ -36,13 +36,23 @@ class Patience:
             self._passActionList = []
 
             # drop all of those that were not touched in this iteration
-            self._waitDict = {key: values for key, values in self._waitDict.items() if values[0] == self._iterationNr}
+            self._waitDict = {
+                key: values
+                for key, values in self._waitDict.items()
+                if values[0] == self._iterationNr
+            }
 
             self._iterationIsStarted = False
 
         return passActionList
 
-    def proc_actionWish(self, action: StrategyAction, iterationRequre: int = 0, pauseRelease: bool = False, procLabel: str = 'default'):
+    def proc_actionWish(
+        self,
+        action: StrategyAction,
+        iterationRequre: int = 0,
+        pauseRelease: bool = False,
+        procLabel: str = 'default',
+    ):
         assert isinstance(action, StrategyAction)
         assert isinstance(iterationRequre, int)
         assert isinstance(pauseRelease, bool)
@@ -51,14 +61,31 @@ class Patience:
         assert not self._lock.locked()
 
         key = self._get_key(action=action, procLabel=procLabel)
-        self._proc_action(key=key, action=action, iterationRequre=iterationRequre, pauseRelease=pauseRelease)
+        self._proc_action(
+            key=key, action=action, iterationRequre=iterationRequre, pauseRelease=pauseRelease
+        )
 
     def _get_key(self, action: StrategyAction, procLabel: str = 'default') -> Tuple:
         if isinstance(action, PlaceBoolMarketOrder):
-            key = (action.__class__.__name__, procLabel, action.main_token_id, action.counter_token_id, action.main_price1000, action.bool_side)
+            key = (
+                action.__class__.__name__,
+                procLabel,
+                action.main_token_id,
+                action.counter_token_id,
+                action.main_price1000,
+                action.bool_side,
+            )
 
         elif isinstance(action, PlaceDirectOrder):
-            key = (action.__class__.__name__, procLabel, action.token_id, action.price, action.size, action.side, action.order_type)
+            key = (
+                action.__class__.__name__,
+                procLabel,
+                action.token_id,
+                action.price,
+                action.size,
+                action.side,
+                action.order_type,
+            )
 
         elif isinstance(action, CancelOrdersByIds):
             key = (action.__class__.__name__, procLabel, tuple(sorted(action.order_ids)))
@@ -68,7 +95,9 @@ class Patience:
 
         return key
 
-    def _proc_action(self, key: Tuple, action: StrategyAction, iterationRequre: int, pauseRelease: bool):
+    def _proc_action(
+        self, key: Tuple, action: StrategyAction, iterationRequre: int, pauseRelease: bool
+    ):
         if key in self._waitDict:
             oldIterationNr, oldAction, oldIterationCount = self._waitDict.pop(key)
             if (iterationRequre == 0) and (not pauseRelease):

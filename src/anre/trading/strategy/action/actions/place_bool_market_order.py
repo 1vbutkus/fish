@@ -42,4 +42,3 @@ class PlaceBoolMarketOrder(StrategyAction):
             f"bool_side={self.bool_side}, "
             f"order_type={self.order_type})"
         )
-

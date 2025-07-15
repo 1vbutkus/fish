@@ -310,15 +310,15 @@ def __dummy__():
     from anre.trading.monitor.monitors.boolMarket.flyBoolMarket import (
         FlyBoolMarket as FlyBoolMarketMonitor,
     )
-    from anre.trading.strategy.action.factory import Factory as ActionFactory
-    from anre.trading.strategy.brain.brains.fixed_market_maker.fixed_market_maker import FixedMarketMaker as FixedMarketMakerStrategyBrain
+    from anre.trading.strategy.brain.brains.fixed_market_maker.fixed_market_maker import (
+        FixedMarketMaker as FixedMarketMakerStrategyBrain,
+    )
 
     # client = MasterClient()
     # simplified_markets_info_list = client.clob_client.get_sampling_simplified_markets_info_list()
     # simplified_markets_info_list.sort(key=lambda x: x['rewards']['min_size'])
     # condition_id = simplified_markets_info_list[100]['condition_id']
     condition_id = '0x9a68a7a12600327a3c388d7ad4d9a0bfcdf60870811427fcc01fab0c4410824c'
-
 
     strategy_brain = FixedMarketMakerStrategyBrain.new()
     monitor = FlyBoolMarketMonitor(condition_id=condition_id, default_gtt=3600)
@@ -333,4 +333,3 @@ def __dummy__():
     self.iteration()
 
     strategy_brain
-

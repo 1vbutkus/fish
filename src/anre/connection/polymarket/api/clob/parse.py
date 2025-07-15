@@ -78,15 +78,20 @@ class ClobMarketInfoParser:
 
     @classmethod
     def alter_house_order_with_extra_info(cls, order_dict: dict):
-        order_dict['remaining_size1000'] = int(round(1000 * (float(order_dict['original_size']) - float(order_dict['size_matched']))))
-        order_dict['price1000'] = int(round(1000*float(order_dict['price'])))
-        if (order_dict['side'] == 'BUY' and order_dict['outcome'] == 'Yes') or (order_dict['side'] == 'SELL' and order_dict['outcome'] == 'No'):
+        order_dict['remaining_size1000'] = int(
+            round(1000 * (float(order_dict['original_size']) - float(order_dict['size_matched'])))
+        )
+        order_dict['price1000'] = int(round(1000 * float(order_dict['price'])))
+        if (order_dict['side'] == 'BUY' and order_dict['outcome'] == 'Yes') or (
+            order_dict['side'] == 'SELL' and order_dict['outcome'] == 'No'
+        ):
             order_dict['bool_side'] = 'LONG'
-        elif (order_dict['side'] == 'BUY' and order_dict['outcome'] == 'No') or (order_dict['side'] == 'SELL' and order_dict['outcome'] == 'Yes'):
+        elif (order_dict['side'] == 'BUY' and order_dict['outcome'] == 'No') or (
+            order_dict['side'] == 'SELL' and order_dict['outcome'] == 'Yes'
+        ):
             order_dict['bool_side'] = 'SHORT'
         else:
             order_dict['bool_side'] = None
-
 
 
 class ClobTradeParser:
