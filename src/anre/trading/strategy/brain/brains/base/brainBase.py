@@ -9,7 +9,7 @@ from anre.trading.strategy.brain.cred import StrategyBrainCred
 class StrategyBrain(ABC):
     __version__ = '0.0.0.0'
     configClass: Optional[Type[StrategyConfigBase]] = None
-    label = 'StrategyBrainBase'
+    strategyLabel = 'StrategyBrainBase'
 
     @classmethod
     def new(
@@ -74,7 +74,7 @@ class StrategyBrain(ABC):
         return StrategyBrainCred(
             className=self.__class__.__name__,
             version=self.__version__,
-            label=self.label,
+            strategyLabel=self.strategyLabel,
             configDict=self._config.to_dict(),
             tagDict=self._tag_dict,
             comment=self._comment,

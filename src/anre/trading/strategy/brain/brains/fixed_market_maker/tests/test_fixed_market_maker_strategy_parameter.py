@@ -1,16 +1,18 @@
 import unittest
 
-from anre.trading.strategy.brain.brains.dummy.config import Config
-from anre.trading.strategy.brain.brains.dummy.dummy import Dummy as DummyStrategyBrain
+from anre.trading.strategy.brain.brains.fixed_market_maker.config import Config
+from anre.trading.strategy.brain.brains.fixed_market_maker.fixed_market_maker import FixedMarketMaker as FixedMarketMakerStrategyBrain
 from anre.trading.strategy.brain.cred import StrategyBrainCred
 from anre.trading.strategy.parameter.parameter import Parameter
 
 
-class TestParameterRandom(unittest.TestCase):
+class TestFixedMarketMakingParameter(unittest.TestCase):
     def test_consistency(self):
-        strategy_brain = DummyStrategyBrain.new()
+        strategy_brain = FixedMarketMakerStrategyBrain.new()
         parameter_from_strategy = Parameter.new_from_strategy_brain(strategy_brain=strategy_brain)
-        parameter_from_predefined = Parameter('Dummy', strategyLabel='Dummy')
+        parameter_from_predefined = Parameter('FixedMarketMaker', strategyLabel='FixedMarketMaker')
+
+        assert parameter_from_predefined == parameter_from_strategy
 
         assert set(parameter_from_predefined.paramDotDict) == set(
             parameter_from_strategy.paramDotDict

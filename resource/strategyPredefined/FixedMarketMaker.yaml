@@ -1,0 +1,6 @@
+
+FixedMarketMaker:
+  strategyLabel: FixedMarketMaker
+  tagDict: {}
+  comment: ''
+  configDict: {}

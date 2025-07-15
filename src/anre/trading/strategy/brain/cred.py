@@ -11,7 +11,7 @@ from anre.utils.dataStructure.general import GeneralBaseFrozen
 class StrategyBrainCred(GeneralBaseFrozen):
     className: str
     version: str
-    label: str
+    strategyLabel: str
     configDict: Dict
     tagDict: Dict[str, str]
     comment: str

@@ -9,7 +9,7 @@ from anre.trading.strategy.brain.brains.dummy.config import Config
 class FixedMarketMaker(StrategyBrain):
     __version__ = "0.0.0.0"
     configClass = Config
-    strategyLabel = 'Dummy'
+    strategyLabel = 'FixedMarketMaker'
 
     def __init__(self, config, tag_dict: Optional[Dict[str, str]] = None, comment: str = ''):
         super().__init__(config=config, tag_dict=tag_dict, comment=comment)

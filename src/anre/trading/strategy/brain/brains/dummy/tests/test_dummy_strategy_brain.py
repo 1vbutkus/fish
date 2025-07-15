@@ -1,4 +1,5 @@
 import unittest
+import pytest
 
 from anre.trading.strategy.brain.brains.dummy.dummy import Dummy as DummyStrategyBrain
 
@@ -8,12 +9,12 @@ class TestDummyStrategy(unittest.TestCase):
         strategy = DummyStrategyBrain.new()
 
         assert not strategy.is_setting_object_finished
-        with self.assertRaises(AssertionError):
+        with pytest.raises(AssertionError):
             _ = strategy.update_state_and_get_action_list(action_freeze=False)
 
         strategy.set_objects()
         assert strategy.is_setting_object_finished
-        with self.assertRaises(AssertionError):
+        with pytest.raises(AssertionError):
             strategy.set_objects()
 
         actionList = strategy.update_state_and_get_action_list(action_freeze=False)

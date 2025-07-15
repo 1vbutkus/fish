@@ -13,7 +13,7 @@ class Parameter(ParameterBase):
         assert isinstance(strategy_brain, StrategyBrain)
         cred = strategy_brain.get_cred()
         paramDict = {
-            'strategyLabel': cred.label,
+            'strategyLabel': cred.strategyLabel,
             'configDict': cred.configDict,
             'tagDict': cred.tagDict,
             'comment': cred.comment,

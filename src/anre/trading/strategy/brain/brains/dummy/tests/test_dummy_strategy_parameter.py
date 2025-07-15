@@ -12,6 +12,8 @@ class TestParameterRandom(unittest.TestCase):
         parameter_from_strategy = Parameter.new_from_strategy_brain(strategy_brain=strategy_brain)
         parameter_from_predefined = Parameter('Dummy', strategyLabel='Dummy')
 
+        assert parameter_from_predefined == parameter_from_strategy
+
         assert set(parameter_from_predefined.paramDotDict) == set(
             parameter_from_strategy.paramDotDict
         )
