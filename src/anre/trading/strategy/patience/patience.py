@@ -2,7 +2,9 @@ from threading import Lock
 from typing import Tuple, List
 
 from anre.trading.strategy.action.actions.base import StrategyAction
+from anre.trading.strategy.action.actions.cancel_orders_by_ids import CancelOrdersByIds
 from anre.trading.strategy.action.actions.place_bool_market_order import PlaceBoolMarketOrder
+from anre.trading.strategy.action.actions.place_direct_order import PlaceDirectOrder
 
 
 class Patience:
@@ -54,6 +56,12 @@ class Patience:
     def _get_key(self, action: StrategyAction, procLabel: str = 'default') -> Tuple:
         if isinstance(action, PlaceBoolMarketOrder):
             key = (action.__class__.__name__, procLabel, action.main_token_id, action.counter_token_id, action.main_price1000, action.bool_side)
+
+        elif isinstance(action, PlaceDirectOrder):
+            key = (action.__class__.__name__, procLabel, action.token_id, action.price, action.size, action.side, action.order_type)
+
+        elif isinstance(action, CancelOrdersByIds):
+            key = (action.__class__.__name__, procLabel, set(action.order_ids))
 
         else:
             key = (action.__class__.__name__, procLabel, str(action))

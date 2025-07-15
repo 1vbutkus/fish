@@ -320,6 +320,8 @@ def __dummy__():
 
     strategy_brain = DummyStrategyBrain.new()
     monitor = FlyBoolMarketMonitor(condition_id=condition_id, default_gtt=3600)
+
+
     monitor.iteration()
 
     # monitor.get_top_level_price_dict()
@@ -332,8 +334,8 @@ def __dummy__():
     tick1000 = monitor.get_tick1000()
     step1000 = tick1000
     target_level: int = 1
-    keep_offset_shallow_level = 1
-    keep_offset_deep_level = 1
+    keep_offset_shallow_level = 0
+    keep_offset_deep_level = 0
     size = 10
 
     target_long_price1000 = bid1000 - step1000 * target_level

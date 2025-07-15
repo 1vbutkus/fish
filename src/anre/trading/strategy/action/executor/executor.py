@@ -84,8 +84,11 @@ class StrategyActionExecutor:
                 side=action.side,
                 order_type=action.order_type,
             )
-            # mark state
-            raise NotImplementedError
+            if resp['success']:
+                action.set_related_order_ids(order_ids=[resp['orderID']])
+                action.set_final_status(is_success=True, is_failed=False)
+            else:
+                action.set_final_status(is_success=False, is_failed=True)
 
     def _execute_place_bool_market_order(self, action_list: list[StrategyAction]):
         for action in action_list:
