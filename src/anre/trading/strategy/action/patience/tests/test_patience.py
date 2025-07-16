@@ -13,7 +13,7 @@ class TestModelUserBrainReplay(unittest.TestCase):
             counter_asset_id='BBB',
             main_price1000=500,
             size=10,
-            bool_side='MAIN',
+            bool_side='LONG',
             order_type='GTC',
         )
 
@@ -46,7 +46,7 @@ class TestModelUserBrainReplay(unittest.TestCase):
             counter_asset_id='BBB',
             main_price1000=500,
             size=10,
-            bool_side='MAIN',
+            bool_side='LONG',
             order_type='GTC',
         )
 
@@ -73,7 +73,7 @@ class TestModelUserBrainReplay(unittest.TestCase):
             counter_asset_id='BBB',
             main_price1000=500,
             size=10,
-            bool_side='MAIN',
+            bool_side='LONG',
             order_type='GTC',
         )
         action2 = PlaceBoolMarketOrder(
@@ -81,7 +81,7 @@ class TestModelUserBrainReplay(unittest.TestCase):
             counter_asset_id='BBB',
             main_price1000=600,
             size=10,
-            bool_side='MAIN',
+            bool_side='LONG',
             order_type='GTC',
         )
 
@@ -120,7 +120,7 @@ class TestModelUserBrainReplay(unittest.TestCase):
             counter_asset_id='BBB',
             main_price1000=500,
             size=10,
-            bool_side='MAIN',
+            bool_side='LONG',
             order_type='GTC',
         )
 

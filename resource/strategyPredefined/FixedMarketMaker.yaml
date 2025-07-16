@@ -3,4 +3,11 @@ FixedMarketMaker:
   strategyLabel: FixedMarketMaker
   tagDict: {}
   comment: ''
-  configDict: {}
+  configDict:
+    keep_offset_deep_level: 0
+    keep_offset_shallow_level: 0
+    place_patience: 1
+    share_size: 10
+    step1000: null
+    target_base_step_level: 1
+    target_skew_step_level: 0
