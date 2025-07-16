@@ -180,7 +180,9 @@ class StrategyBox:
         return thread
 
     def _execute_actionList_core(self, action_list: list[StrategyAction]):
-        print(f"Call strategyBox._execute_actionList_core: {action_list}")
+        # print(f"Call strategyBox._execute_actionList_core: {action_list}")
+
+        # TODO: padaryti apribojimus
         self._action_executor.execute_actions(action_list=action_list)
 
         # permissionLockInt = self.permissionLock.get_currentValueInt()
@@ -306,30 +308,3 @@ class StrategyBox:
         #             self._qa_warnedBetId.add(betId)
 
 
-def __dummy__():
-    from anre.trading.monitor.monitors.boolMarket.flyBoolMarket import (
-        FlyBoolMarket as FlyBoolMarketMonitor,
-    )
-    from anre.trading.strategy.brain.brains.fixed_market_maker.fixed_market_maker import (
-        FixedMarketMaker as FixedMarketMakerStrategyBrain,
-    )
-
-    # client = MasterClient()
-    # simplified_markets_info_list = client.clob_client.get_sampling_simplified_markets_info_list()
-    # simplified_markets_info_list.sort(key=lambda x: x['rewards']['min_size'])
-    # condition_id = simplified_markets_info_list[100]['condition_id']
-    condition_id = '0x9a68a7a12600327a3c388d7ad4d9a0bfcdf60870811427fcc01fab0c4410824c'
-
-    strategy_brain = FixedMarketMakerStrategyBrain.new()
-    monitor = FlyBoolMarketMonitor(condition_id=condition_id, default_gtt=3600)
-
-    cls = StrategyBox
-    self = cls(
-        monitor=monitor,
-        strategy_brain=strategy_brain,
-    )
-
-    monitor.iteration()
-    self.iteration()
-
-    strategy_brain

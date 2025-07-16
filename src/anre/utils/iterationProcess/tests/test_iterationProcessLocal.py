@@ -8,13 +8,13 @@ from anre.utils.iterationProcess.iterationProcessLocal import IterationProcessLo
 class TestIterationProcessLocal(testutil.TestCase):
     def test_basic(self) -> None:
         proc = IterationProcessLocal.new()
-        assert not proc.isAlive()
+        assert not proc.is_alive()
         proc.stop()
-        assert not proc.isAlive()
+        assert not proc.is_alive()
         proc.start()
-        assert proc.isAlive()
+        assert proc.is_alive()
         proc.stop(wait=True)
-        assert not proc.isAlive()
+        assert not proc.is_alive()
 
         proc.get_iterationTakesTimeMean()
 
@@ -43,9 +43,9 @@ class TestIterationProcessLocal(testutil.TestCase):
 
         proc = CustomProc.new(wait=0.1, sleepInFailList=[0.01, 0.02])
         proc.start()
-        assert proc.isAlive()
+        assert proc.is_alive()
         time.sleep(2)
-        assert not proc.isAlive()
+        assert not proc.is_alive()
 
         assert proc.iterCount == 8
         assert proc.failCount == 3
@@ -70,7 +70,7 @@ class TestIterationProcessLocal(testutil.TestCase):
         proc = CustomProc.new(wait=0.1, sleepInFailList=[0.01, 0.02])
         proc.start()
         time.sleep(1)
-        assert not proc.isAlive()
+        assert not proc.is_alive()
         assert proc.finalError
 
     def test_customProc_errorIn_runInIterFail(self) -> None:
@@ -92,5 +92,5 @@ class TestIterationProcessLocal(testutil.TestCase):
         proc = CustomProc.new(wait=0.1, sleepInFailList=[0.01, 0.02])
         proc.start()
         time.sleep(1)
-        assert not proc.isAlive()
+        assert not proc.is_alive()
         assert proc.interError

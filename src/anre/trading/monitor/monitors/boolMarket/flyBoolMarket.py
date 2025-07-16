@@ -19,7 +19,7 @@ class FlyBoolMarket(BaseMonitor):
         self._condition_id = condition_id
         self._timer = TimerReal()
         self._update_lock = Lock()
-        self._last_iteration_run_time = 0
+        self._last_iteration_finish_time = 0
         self._cache: dict = {}
         self._default_gtt: int | float = default_gtt
         market_info_parser = self._fetch_clob_market_info_parser()
@@ -31,17 +31,16 @@ class FlyBoolMarket(BaseMonitor):
 
     def iteration(self, gtt=2):
         # collect info amd mare sure it is valid and up to date
-
-        if self._timer.nowS() > self._last_iteration_run_time + gtt:
-            init_last_iteration_run_time = self._last_iteration_run_time
+        if self._timer.nowS() > self._last_iteration_finish_time + gtt:
+            init_last_iteration_finish_time = self._last_iteration_finish_time
             with self._update_lock:
-                if init_last_iteration_run_time == self._last_iteration_run_time:
+                if init_last_iteration_finish_time == self._last_iteration_finish_time:
                     self._update_internal_cache()
-                    self._last_iteration_run_time = self._timer.nowS()
+                    self._last_iteration_finish_time = self._timer.nowS()
 
-    def _assert_up_to_date(self, gtt: Optional[int | float] = None):
+    def assert_up_to_date(self, gtt: Optional[int | float] = None):
         gtt = gtt if gtt is not None else self._default_gtt
-        assert self._timer.nowS() <= self._last_iteration_run_time + gtt
+        assert self._timer.nowS() <= self._last_iteration_finish_time + gtt, f'It is not up to date. Last update was {self._timer.nowS() - self._last_iteration_finish_time} seconds ago.'
 
     def _update_internal_cache(self):
         self._cache['clob_market_info_parser'] = self._fetch_clob_market_info_parser()
@@ -93,7 +92,7 @@ class FlyBoolMarket(BaseMonitor):
 
     @property
     def market_info_parser(self) -> ClobMarketInfoParser:
-        self._assert_up_to_date()
+        self.assert_up_to_date()
         clob_market_info_parser = self._cache['clob_market_info_parser']
         assert isinstance(clob_market_info_parser, ClobMarketInfoParser)
         return clob_market_info_parser
@@ -113,11 +112,11 @@ class FlyBoolMarket(BaseMonitor):
     def get_market_order_books(
         self,
     ) -> tuple[PublicMarketOrderBookCache, HouseOrderBookCache, NetBoolMarketOrderBook]:
-        self._assert_up_to_date()
+        self.assert_up_to_date()
         return self._cache['public_mob'], self._cache['house_mob'], self._cache['net_mob']
 
     def get_house_order_dict_list(self):
-        self._assert_up_to_date()
+        self.assert_up_to_date()
         return self._cache['house_order_dict_list']
 
     # def get_historical_price(self):

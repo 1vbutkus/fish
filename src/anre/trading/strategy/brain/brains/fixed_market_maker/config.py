@@ -13,7 +13,7 @@ class Config(StrategyConfigBase):
     target_skew_step_level: int = 0  # asimetrija. jei >0, tai prie LONG pridesim papildomu zingsniu. Jei -n, tai SHORT sumazinsime per n zingsniu
     keep_offset_shallow_level: int = 0  # tolerancija, kuriam intervale toleruoti jau egzistuojancio orderio nuokrypi nuo dabartinio targeto
     keep_offset_deep_level: int = 0
-    share_size = 10
+    share_size: int = 10
     step1000: Optional[int] = None  # jei None, tai bus tick size
     place_patience: int = 1
 

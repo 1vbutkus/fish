@@ -36,9 +36,6 @@ class FixedMarketMaker(StrategyBrain):
         if action_freeze:
             return []
 
-        # TODO: monitoriu turi sukti aksteciau. Teikes patikrinti
-        self._monitor.iteration()
-
         monitor = self._monitor
         patience = self._patience
         config: Config = self._config

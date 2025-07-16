@@ -1,7 +1,7 @@
 import unittest
 
 from anre.trading.strategy.action.actions.place_bool_market_order import PlaceBoolMarketOrder
-from anre.trading.strategy.patience.patience import Patience
+from anre.trading.strategy.action.patience.patience import Patience
 
 
 class TestModelUserBrainReplay(unittest.TestCase):
