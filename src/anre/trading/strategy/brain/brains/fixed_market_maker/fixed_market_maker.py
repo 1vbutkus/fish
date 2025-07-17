@@ -107,7 +107,7 @@ class FixedMarketMaker(StrategyBrain):
                 main_asset_id=bool_market_cred.main_asset_id,
                 counter_asset_id=bool_market_cred.counter_asset_id,
                 main_price1000=target_long_price1000,
-                size=config.share_size,
+                size1000=int(round(config.share_size * 1000)),
                 bool_side='LONG',
             )
             place_action_list.append(action)
@@ -116,7 +116,7 @@ class FixedMarketMaker(StrategyBrain):
                 main_asset_id=bool_market_cred.main_asset_id,
                 counter_asset_id=bool_market_cred.counter_asset_id,
                 main_price1000=target_short_price1000,
-                size=config.share_size,
+                size1000=int(round(config.share_size * 1000)),
                 bool_side='SHORT',
             )
             place_action_list.append(action)

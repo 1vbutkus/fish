@@ -40,7 +40,9 @@ class FlyBoolMarket(BaseMonitor):
 
     def assert_up_to_date(self, gtt: Optional[int | float] = None):
         gtt = gtt if gtt is not None else self._default_gtt
-        assert self._timer.nowS() <= self._last_iteration_finish_time + gtt, f'It is not up to date. Last update was {self._timer.nowS() - self._last_iteration_finish_time} seconds ago.'
+        assert self._timer.nowS() <= self._last_iteration_finish_time + gtt, (
+            f'It is not up to date. Last update was {self._timer.nowS() - self._last_iteration_finish_time} seconds ago.'
+        )
 
     def _update_internal_cache(self):
         self._cache['clob_market_info_parser'] = self._fetch_clob_market_info_parser()

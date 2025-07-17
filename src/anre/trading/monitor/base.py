@@ -3,7 +3,6 @@ from typing import Optional
 
 
 class BaseMonitor(ABC):
-
     @abstractmethod
     def iteration(self, gtt=2):
         pass

@@ -16,7 +16,6 @@ from anre.trading.strategy.strategyBox.strategyBox import StrategyBox
 
 
 class Execution:
-
     def __init__(self, monitor: BaseMonitor, strategy_box: StrategyBox, timer: TimerReal):
         assert isinstance(monitor, BaseMonitor)
         assert isinstance(strategy_box, StrategyBox)
@@ -36,7 +35,9 @@ class Execution:
         if join:  # cia hack'as, kad profilinimas viektu - bet gal net galima ir palikti - tik pagalvoti reikia del side efektu
             self._run()
         else:
-            self._runThread = threading.Thread(name=f'{self.__class__.__name__}._run', target=self._run, daemon=False)
+            self._runThread = threading.Thread(
+                name=f'{self.__class__.__name__}._run', target=self._run, daemon=False
+            )
             self._runThread.start()
             if join:
                 self.join()
@@ -45,7 +46,9 @@ class Execution:
         assert self._runThread is not None, f'Execution has not started, so it can not be joined.'
         assert self._runThread.is_alive(), f'Execution is not alive, so it can not be joined.'
         self._runThread.join()
-        assert not self._runThread.is_alive(), 'Thread is suppose to be not alive, but somehow it is still alive'
+        assert not self._runThread.is_alive(), (
+            'Thread is suppose to be not alive, but somehow it is still alive'
+        )
         self._runThread = None
 
     def is_finished(self) -> bool:
@@ -54,7 +57,6 @@ class Execution:
     def is_alive(self) -> bool:
         return self._runThread is not None and self._runThread.is_alive()
 
-
     def _iteration(self):
         waitParam = 5
 
@@ -62,8 +64,10 @@ class Execution:
         takesTime = self._timer.nowS() - self._lastIterationStartTime
         if takesTime > waitParam:
             if self._lastIterationStartTime > 0:
-                self._logger.warning(f'A single iteration of Execution is bigger then waitParam(`{waitParam}`): {takesTime=}')
-        waitInstanceSec = max(0., waitParam - takesTime)
+                self._logger.warning(
+                    f'A single iteration of Execution is bigger then waitParam(`{waitParam}`): {takesTime=}'
+                )
+        waitInstanceSec = max(0.0, waitParam - takesTime)
         self._wait(waitSec=waitInstanceSec)
 
         if self._finishEvent.is_set():
@@ -124,7 +128,6 @@ def __dummy__():
 
     strategy_brain = FixedMarketMakerStrategyBrain.new(share_size=50, target_base_step_level=0)
 
-
     # strategy_brain._config = replace(strategy_brain._config, target_base_step_level = 1)
 
     monitor = FlyBoolMarketMonitor(condition_id=condition_id, default_gtt=3600)
@@ -135,10 +138,12 @@ def __dummy__():
     )
 
     cls = Execution
-    execution = cls(monitor=monitor, strategy_box=strategy_box, timer=timer)
+    self = execution = cls(monitor=monitor, strategy_box=strategy_box, timer=timer)
 
     execution.run(join=False)
 
-
     execution.manualStop()
     execution.is_alive()
+
+    ####
+    self = strategy_box.strategy_brain

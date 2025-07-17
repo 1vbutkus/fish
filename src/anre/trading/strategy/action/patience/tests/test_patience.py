@@ -1,6 +1,6 @@
 import unittest
 
-from anre.trading.strategy.action.actions.place_bool_market_order import PlaceBoolMarketOrder
+from anre.trading.strategy.action.actions.complex.place_bool_market_order import PlaceBoolMarketOrder
 from anre.trading.strategy.action.patience.patience import Patience
 
 
@@ -12,7 +12,7 @@ class TestModelUserBrainReplay(unittest.TestCase):
             main_asset_id='AAA',
             counter_asset_id='BBB',
             main_price1000=500,
-            size=10,
+            size1000=10000,
             bool_side='LONG',
             order_type='GTC',
         )
@@ -45,7 +45,7 @@ class TestModelUserBrainReplay(unittest.TestCase):
             main_asset_id='AAA',
             counter_asset_id='BBB',
             main_price1000=500,
-            size=10,
+            size1000=10000,
             bool_side='LONG',
             order_type='GTC',
         )
@@ -72,7 +72,7 @@ class TestModelUserBrainReplay(unittest.TestCase):
             main_asset_id='AAA',
             counter_asset_id='BBB',
             main_price1000=500,
-            size=10,
+            size1000=10000,
             bool_side='LONG',
             order_type='GTC',
         )
@@ -80,7 +80,7 @@ class TestModelUserBrainReplay(unittest.TestCase):
             main_asset_id='AAA',
             counter_asset_id='BBB',
             main_price1000=600,
-            size=10,
+            size1000=10000,
             bool_side='LONG',
             order_type='GTC',
         )
@@ -119,7 +119,7 @@ class TestModelUserBrainReplay(unittest.TestCase):
             main_asset_id='AAA',
             counter_asset_id='BBB',
             main_price1000=500,
-            size=10,
+            size1000=10000,
             bool_side='LONG',
             order_type='GTC',
         )

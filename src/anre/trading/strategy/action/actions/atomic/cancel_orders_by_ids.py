@@ -1,7 +1,7 @@
-from anre.trading.strategy.action.actions.base import StrategyAction
+from anre.trading.strategy.action.actions.base import StrategyAtomicAction
 
 
-class CancelOrdersByIds(StrategyAction):
+class CancelOrdersByIds(StrategyAtomicAction):
     def __init__(self, order_ids):
         assert order_ids
         super().__init__()

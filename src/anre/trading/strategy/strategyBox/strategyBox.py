@@ -182,8 +182,10 @@ class StrategyBox:
     def _execute_actionList_core(self, action_list: list[StrategyAction]):
         # print(f"Call strategyBox._execute_actionList_core: {action_list}")
 
-        # TODO: padaryti apribojimus
-        self._action_executor.execute_actions(action_list=action_list)
+        atomic_action_list = [act for action in action_list for act in action.to_atomic_actions()]
+        self._action_executor.execute_actions(action_list=atomic_action_list)
+        for action in action_list:
+            action.set_state_from_atomic_actions()
 
         # permissionLockInt = self.permissionLock.get_currentValueInt()
         #
@@ -306,5 +308,3 @@ class StrategyBox:
         #             # msg = f'betId(`{betId}`) not in betOrderIdMapToAction: {openOrder=}'
         #             # self._messenger.warning(msg=msg)
         #             self._qa_warnedBetId.add(betId)
-
-

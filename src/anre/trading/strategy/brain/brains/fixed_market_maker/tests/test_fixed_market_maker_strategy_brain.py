@@ -14,4 +14,3 @@ class TestFixedMarketMakingStrategy(unittest.TestCase):
         assert not strategy.is_setting_object_finished
         with pytest.raises(AssertionError):
             _ = strategy.update_state_and_get_action_list(action_freeze=False)
-
