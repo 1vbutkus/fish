@@ -1,14 +1,17 @@
 import datetime
 from multiprocessing import Lock
 from typing import Optional
+import logging
 
 from anre.connection.polymarket.api.cache.house_book import HouseOrderBookCache
 from anre.connection.polymarket.api.cache.net_book import NetBoolMarketOrderBook
 from anre.connection.polymarket.api.cache.public_book import PublicMarketOrderBookCache
-from anre.connection.polymarket.api.clob import ClobMarketInfoParser
+from anre.connection.polymarket.api.clob import ClobMarketInfoParser, ClobTradeParser
+from anre.connection.polymarket.api.utils import get_position_by_outcome
 from anre.connection.polymarket.master_client import MasterClient
 from anre.trading.monitor.base import BaseMonitor
 from anre.utils.time.timer.timerReal import TimerReal
+from anre.connection.polymarket.api.types import BoolMarketCred, HouseTradeRec
 
 
 class FlyBoolMarket(BaseMonitor):
@@ -28,6 +31,7 @@ class FlyBoolMarket(BaseMonitor):
             self._bool_market_cred.main_asset_id,
             self._bool_market_cred.counter_asset_id,
         )
+        self._logger = logging.getLogger(__name__)
 
     def iteration(self, gtt=2):
         # collect info amd mare sure it is valid and up to date
@@ -58,10 +62,21 @@ class FlyBoolMarket(BaseMonitor):
         for order_dict in house_order_dict_list:
             ClobMarketInfoParser.alter_house_order_with_extra_info(order_dict)
 
+        balance_position_slow = self._fetch_house_balance_position()
+        house_trade_rec_dict = self._fetch_house_trades()
+        yes_position, no_position = get_position_by_outcome(list(house_trade_rec_dict.values()))
+        balance_position = yes_position - no_position
+        if abs(balance_position_slow - balance_position) > 1e-3:
+            self._logger.warning(
+                f'The balance position is not consistent: {balance_position} != {balance_position}'
+            )
+
         self._cache['public_mob'] = public_mob
         self._cache['house_mob'] = house_mob
         self._cache['net_mob'] = net_mob
         self._cache['house_order_dict_list'] = house_order_dict_list
+        self._cache['house_trade_rec_dict'] = house_trade_rec_dict
+        self._cache['balance_position'] = balance_position
 
     def _fetch_clob_market_info_parser(self) -> ClobMarketInfoParser:
         market_info = self._master_client.clob_client.get_single_market_info(
@@ -84,6 +99,28 @@ class FlyBoolMarket(BaseMonitor):
             condition_id=self._condition_id
         )
         return house_order_dict_list
+
+    def _fetch_house_trades(self) -> dict[str, HouseTradeRec]:
+        house_order_dict_list = self._master_client.clob_client.get_house_trade_dict_list(
+            condition_id=self._condition_id
+        )
+        trade_rec_dict = ClobTradeParser.parse_house_trade_dict_list(house_order_dict_list)
+        return trade_rec_dict
+
+    def _fetch_house_balance_position(self) -> int | float:
+        house_position_dict_list = self._master_client.data_client.get_house_position_dict_list(
+            condition_id=self._condition_id
+        )
+        assert len(house_position_dict_list) <= 2, f'The count is too big'
+        balance_position = 0.0
+        for position_dict in house_position_dict_list:
+            if position_dict['outcome'] == 'Yes':
+                balance_position += position_dict['size']
+            elif position_dict['outcome'] == 'No':
+                balance_position -= position_dict['size']
+            else:
+                raise ValueError(f'Unexpected outcome: {position_dict["outcome"]}')
+        return balance_position
 
     def _calc_house_mob(self, house_order_dict_list) -> HouseOrderBookCache:
         house_order_book = HouseOrderBookCache.new_init(**self._bool_market_cred.to_dict())
@@ -121,9 +158,23 @@ class FlyBoolMarket(BaseMonitor):
         self.assert_up_to_date()
         return self._cache['house_order_dict_list']
 
+    def get_house_balance_position(self) -> int | float:
+        self.assert_up_to_date()
+        return self._cache['balance_position']
+
     # def get_historical_price(self):
     #     return self._master_client.clob_client.get_price_history(
     #         token_id=self.market_info_parser.bool_market_cred.yes_asset_id,
     #         interval='1m',
     #         fidelity=10,
     #     )
+
+
+def __dummy__():
+    condition_id = '0x0de7d3a8cb29764fc91c5941a00e1cf010b9ee0f2f4b0cd82a9e0737ffed0c96'  # jerome-powell-out-as-fed-chair-by-august-31
+
+    cls = FlyBoolMarket
+    self = monitor = cls(condition_id=condition_id, default_gtt=3600)
+
+    self.iteration(gtt=2)
+    self.get_house_balance_position()

@@ -8,6 +8,9 @@ from anre.trading.monitor.monitors.boolMarket.flyBoolMarket import (
 from anre.trading.strategy.brain.brains.fixed_market_maker.fixed_market_maker import (
     FixedMarketMaker as FixedMarketMakerStrategyBrain,
 )
+from anre.trading.strategy.brain.brains.balance_market_maker.balance_market_maker import (
+    BalanceMarketMaker as BalanceMarketMakerStrategyBrain,
+)
 from anre.connection.polymarket.master_client import MasterClient
 from threading import Event
 from anre.trading.monitor.base import BaseMonitor
@@ -120,13 +123,19 @@ def __dummy__():
     # condition_id = simplified_markets_info_list[100]['condition_id']
     # condition_id = '0x9a68a7a12600327a3c388d7ad4d9a0bfcdf60870811427fcc01fab0c4410824c'
 
-    # slug = 'will-trump-try-to-fire-powell-in-2025'
-    # slug = 'jerome-powell-out-as-fed-chair-by-august-31'
+    # slug = 'will-trump-increase-sanctions-on-russia-before-october'
     # client.gamma_client.get_market_info_list(slug=slug)
     # condition_id = '0xf22cd39376bfff2626e282ae41b82b2dd569530ec6c2734965c07bd785ae5c36'  # will-trump-try-to-fire-powell-by-july-31
     condition_id = '0x0de7d3a8cb29764fc91c5941a00e1cf010b9ee0f2f4b0cd82a9e0737ffed0c96'  # jerome-powell-out-as-fed-chair-by-august-31
+    # condition_id = '0x8b0c2a1dd8df4eeca402b02f290f6559de02030613d83792c21c7908e8756ec1'  # will-trump-increase-sanctions-on-russia-before-october
 
-    strategy_brain = FixedMarketMakerStrategyBrain.new(share_size=50, target_base_step_level=0)
+    # strategy_brain = FixedMarketMakerStrategyBrain.new(share_size=50, target_base_step_level=0)
+    strategy_brain = BalanceMarketMakerStrategyBrain.new(
+        share_size=50,
+        target_base_step_level=0,
+        target_skew_up_coefficient=1,
+        target_skew_down_coefficient=0.4,
+    )
 
     # strategy_brain._config = replace(strategy_brain._config, target_base_step_level = 1)
 
@@ -142,8 +151,15 @@ def __dummy__():
 
     execution.run(join=False)
 
-    execution.manualStop()
+    # execution.manualStop()
     execution.is_alive()
 
     ####
+    strategy_box.strategy_brain._config = replace(
+        strategy_box.strategy_brain._config,
+        target_base_step_level=1,
+        target_skew_up_coefficient=1,
+        target_skew_down_coefficient=0.4,
+    )
+
     self = strategy_box.strategy_brain

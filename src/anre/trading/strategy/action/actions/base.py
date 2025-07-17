@@ -52,7 +52,7 @@ class StrategyAction(ABC):
 
     @property
     def related_order_ids(self) -> list[str]:
-        raise self._related_order_ids
+        return self._related_order_ids
 
     @property
     def is_approved(self) -> bool:

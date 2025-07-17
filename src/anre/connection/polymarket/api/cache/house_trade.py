@@ -6,6 +6,7 @@ import pandas as pd
 from anre.connection.polymarket.api.clob.parse import ClobTradeParser
 from anre.connection.polymarket.api.data import DataClient
 from anre.connection.polymarket.api.types import HouseTradeRec
+from anre.connection.polymarket.api.utils import get_position_by_outcome
 from anre.utils.dataStructure.general import GeneralBaseMutable
 
 
@@ -43,26 +44,7 @@ class HouseTradeCache(GeneralBaseMutable):
         return self.create_house_trade_df(list(self._house_trade_rec_dict.values()))
 
     def get_position_by_outcome(self) -> tuple[float | int, float | int]:
-        yes_position = 0
-        no_position = 0
-        for trade_rec in self._house_trade_rec_dict.values():
-            if trade_rec.status != 'FAILED':
-                if trade_rec.outcome == 'Yes':
-                    if trade_rec.side == 'BUY':
-                        yes_position += trade_rec.size
-                    elif trade_rec.side == 'SELL':
-                        yes_position -= trade_rec.size
-                    else:
-                        raise ValueError(f'Unexpected side: {trade_rec.side}')
-                elif trade_rec.outcome == 'No':
-                    if trade_rec.side == 'BUY':
-                        no_position += trade_rec.size
-                    elif trade_rec.side == 'SELL':
-                        no_position -= trade_rec.size
-                    else:
-                        raise ValueError(f'Unexpected side: {trade_rec.side}')
-
-        return yes_position, no_position
+        return get_position_by_outcome(list(self._house_trade_rec_dict.values()))
 
         # house_trade_df = self.get_house_trade_df()
         # house_trade_df = house_trade_df.loc[lambda df: df['status']!='FAILED']

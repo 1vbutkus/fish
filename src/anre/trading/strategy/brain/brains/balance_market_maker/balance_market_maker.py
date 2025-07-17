@@ -6,13 +6,13 @@ from anre.trading.strategy.action.actions.base import StrategyAction
 from anre.trading.strategy.action.factory import Factory as ActionFactory
 from anre.trading.strategy.action.patience.patience import Patience
 from anre.trading.strategy.brain.brains.base.brainBase import StrategyBrain
-from anre.trading.strategy.brain.brains.fixed_market_maker.config import Config
+from anre.trading.strategy.brain.brains.balance_market_maker.config import Config
 
 
-class FixedMarketMaker(StrategyBrain):
+class BalanceMarketMaker(StrategyBrain):
     __version__ = "0.0.0.0"
     configClass = Config
-    strategyLabel = 'FixedMarketMaker'
+    strategyLabel = 'BalanceMarketMaker'
 
     def __init__(self, config, tag_dict: Optional[Dict[str, str]] = None, comment: str = ''):
         super().__init__(config=config, tag_dict=tag_dict, comment=comment)
@@ -42,6 +42,27 @@ class FixedMarketMaker(StrategyBrain):
 
         step1000 = config.step1000 if config.step1000 is not None else monitor.get_tick1000()
 
+        # TODO: siaip tai reikia padaryti size-croped mid price ir surface - t.y. numesti smulkmes
+
+        balance_position = monitor.get_house_balance_position()
+        if balance_position > 0:
+            long_offset = int(
+                round(balance_position * config.target_skew_down_coefficient / config.share_size)
+            )  # must be positive - deeper in the long
+            short_offset = -int(
+                round(balance_position * config.target_skew_up_coefficient / config.share_size)
+            )  # must be negative - front running short
+        elif balance_position < 0:
+            long_offset = int(
+                round(balance_position * config.target_skew_up_coefficient / config.share_size)
+            )  # must be negative - front running long
+            short_offset = -int(
+                round(balance_position * config.target_skew_down_coefficient / config.share_size)
+            )  # must be positive - deeper in the short
+        else:
+            long_offset = 0
+            short_offset = 0
+
         # monitor.get_top_level_price_dict()
         bool_market_cred = monitor.market_info_parser.bool_market_cred
         public_market_order_book, house_order_book, net_market_order_book = (
@@ -49,13 +70,9 @@ class FixedMarketMaker(StrategyBrain):
         )
         bid1000, ask1000 = net_market_order_book.get_main_asset_best_price1000s()
 
-        target_long_price1000 = bid1000 - step1000 * (
-            config.target_base_step_level + max(0, config.target_skew_step_level)
-        )
+        target_long_price1000 = bid1000 - step1000 * (config.target_base_step_level + long_offset)
         target_long_price1000 = min(target_long_price1000, ask1000 - step1000)
-        target_short_price1000 = ask1000 + step1000 * (
-            config.target_base_step_level + min(0, config.target_skew_step_level)
-        )
+        target_short_price1000 = ask1000 + step1000 * (config.target_base_step_level + short_offset)
         target_short_price1000 = max(target_short_price1000, bid1000 + step1000)
         if target_long_price1000 >= target_short_price1000:
             msg = f'The target long price {target_long_price1000} >= target short price {target_short_price1000}. This is not allowed. The strategy will not be executed.'

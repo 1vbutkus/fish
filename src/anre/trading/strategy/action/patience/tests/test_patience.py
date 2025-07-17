@@ -1,6 +1,8 @@
 import unittest
 
-from anre.trading.strategy.action.actions.complex.place_bool_market_order import PlaceBoolMarketOrder
+from anre.trading.strategy.action.actions.complex.place_bool_market_order import (
+    PlaceBoolMarketOrder,
+)
 from anre.trading.strategy.action.patience.patience import Patience
 
 
