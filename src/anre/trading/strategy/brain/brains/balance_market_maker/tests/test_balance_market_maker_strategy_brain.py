@@ -2,14 +2,14 @@ import unittest
 
 import pytest
 
-from anre.trading.strategy.brain.brains.fixed_market_maker.fixed_market_maker import (
-    FixedMarketMaker as FixedMarketMakerStrategyBrain,
+from anre.trading.strategy.brain.brains.balance_market_maker.balance_market_maker import (
+    BalanceMarketMaker as BalanceMarketMakerStrategyBrain,
 )
 
 
-class TestFixedMarketMakingStrategy(unittest.TestCase):
+class TestBalanceMarketMakerStrategy(unittest.TestCase):
     def test_smoke(self):
-        strategy = FixedMarketMakerStrategyBrain.new()
+        strategy = BalanceMarketMakerStrategyBrain.new()
 
         assert not strategy.is_setting_object_finished
         with pytest.raises(AssertionError):

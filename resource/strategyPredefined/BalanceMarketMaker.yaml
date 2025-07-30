@@ -1,6 +1,6 @@
 
-FixedMarketMaker:
-  strategyLabel: FixedMarketMaker
+BalanceMarketMaker:
+  strategyLabel: BalanceMarketMaker
   tagDict: {}
   comment: ''
   configDict:
@@ -10,4 +10,5 @@ FixedMarketMaker:
     share_size: 10
     step1000: null
     target_base_step_level: 1
-    target_skew_step_level: 0
+    target_skew_down_coefficient: 0.
+    target_skew_up_coefficient: 0.

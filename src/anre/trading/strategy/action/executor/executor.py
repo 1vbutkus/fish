@@ -1,9 +1,9 @@
 from anre.connection.polymarket.api.clob import ClobClient
 from anre.connection.polymarket.master_client import MasterClient
-from anre.trading.strategy.action.actions.base import StrategyAtomicAction
 from anre.trading.strategy.action.actions.atomic.cancel_orders_by_ids import CancelOrdersByIds
 from anre.trading.strategy.action.actions.atomic.cancel_orders_by_market import CancelOrdersByMarket
 from anre.trading.strategy.action.actions.atomic.place_direct_order import PlaceDirectOrder
+from anre.trading.strategy.action.actions.base import StrategyAtomicAction
 
 
 class StrategyActionExecutor:

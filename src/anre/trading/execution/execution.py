@@ -1,21 +1,17 @@
 import logging
 import threading
 import time
+from threading import Event
 
+from anre.trading.monitor.base import BaseMonitor
 from anre.trading.monitor.monitors.boolMarket.flyBoolMarket import (
     FlyBoolMarket as FlyBoolMarketMonitor,
-)
-from anre.trading.strategy.brain.brains.fixed_market_maker.fixed_market_maker import (
-    FixedMarketMaker as FixedMarketMakerStrategyBrain,
 )
 from anre.trading.strategy.brain.brains.balance_market_maker.balance_market_maker import (
     BalanceMarketMaker as BalanceMarketMakerStrategyBrain,
 )
-from anre.connection.polymarket.master_client import MasterClient
-from threading import Event
-from anre.trading.monitor.base import BaseMonitor
-from anre.utils.time.timer.timerReal import TimerReal
 from anre.trading.strategy.strategyBox.strategyBox import StrategyBox
+from anre.utils.time.timer.timerReal import TimerReal
 
 
 class Execution:
@@ -46,8 +42,8 @@ class Execution:
                 self.join()
 
     def join(self):
-        assert self._runThread is not None, f'Execution has not started, so it can not be joined.'
-        assert self._runThread.is_alive(), f'Execution is not alive, so it can not be joined.'
+        assert self._runThread is not None, 'Execution has not started, so it can not be joined.'
+        assert self._runThread.is_alive(), 'Execution is not alive, so it can not be joined.'
         self._runThread.join()
         assert not self._runThread.is_alive(), (
             'Thread is suppose to be not alive, but somehow it is still alive'
@@ -123,17 +119,18 @@ def __dummy__():
     # condition_id = simplified_markets_info_list[100]['condition_id']
     # condition_id = '0x9a68a7a12600327a3c388d7ad4d9a0bfcdf60870811427fcc01fab0c4410824c'
 
-    # slug = 'will-trump-increase-sanctions-on-russia-before-october'
+    "https://polymarket.com/event/which-countries-will-airdrop-aid-into-gaza/will-spain-airdrop-aid-into-gaza?tid=1753897220407"
+
+    # slug = 'will-spain-airdrop-aid-into-gaza'
     # client.gamma_client.get_market_info_list(slug=slug)
-    # condition_id = '0xf22cd39376bfff2626e282ae41b82b2dd569530ec6c2734965c07bd785ae5c36'  # will-trump-try-to-fire-powell-by-july-31
-    condition_id = '0x0de7d3a8cb29764fc91c5941a00e1cf010b9ee0f2f4b0cd82a9e0737ffed0c96'  # jerome-powell-out-as-fed-chair-by-august-31
-    # condition_id = '0x8b0c2a1dd8df4eeca402b02f290f6559de02030613d83792c21c7908e8756ec1'  # will-trump-increase-sanctions-on-russia-before-october
+    # condition_id = '0x87fd2fe036df43f0ec5811378535171586e2128453a62df4b763f6e306aa1fda'    #
+    condition_id = '0xa5e62c7d96d151fafb60e6c742d44ba0ff93e7b64bee089fe08503d6fc4c2619'  #
 
     # strategy_brain = FixedMarketMakerStrategyBrain.new(share_size=50, target_base_step_level=0)
     strategy_brain = BalanceMarketMakerStrategyBrain.new(
-        share_size=50,
-        target_base_step_level=0,
-        target_skew_up_coefficient=1,
+        share_size=25,
+        target_base_step_level=1,
+        target_skew_up_coefficient=0.5,
         target_skew_down_coefficient=0.4,
     )
 
@@ -157,7 +154,8 @@ def __dummy__():
     ####
     strategy_box.strategy_brain._config = replace(
         strategy_box.strategy_brain._config,
-        target_base_step_level=1,
+        share_size=100,
+        target_base_step_level=2,
         target_skew_up_coefficient=1,
         target_skew_down_coefficient=0.4,
     )

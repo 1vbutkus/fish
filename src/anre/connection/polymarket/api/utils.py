@@ -1,6 +1,5 @@
 from typing import Sequence
 
-
 from anre.connection.polymarket.api.types import HouseTradeRec
 
 

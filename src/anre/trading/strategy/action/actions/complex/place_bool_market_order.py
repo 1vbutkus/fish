@@ -1,7 +1,7 @@
 from typing import Literal
 
-from anre.trading.strategy.action.actions.base import StrategyComplexAction, StrategyAtomicAction
 from anre.trading.strategy.action.actions.atomic.place_direct_order import PlaceDirectOrder
+from anre.trading.strategy.action.actions.base import StrategyAtomicAction, StrategyComplexAction
 
 
 class PlaceBoolMarketOrder(StrategyComplexAction):

@@ -5,8 +5,8 @@ from anre.trading.monitor.base import BaseMonitor
 from anre.trading.strategy.action.actions.base import StrategyAction
 from anre.trading.strategy.action.factory import Factory as ActionFactory
 from anre.trading.strategy.action.patience.patience import Patience
-from anre.trading.strategy.brain.brains.base.brainBase import StrategyBrain
 from anre.trading.strategy.brain.brains.balance_market_maker.config import Config
+from anre.trading.strategy.brain.brains.base.brainBase import StrategyBrain
 
 
 class BalanceMarketMaker(StrategyBrain):

@@ -1,17 +1,17 @@
 import datetime
+import logging
 from multiprocessing import Lock
 from typing import Optional
-import logging
 
 from anre.connection.polymarket.api.cache.house_book import HouseOrderBookCache
 from anre.connection.polymarket.api.cache.net_book import NetBoolMarketOrderBook
 from anre.connection.polymarket.api.cache.public_book import PublicMarketOrderBookCache
 from anre.connection.polymarket.api.clob import ClobMarketInfoParser, ClobTradeParser
+from anre.connection.polymarket.api.types import HouseTradeRec
 from anre.connection.polymarket.api.utils import get_position_by_outcome
 from anre.connection.polymarket.master_client import MasterClient
 from anre.trading.monitor.base import BaseMonitor
 from anre.utils.time.timer.timerReal import TimerReal
-from anre.connection.polymarket.api.types import BoolMarketCred, HouseTradeRec
 
 
 class FlyBoolMarket(BaseMonitor):
@@ -111,7 +111,7 @@ class FlyBoolMarket(BaseMonitor):
         house_position_dict_list = self._master_client.data_client.get_house_position_dict_list(
             condition_id=self._condition_id
         )
-        assert len(house_position_dict_list) <= 2, f'The count is too big'
+        assert len(house_position_dict_list) <= 2, 'The count is too big'
         balance_position = 0.0
         for position_dict in house_position_dict_list:
             if position_dict['outcome'] == 'Yes':
