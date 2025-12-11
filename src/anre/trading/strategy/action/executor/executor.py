@@ -92,7 +92,7 @@ class StrategyActionExecutor:
              'success': True}
             """
             if resp['success']:
-                action.set_related_order_ids(order_ids=[resp['orderID']])
+                action.set_created_order_ids(order_ids=[resp['orderID']])
                 action.set_final_status(is_success=True, is_failed=False)
             else:
                 action.set_final_status(is_success=False, is_failed=True)

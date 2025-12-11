@@ -66,9 +66,9 @@ class FlyBoolMarket(BaseMonitor):
         house_trade_rec_dict = self._fetch_house_trades()
         yes_position, no_position = get_position_by_outcome(list(house_trade_rec_dict.values()))
         balance_position = yes_position - no_position
-        if abs(balance_position_slow - balance_position) > 1e-3:
+        if abs(balance_position_slow - balance_position) > 1e-2:
             self._logger.warning(
-                f'The balance position is not consistent: {balance_position} != {balance_position}'
+                f'The balance position is not consistent: {balance_position_slow} != {balance_position}'
             )
 
         self._cache['public_mob'] = public_mob

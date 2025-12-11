@@ -5,9 +5,33 @@ from anre.trading.strategy.action.actions.atomic.place_direct_order import Place
 from anre.trading.strategy.action.actions.complex.place_bool_market_order import (
     PlaceBoolMarketOrder,
 )
-
+from anre.trading.strategy.action.actions.complex.replace_bool_market_order import (
+    ReplaceBoolMarketOrder,
+)
 
 class Factory:
+
+    @classmethod
+    def new_replace_bool_market_order(
+        cls,
+        main_asset_id: str,
+        counter_asset_id: str,
+        main_price1000: int,
+        size1000: int,
+        bool_side: Literal["LONG", "SHORT"],
+        order_type: str = "GTC",
+        cancel_order_ids: list | tuple | None = None,
+    ) -> ReplaceBoolMarketOrder:
+        return ReplaceBoolMarketOrder(
+            main_asset_id=main_asset_id,
+            counter_asset_id=counter_asset_id,
+            main_price1000=main_price1000,
+            size1000=size1000,
+            bool_side=bool_side,
+            order_type=order_type,
+            cancel_order_ids=cancel_order_ids,
+        )
+
     @classmethod
     def new_place_bool_market_order(
         cls,

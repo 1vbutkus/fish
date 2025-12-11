@@ -15,7 +15,7 @@ class StrategyAction(ABC):
         self._is_success: bool = False
         self._is_failed: bool = False
         self._is_done: bool = False  # failed or success
-        self._related_order_ids: list[str] = []
+        self._created_order_ids: list[str] = []
         self.parent_id: Optional[str] = parent_id
         assert not kwargs, f'Unexpected kwargs: {kwargs}'
 
@@ -47,12 +47,12 @@ class StrategyAction(ABC):
         self._is_pending = False
         self._is_done = True
 
-    def set_related_order_ids(self, order_ids: list[str]):
-        self._related_order_ids = order_ids
+    def set_created_order_ids(self, order_ids: list[str]):
+        self._created_order_ids = order_ids
 
     @property
-    def related_order_ids(self) -> list[str]:
-        return self._related_order_ids
+    def created_order_ids(self) -> list[str]:
+        return self._created_order_ids
 
     @property
     def is_approved(self) -> bool:

@@ -3,6 +3,7 @@ import threading
 import time
 from threading import Event
 
+from anre.connection.polymarket.master_client import MasterClient
 from anre.trading.monitor.base import BaseMonitor
 from anre.trading.monitor.monitors.boolMarket.flyBoolMarket import (
     FlyBoolMarket as FlyBoolMarketMonitor,
@@ -113,18 +114,19 @@ class Execution:
 def __dummy__():
     from dataclasses import replace
 
-    # client = MasterClient()
+    client = MasterClient()
     # simplified_markets_info_list = client.clob_client.get_sampling_simplified_markets_info_list()
     # simplified_markets_info_list.sort(key=lambda x: x['rewards']['min_size'])
     # condition_id = simplified_markets_info_list[100]['condition_id']
     # condition_id = '0x9a68a7a12600327a3c388d7ad4d9a0bfcdf60870811427fcc01fab0c4410824c'
 
-    "https://polymarket.com/event/which-countries-will-airdrop-aid-into-gaza/will-spain-airdrop-aid-into-gaza?tid=1753897220407"
+    "https://polymarket.com/event/which-countries-will-airdrop-aid-into-gaza/will-saudi-arabia-airdrop-aid-into-gaza?tid=1753937425640"
 
-    # slug = 'will-spain-airdrop-aid-into-gaza'
-    # client.gamma_client.get_market_info_list(slug=slug)
-    # condition_id = '0x87fd2fe036df43f0ec5811378535171586e2128453a62df4b763f6e306aa1fda'    #
-    condition_id = '0xa5e62c7d96d151fafb60e6c742d44ba0ff93e7b64bee089fe08503d6fc4c2619'  #
+    # slug = 'will-hamaz-disarm-by-december-31'
+    # client.gamma_client.get_market_info_list(slug=slug)[0]['conditionId']
+    # condition_id = '0xa6bbe26fd234b7d93578e781f0a5d60fade908886ae723b5ed26e56295845673'  # will-saudi-arabia-airdrop-aid-into-gaza
+    # condition_id = '0x301d94fc95cf16b9c29306e7ecae924d965359055c1d85965b97861a9dae33e7'  # trump-x-elon-talk-by-august-31
+    condition_id = '0x11db077700a35d7415b6198c5e5a53adcf1db1819a09831f7eaf148f88243c40'  # will-hamaz-disarm-by-december-31
 
     # strategy_brain = FixedMarketMakerStrategyBrain.new(share_size=50, target_base_step_level=0)
     strategy_brain = BalanceMarketMakerStrategyBrain.new(
@@ -136,7 +138,11 @@ def __dummy__():
 
     # strategy_brain._config = replace(strategy_brain._config, target_base_step_level = 1)
 
-    monitor = FlyBoolMarketMonitor(condition_id=condition_id, default_gtt=3600)
+    self = monitor = FlyBoolMarketMonitor(condition_id=condition_id, default_gtt=3600)
+    monitor.iteration(gtt=1)
+
+
+
     timer = monitor._timer
     strategy_box = StrategyBox(
         monitor=monitor,
@@ -155,7 +161,7 @@ def __dummy__():
     strategy_box.strategy_brain._config = replace(
         strategy_box.strategy_brain._config,
         share_size=100,
-        target_base_step_level=2,
+        target_base_step_level=1,
         target_skew_up_coefficient=1,
         target_skew_down_coefficient=0.4,
     )
